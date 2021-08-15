@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Kuhinja;
+use App\Models\Objekat;
+use App\Models\VrstaObjekta;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $kuhinja = Kuhinja::query()->find(2);
+    return $kuhinja->restorani;
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function() {
+
 });
