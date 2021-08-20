@@ -27,10 +27,6 @@ class Kuhinja extends Model
 
     protected $guarded = [];
 
-    public function getNazivAttribute() {
-        return $this->naziv;
-    }
-
     public function getRestorani() {
         return $this->belongsToMany(Objekat::class, 'kuhinja_objekat', 'kuhinja_id');
     }

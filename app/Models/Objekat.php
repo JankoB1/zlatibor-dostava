@@ -36,22 +36,6 @@ class Objekat extends Model
 
     protected $guarded = [];
 
-    public function getIdAttribute() {
-        return $this->id;
-    }
-
-    public function getNazivAttribute() {
-        return $this->naziv;
-    }
-
-    public function getLogoAttribute() {
-        return $this->logo;
-    }
-
-    public function getOpisAttribute() {
-        return $this->slika;
-    }
-
     public function getVrstaObjekta() {
         return $this->belongsTo(VrstaObjekta::class);
     }
@@ -62,5 +46,9 @@ class Objekat extends Model
 
     public function getProizvodi() {
         return $this->hasMany(Proizvod::class);
+    }
+
+    public static function dohvatiSveRestorane() {
+        return Objekat::whereVrstaObjektaId(1)->get();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ObjekatController;
 use App\Models\Kuhinja;
 use App\Models\Objekat;
 use App\Models\VrstaObjekta;
@@ -16,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $kuhinja = Kuhinja::query()->find(2);
-    return $kuhinja->restorani;
-});
+Route::get('/', [ObjekatController::class, 'index'])->name('pocetna');
 
 Auth::routes();
 

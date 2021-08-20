@@ -29,10 +29,6 @@ class VrstaObjekta extends Model
 
     protected $guarded = [];
 
-    public function getNazivAttribute() {
-        return $this->naziv;
-    }
-
     public function getObjekti() {
         return $this->hasMany(Objekat::class, 'vrsta_objekta_id');
     }

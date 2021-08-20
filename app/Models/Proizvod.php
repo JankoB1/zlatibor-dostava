@@ -35,26 +35,6 @@ class Proizvod extends Model
 
     protected $guarded = [];
 
-    public function getIdAttribute() {
-        return $this->id;
-    }
-
-    public function getNazivAttribute() {
-        return $this->naziv;
-    }
-
-//    public function getSlugAttribute() {
-//        return $this->slug;
-//    }
-
-    public function getCenaAttribute() {
-        return $this->cena;
-    }
-
-    public function getOpisAttribute() {
-        return $this->opis;
-    }
-
     public function getObjekat() {
         return $this->belongsTo(Objekat::class);
     }
