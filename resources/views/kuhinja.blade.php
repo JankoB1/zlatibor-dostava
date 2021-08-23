@@ -29,7 +29,7 @@
         <x-footer></x-footer>
     @endsection
 
-    @section('scripts')
+    @section('scriptsBottom')
         <!-- Swipper JS -->
             <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

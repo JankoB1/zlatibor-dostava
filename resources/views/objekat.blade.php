@@ -18,3 +18,13 @@
 
     </div>
 @endsection
+
+@section('scriptsTop')
+    <script src="{{ asset('js/objekat.js') }}" type="text/javascript"></script>
+@endsection
+
+@section('scriptsBottom')
+    <script>
+        inicijalizujPodatkeZaNarucivanje('{!! addslashes(json_encode($proizvodi))!!}');
+    </script>
+@endsection

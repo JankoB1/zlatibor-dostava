@@ -18,70 +18,88 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     @yield('styles')
+    @yield('scriptsTop')
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <div class="container-fluid">
+            <div class="row top-navigacija">
+                <div class="col-4">
+                    <div class="logo-container">
+                        <a href="{{ route('pocetna') }}">
+                            <img src="{{ asset('images/site/logo.svg') }}" alt="red combi logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <input type="search">
+                </div>
+                <div class="col-4">
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                        @endguest
-                    </ul>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="#" alt="">
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    @endguest
+
                 </div>
             </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+            <div class="row bottom-navigacija">
+                <div class="col-2 offset-1">
+                    <a href="{{ route('restorani') }}"><img src="{{ asset('images/site/dostava-hrane.svg') }}"
+                                                            alt=""></a>
+                </div>
+                <div class="col-2">
+                    <a href="#"><img src="{{ asset('images/site/prodavnica.svg') }}" alt=""></a>
+                </div>
+                <div class="col-2">
+                    <a href="#"><img src="{{ asset('images/site/safe-driver.svg') }}" alt=""></a>
+                </div>
+                <div class="col-2">
+                    <a href="#"><img src="{{ asset('images/site/apoteka.svg') }}" alt=""></a>
+                </div>
+                <div class="col-2 ">
+                    <a href="#"><img src="" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    @yield('scripts')
+    <main class="py-4">
+        @yield('content')
+    </main>
+</div>
+
+@yield('scriptsBottom')
 </body>
 </html>

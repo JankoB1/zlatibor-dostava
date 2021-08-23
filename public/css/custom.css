@@ -1,0 +1,153 @@
+body {
+    background: #1E1E1E;
+}
+
+.logo-container img, input[type="search"] {
+    width: 100%;
+}
+
+.row.top-navigacija, .row.bottom-navigacija {
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
+.row.top-navigacija {
+    top: 0;
+    background: #0A0A0A;
+    padding: 11px 5px;
+}
+
+.row.bottom-navigacija {
+    bottom: 0;
+    background: #CD272E;
+    padding: 15px 0;
+}
+
+.slider-container {
+    margin-top: 19px;
+    padding-bottom: 0;
+    background: #1E1E1E;
+}
+.swiper-container.mySwiper {
+    height: 300px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    display: none !important;
+}
+
+.swiper-pagination-bullet {
+    opacity: .4 !important;
+    background: white !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+}
+
+.text-i-adresa-container h4 {
+    color: white;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.text-i-adresa-container span {
+    color: #CD272E;
+}
+
+.text-i-adresa-container input {
+    width: 80%;
+    margin: 20px auto 70px auto;
+    border-radius: 30px;
+    display: block;
+}
+
+.pocetna {
+    background: #1E1E1E;
+    padding-bottom: 50px;
+}
+
+.slider-objekti h4 {
+    font-weight: 600;
+    color: white;
+    margin-top: 50px;
+}
+
+.sve-kuhinje h4 {
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    opacity: .7;
+}
+
+.crvena-linija {
+    height: 2px;
+    background: #CD272E;
+    width: 20%;
+    margin: 20px 0;
+}
+
+.swiper-slide {
+    background: white !important;
+    height: 185px !important;
+    border-radius: 10px;
+}
+
+.swiper-slide img {
+    width: 100% !important;
+    border-radius: 10px 10px 0 0;
+}
+
+.slider-objekti p {
+    color: black;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 0 !important;
+}
+
+.slider-objekti .kuhinje {
+    color: black;
+    opacity: .7;
+    font-size: 12px;
+    padding: 10px;
+}
+
+footer {
+    background: #0A0A0A;
+}
+
+footer ul {
+    background: #747474;
+    padding: 40px 0;
+}
+
+footer ul li {
+    list-style: none;
+    color: white;
+    width: 70%;
+    font-weight: 200;
+    line-height: 2.5em;
+    margin: 0 auto;
+}
+
+footer ul li strong {
+    font-weight: 500;
+}
+
+.restorani-kuhinje .sve-kuhinje .col-4 img {
+    width: 100%;
+}
+
+.sve-kuhinje p {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    opacity: .7;
+}
+
+.svi-restorani img {
+    width: 100%;
+}

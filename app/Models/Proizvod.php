@@ -39,6 +39,18 @@ class Proizvod extends Model
         return $this->belongsTo(Objekat::class);
     }
 
+    public function getVarijacije() {
+        return $this->belongsToMany(Varijacija::class, 'proizvod_varijacija', 'proizvod_id');
+    }
+
+    public function getPrilozi() {
+        return $this->belongsToMany(Prilog::class, 'proizvod_prilog', 'proizvod_id');
+    }
+
+    public function getVrsteVarijacije() {
+        return $this->belongsToMany(VrstaVarijacije::class, 'proizvod_vv', 'proizvod_id');
+    }
+
     public function dohvatiSveProizvodeDateKuhinje($kuhinja_id) {
         return Proizvod::query()->where('kuhinja_id', $kuhinja_id)->get();
     }
