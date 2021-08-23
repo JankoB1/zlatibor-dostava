@@ -19,6 +19,8 @@ class CreateObjekatsTable extends Migration
             $table->string('slug');
             $table->text('slika')->nullable();
             $table->integer('vrsta_objekta_id');
+            $table->integer('cena_dostava')->nullable();
+            $table->integer('vreme_dostave')->nullable();
             $table->string('opis')->nullable();
             $table->text('logo')->nullable();
             $table->timestamps();

@@ -16,8 +16,8 @@ class ObjektiTableSeeder extends Seeder
     {
         $objekti = [
             ['naziv' => 'Index Pizza Zlatibor', 'slug' => 'index-pizza-zlatibor', 'vrsta_objekta_id' => '1'],
-            ['naziv' => 'Central Inn Gastro Bar', 'slug' => 'central-inn-gastro-bar', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Irish pub', 'slug' => 'irish-pub', 'vrsta_objekta_id' => '1'],
+            ['naziv' => 'Central Inn Gastro Bar', 'slug' => 'central-inn-gastro-bar', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Restoran Gozba', 'slug' => 'restoran-gozba', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Pizza-pasta bar La Montagina', 'slug' => 'pizza-pasta-bar-la-montagina', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Grand Restoran', 'slug' => 'grand-restoran', 'vrsta_objekta_id' => '1'],

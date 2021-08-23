@@ -48,7 +48,12 @@ class Objekat extends Model
         return $this->hasMany(Proizvod::class);
     }
 
+    public function getKuhinjeProizvoda() {
+        return $this->belongsToMany(KuhinjaProizvoda::class, 'kuhinja_proizvod_objekat', 'objekat_id');
+    }
+
     public static function dohvatiSveRestorane() {
         return Objekat::whereVrstaObjektaId(1)->get();
     }
+
 }

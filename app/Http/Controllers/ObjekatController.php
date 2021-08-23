@@ -13,4 +13,11 @@ class ObjekatController extends Controller
         return view('pocetna', compact('restorani'));
     }
 
+    public function show($slug){
+        $objekat = Objekat::query()->where('slug', $slug)->get()->first();
+        $proizvodi = $objekat->getProizvodi;
+        $kuhinjeProizvoda = $objekat->getKuhinjeProizvoda;
+        return view('objekat', compact('slug', 'objekat', 'proizvodi', 'kuhinjeProizvoda'));
+    }
+
 }

@@ -17,7 +17,7 @@ class KuhinjasTableSeeder extends Seeder
         $kuhinje = [
             ['naziv' => 'Pasta', 'slug' => 'pasta'],
             ['naziv' => 'Pizza', 'slug' => 'pizza'],
-            ['naziv' => 'Roštilj', 'slug' => 'roštilj'],
+            ['naziv' => 'Roštilj', 'slug' => 'rostilj'],
             ['naziv' => 'Burger', 'slug' => 'burgeri'],
             ['naziv' => 'Američka hrana', 'slug' => 'americka-hrana'],
             ['naziv' => 'Ribe i plodovi mora', 'slug' => 'ribe-i-plodovi-mora'],
@@ -29,7 +29,7 @@ class KuhinjasTableSeeder extends Seeder
             ['naziv' => 'Piletina', 'slug' => 'piletina'],
             ['naziv' => 'Sendviči', 'slug' => 'sendvici'],
             ['naziv' => 'Internacionalna hrana', 'slug' => 'internacionalna-hrana'],
-            ['naziv' => 'Srpska hrana', 'slug' => 'srpska_hrana'],
+            ['naziv' => 'Srpska hrana', 'slug' => 'srpska-hrana'],
             ['naziv' => 'Mediteranska hrana', 'slug' => 'mediteranska-hrana']
         ];
 

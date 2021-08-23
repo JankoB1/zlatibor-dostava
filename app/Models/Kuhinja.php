@@ -30,4 +30,8 @@ class Kuhinja extends Model
     public function getRestorani() {
         return $this->belongsToMany(Objekat::class, 'kuhinja_objekat', 'kuhinja_id');
     }
+
+    public static function dohvatiSveKuhinje() {
+        return Kuhinja::all();
+    }
 }

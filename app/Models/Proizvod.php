@@ -38,4 +38,9 @@ class Proizvod extends Model
     public function getObjekat() {
         return $this->belongsTo(Objekat::class);
     }
+
+    public function dohvatiSveProizvodeDateKuhinje($kuhinja_id) {
+        return Proizvod::query()->where('kuhinja_id', $kuhinja_id)->get();
+    }
+
 }
