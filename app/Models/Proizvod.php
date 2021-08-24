@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * App\Models\Proizvod
@@ -51,8 +52,46 @@ class Proizvod extends Model
         return $this->belongsToMany(VrstaVarijacije::class, 'proizvod_vv', 'proizvod_id');
     }
 
-    public function dohvatiSveProizvodeDateKuhinje($kuhinja_id) {
+    public function dohvatiSveProizvodeKuhinje($kuhinja_id) {
         return Proizvod::query()->where('kuhinja_id', $kuhinja_id)->get();
+    }
+
+    public function dohvatiCenuVarijacije($varijacija_id) {
+        return DB::table('proizvod_varijacija')
+            ->where('proizvod_id', '=', $this->id)
+            ->where('varijacija_id', '=', $varijacija_id)
+            ->first()
+            ->cena;
+    }
+
+    public function imaVarijacije() {
+        return !$this->getVarijacije->isEmpty();
+    }
+
+    public function ispisiVarijacijePoRedosledu() {
+        if ($this->imaVarijacije()) {
+
+            $ispis = '<form>';
+            $vrsteVarijacija = $this->getVrsteVarijacije;
+            $varijacije = $this->getVarijacije;
+
+            foreach ($vrsteVarijacija as $vrstaVarijacije) {
+                $ispis .= '<h5 class="varijacija-naziv">' . $vrstaVarijacije->naziv . '</h5>';
+                foreach ($varijacije as $varijacija) {
+                    if ($varijacija->vrsta_varijacije_id == $vrstaVarijacije->id) {
+                        $cena = $varijacija->dohvatiCenuVarijacije($this->id);
+                        $naziv = $varijacija->naziv;
+                        $ispis .= '<input type="radio" name="' . $vrstaVarijacije->naziv . '" id="' . $naziv . '" value="' . $cena . '">';
+                        $ispis .= '<label for="' . $naziv . '">' . $naziv . '</label>';
+                    }
+                }
+            }
+
+            $ispis .= '<a class="dodaj-u-korpu-btn">Dodaj u korpu</a></form>';
+            return $ispis;
+        }
+
+        return '';
     }
 
 }

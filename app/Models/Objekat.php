@@ -55,5 +55,4 @@ class Objekat extends Model
     public static function dohvatiSveRestorane() {
         return Objekat::whereVrstaObjektaId(1)->get();
     }
-
 }

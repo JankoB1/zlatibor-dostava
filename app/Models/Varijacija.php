@@ -18,7 +18,11 @@ class Varijacija extends Model
         return $this->belongsTo(VrstaVarijacije::class);
     }
 
-    public function dohvatiCenuVarijacijeZaDatiProizvod($proizvodId) {
-        return DB::table('proizvod_varijacija')->where('proizvod_id', '=', $proizvodId)->first()->cena;
+    public function dohvatiCenuVarijacije($proizvodId) {
+        return DB::table('proizvod_varijacija')
+            ->where('proizvod_id', '=', $proizvodId)
+            ->where('varijacija_id', '=', $this->id)
+            ->first()
+            ->cena;
     }
 }

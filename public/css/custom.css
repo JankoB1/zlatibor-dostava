@@ -1,5 +1,6 @@
 body {
     background: #1E1E1E;
+    color: white;
 }
 
 .logo-container img, input[type="search"] {
@@ -150,4 +151,21 @@ footer ul li strong {
 
 .svi-restorani img {
     width: 100%;
+}
+
+.korpa-container {
+    background: #FFC822;
+    width: 90%;
+    position: fixed;
+    bottom: 100px;
+    left: 5%;
+    padding: 10px;
+    border-radius: 10px;
+    color: #2C2C2C;
+    font-size: 30px;
+}
+
+.korpa-container p {
+    width: fit-content;
+    display: inline-block;
 }
