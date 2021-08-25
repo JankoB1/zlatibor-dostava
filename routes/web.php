@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\KorpaController;
 use App\Http\Controllers\KuhinjaController;
 use App\Http\Controllers\ObjekatController;
+use App\Http\Controllers\ProizvodController;
 use App\Models\Kuhinja;
 use App\Models\Objekat;
 use App\Models\VrstaObjekta;
@@ -20,8 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ObjekatController::class, 'index'])->name('pocetna');
 Route::get('/objekat/{slug}', [ObjekatController::class, 'show'])->name('objekat');
-Route::get('/restorani', [KuhinjaController::class, 'index'])->name('restorani');
+Route::get('/kuhnje', [KuhinjaController::class, 'index'])->name('kuhinje');
 Route::get('/restorani/{slug}', [KuhinjaController::class, 'show'])->name('restorani.kuhinja');
+
+// Korpa
+Route::post('/dodaj-u-korpu', [ProizvodController::class, 'dodajUKorpu'])->name('dodajukorpu');
 
 Auth::routes();
 

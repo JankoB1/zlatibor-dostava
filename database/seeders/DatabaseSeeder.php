@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VarijacijaTableSeeder::class);
         $this->call(ProizvodPrilogTableSeeder::class);
         $this->call(ProizvodVarijacijaTableSeeder::class);
+        $this->call(PrilogTableSeeder::class);
+        $this->call(ProizvodVVTableSeeder::class);
     }
 }

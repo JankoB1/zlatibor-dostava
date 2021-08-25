@@ -11,6 +11,9 @@
     <x-glavni-slider></x-glavni-slider>
 
     <div class="container-fluid pocetna">
+        @if(\Illuminate\Support\Facades\Session::has('korpa'))
+            {{ json_encode(\Illuminate\Support\Facades\Session::get('korpa')) }}
+        @endif
 
         <div class="text-i-adresa-container">
             <h4>Restaurants, Groceries,<br> Your Cars and <span>more</span>, delivered to your door!</h4>

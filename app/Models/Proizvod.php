@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use MongoDB\Driver\Session;
 
 /**
  * App\Models\Proizvod
@@ -64,34 +66,76 @@ class Proizvod extends Model
             ->cena;
     }
 
+    public function dohvatiCenuPriloga($prilog_id) {
+        return DB::table('proizvod_prilog')
+            ->where('proizvod_id', '=', $this->id)
+            ->where('prilog_id', '=', $prilog_id)
+            ->first()
+            ->cena;
+    }
+
     public function imaVarijacije() {
         return !$this->getVarijacije->isEmpty();
+    }
+
+    public function putanjaSlike($restoran_id) {
+        $restoran = Objekat::query()
+            ->where('id', '=', $restoran_id)
+            ->first();
+        $path = asset('images/objekti/' . $restoran->slug . '/' . $this->slug . '.png');
+        return $path;
     }
 
     public function ispisiVarijacijePoRedosledu() {
         if ($this->imaVarijacije()) {
 
-            $ispis = '<form>';
+            $ispis = '';
             $vrsteVarijacija = $this->getVrsteVarijacije;
             $varijacije = $this->getVarijacije;
 
-            foreach ($vrsteVarijacija as $vrstaVarijacije) {
-                $ispis .= '<h5 class="varijacija-naziv">' . $vrstaVarijacije->naziv . '</h5>';
-                foreach ($varijacije as $varijacija) {
-                    if ($varijacija->vrsta_varijacije_id == $vrstaVarijacije->id) {
-                        $cena = $varijacija->dohvatiCenuVarijacije($this->id);
-                        $naziv = $varijacija->naziv;
-                        $ispis .= '<input type="radio" name="' . $vrstaVarijacije->naziv . '" id="' . $naziv . '" value="' . $cena . '">';
-                        $ispis .= '<label for="' . $naziv . '">' . $naziv . '</label>';
+            if($vrsteVarijacija->first()->slug == 'default') {
+                $defaultCena = $this->dohvatiCenuVarijacije($varijacije->first()->id);
+                $ispis .= '<input type="hidden" name="' . $vrsteVarijacija->first()->naziv . '" value="' . $defaultCena . '" >';
+            } else {
+
+                foreach ($vrsteVarijacija as $vrstaVarijacije) {
+                    $ispis .= '<h5 class="varijacija-naziv">' . $vrstaVarijacije->naziv . '</h5>';
+                    $i = 1;
+                    foreach ($varijacije as $varijacija) {
+                        if ($varijacija->vrsta_varijacije_id == $vrstaVarijacije->id) {
+                            $cena = $varijacija->dohvatiCenuVarijacije($this->id);
+                            $naziv = $varijacija->naziv;
+                            $ispis .= '<input type="radio" name="' . $vrstaVarijacije->naziv . '" id="' . $naziv . '" value="' . $cena . '"';
+                            if($i == 1) {
+                                $ispis .= ' checked="checked" >';
+                                $i++;
+                            } else {
+                                $ispis .= '>';
+                            }
+                            $ispis .= '<label for="' . $naziv . '">' . $naziv . '</label>';
+                        }
                     }
                 }
             }
 
-            $ispis .= '<a class="dodaj-u-korpu-btn">Dodaj u korpu</a></form>';
             return $ispis;
         }
 
         return '';
+    }
+
+    public function ispisiPrilogePoRedosledu() {
+        $ispis = '';
+
+        $prilozi = $this->getPrilozi;
+        foreach ($prilozi as $prilog) {
+            $naziv = $prilog->naziv;
+            $cena = $prilog->dohvatiCenuPriloga($this->id);
+            $ispis .= '<input type="checkbox" name="' . $naziv . '" id="' . $naziv . '" value="' . $cena . '">';
+            $ispis .= '<label for="' . $cena . '">' . $naziv . '</label>';
+        }
+
+        return $ispis;
     }
 
 }

@@ -3,6 +3,22 @@ body {
     color: white;
 }
 
+img {
+    width: 100%;
+}
+
+input[type=checkbox] {
+    display: block;
+}
+
+input[type=radio] {
+    margin-right: 10px;
+}
+
+.varijacije label {
+    margin-right: 50px;
+}
+
 .logo-container img, input[type="search"] {
     width: 100%;
 }
@@ -149,8 +165,23 @@ footer ul li strong {
     opacity: .7;
 }
 
-.svi-restorani img {
+.svi-restorani img, .sve-kuhinje img {
     width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.restoran {
+    background: white;
+    border-radius: 10px;
+}
+
+.restoran a:hover {
+    text-decoration: none;
+}
+
+.title-objekat {
+    padding: 10px;
+    color: black;
 }
 
 .korpa-container {
@@ -167,5 +198,9 @@ footer ul li strong {
 
 .korpa-container p {
     width: fit-content;
+    display: inline-block;
+}
+
+.proizvod-title {
     display: inline-block;
 }

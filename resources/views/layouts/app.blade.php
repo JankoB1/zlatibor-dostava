@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -76,7 +76,7 @@
 
             <div class="row bottom-navigacija">
                 <div class="col-2 offset-1">
-                    <a href="{{ route('restorani') }}"><img src="{{ asset('images/site/dostava-hrane.svg') }}"
+                    <a href="{{ route('kuhinje') }}"><img src="{{ asset('images/site/dostava-hrane.svg') }}"
                                                             alt=""></a>
                 </div>
                 <div class="col-2">
@@ -99,7 +99,7 @@
         @yield('content')
     </main>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 @yield('scriptsBottom')
 </body>
 </html>

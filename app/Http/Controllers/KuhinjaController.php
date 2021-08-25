@@ -11,7 +11,7 @@ class KuhinjaController extends Controller
     public function index() {
         $kuhinje = Kuhinja::dohvatiSveKuhinje();
         $restorani = Objekat::dohvatiSveRestorane();
-        return view('restorani', compact('kuhinje', 'restorani'));
+        return view('kuhinje', compact('kuhinje', 'restorani'));
     }
 
     public function show($slug){

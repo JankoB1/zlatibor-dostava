@@ -14,13 +14,15 @@
         <div class="sve-kuhinje">
             <div class="row">
                 @foreach($restorani as $restoran)
-                    <div class="col-md-4">
-                        <a href="{{ route('objekat', ['slug' => $restoran->slug]) }}">
-                            <div class="slika-container">
-                                <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}" alt="{{ $restoran->slug }}">
-                                <h4>{{ $restoran->naziv }}</h4>
-                            </div>
-                        </a>
+                    <div class="col-12">
+                        <div class="restoran">
+                            <a href="{{ route('objekat', ['slug' => $restoran->slug]) }}">
+                                <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}"
+                                     alt="{{ $restoran->slug }}">
+                                <h3 class="title-objekat">{{ $restoran->naziv }}</h3>
+                                <p>{{ $restoran->opis }}</p>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
             </div>
