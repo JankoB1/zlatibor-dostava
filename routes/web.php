@@ -4,9 +4,6 @@ use App\Http\Controllers\KorpaController;
 use App\Http\Controllers\KuhinjaController;
 use App\Http\Controllers\ObjekatController;
 use App\Http\Controllers\ProizvodController;
-use App\Models\Kuhinja;
-use App\Models\Objekat;
-use App\Models\VrstaObjekta;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,12 +23,17 @@ Route::get('/kuhnje', [KuhinjaController::class, 'index'])->name('kuhinje');
 Route::get('/restorani/{slug}', [KuhinjaController::class, 'show'])->name('restorani.kuhinja');
 
 // Korpa
-Route::post('/dodaj-u-korpu', [ProizvodController::class, 'dodajUKorpu'])->name('dodajukorpu');
+Route::post('/dodaj-u-korpu', [ProizvodController::class, 'dodajProizvodUKorpu'])->name('dodajukorpu');
+Route::post('/smanji-za-1/{naziv}', [ProizvodController::class, 'smanjiZaJedan'])->name('korpa.smanjizajedan');
+Route::get('/korpa', [ProizvodController::class, 'prikaziKorpu'])->name('korpa');
+Route::get('/ukloni/{naziv}', [ProizvodController::class, 'ukloniProizvod'])->name('korpa.ukloni');
 
-Auth::routes();
+// Porudzbina
+Route::get('/porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina');
+
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function() {
-
 });

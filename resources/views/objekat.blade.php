@@ -3,7 +3,11 @@
 @section('content')
     <div class="container-fluid">
 
-        <x-korpa></x-korpa>
+        <div class="korpa-container">
+            <a href="{{ route('korpa') }}"><p class="korpa-text"></p></a>
+            <p class="korpa-cena">{{ $ukupnaCena }}</p>
+            <span class="valuta">RSD</span>
+        </div>
 
         <span id="ajaxSubmit" data-url="{{ route('dodajukorpu') }}" style="display: none"></span>
 
@@ -22,19 +26,26 @@
                             <h5>{{ $proizvod->cena }}</h5>
                         </div>
                         <div class="proizvod-desno">
-                            @if(file_exists($proizvod->putanjaSlike($objekat->id)))
-                                <img src="{{ $proizvod->putanjaSlike($objekat->id) }}" alt="{{ $proizvod->slug }}">
+                            @if($proizvod->imaSliku($objekat->id))
+                                <img src="{{ asset('images/objekti/' . $slug . '/' . $proizvod->slika) }}" alt="{{ $proizvod->slug }}">
                             @endif
                         </div>
-                        <div class="varijacije">
-                            <form>
-                                {!! $proizvod->ispisiVarijacijePoRedosledu() !!}
-                            </form>
+                        <div class="dodatne-informacije">
+                            <div class="varijacije">
+                                <form>
+                                    {!! $proizvod->ispisiVarijacijePoRedosledu() !!}
+                                </form>
+                            </div>
+                            <div class="prilozi">
+                                {!! $proizvod->ispisiPrilogePoRedosledu() !!}
+                            </div>
+                            <a class="dodaj-u-korpu-btn">Dodaj u korpu</a>
+                            <div class="broj-proizvoda-u-korpi-cont"><span class="broj-proizvoda-u-korpi"></span></div>
+                            <div class="dodaj-izbaci">
+                                <div class="izbaci"><span><</span></div>
+                                <div class="dodaj"><span>></span></div>
+                            </div>
                         </div>
-                        <div class="prilozi">
-                            {!! $proizvod->ispisiPrilogePoRedosledu() !!}
-                        </div>
-                        <a class="dodaj-u-korpu-btn">Dodaj u korpu</a>
                     </div>
                 @endif
             @endforeach
@@ -46,9 +57,3 @@
 @section('scriptsBottom')
     <script src="{{ asset('js/objekat.js') }}" type="text/javascript"></script>
 @endsection
-
-{{--@section('scriptsBottom')--}}
-{{--    <script>--}}
-{{--        inicijalizujPodatkeZaNarucivanje('{!! addslashes(json_encode($proizvodi))!!}');--}}
-{{--    </script>--}}
-{{--@endsection--}}

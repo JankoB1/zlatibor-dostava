@@ -78,12 +78,12 @@ class Proizvod extends Model
         return !$this->getVarijacije->isEmpty();
     }
 
-    public function putanjaSlike($restoran_id) {
+    public function imaSliku($restoran_id) {
         $restoran = Objekat::query()
             ->where('id', '=', $restoran_id)
             ->first();
-        $path = asset('images/objekti/' . $restoran->slug . '/' . $this->slug . '.png');
-        return $path;
+        $path = public_path('images\objekti\\' . $restoran->slug . '\\' . $this->slika);
+        return file_exists($path);
     }
 
     public function ispisiVarijacijePoRedosledu() {

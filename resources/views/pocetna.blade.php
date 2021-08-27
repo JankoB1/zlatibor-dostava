@@ -7,10 +7,9 @@
 @endsection
 
 @section('content')
-    <x-mobnav></x-mobnav>
     <x-glavni-slider></x-glavni-slider>
 
-    <div class="container-fluid pocetna">
+    <div class="container pocetna">
         @if(\Illuminate\Support\Facades\Session::has('korpa'))
             {{ json_encode(\Illuminate\Support\Facades\Session::get('korpa')) }}
         @endif

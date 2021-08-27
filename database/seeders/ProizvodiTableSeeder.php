@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Proizvod;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProizvodiTableSeeder extends Seeder
 {
@@ -1011,6 +1012,16 @@ class ProizvodiTableSeeder extends Seeder
 
         foreach ($proizvodi as $proizvod) {
             Proizvod::create($proizvod);
+        }
+
+        $proizvodiIzBaze = Proizvod::all();
+
+        foreach ($proizvodiIzBaze as $proizvod) {
+            DB::table('proizvods')
+                ->where('id', '=', $proizvod->id)
+                ->update([
+                    'slika' => $proizvod->slug . '.png'
+                ]);
         }
     }
 }
