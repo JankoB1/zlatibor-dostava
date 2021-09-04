@@ -78,6 +78,10 @@ class Proizvod extends Model
         return !$this->getVarijacije->isEmpty();
     }
 
+    public function imaPriloge() {
+        return !$this->getPrilozi->isEmpty();
+    }
+
     public function imaSliku($restoran_id) {
         $restoran = Objekat::query()
             ->where('id', '=', $restoran_id)
@@ -105,6 +109,7 @@ class Proizvod extends Model
                         if ($varijacija->vrsta_varijacije_id == $vrstaVarijacije->id) {
                             $cena = $varijacija->dohvatiCenuVarijacije($this->id);
                             $naziv = $varijacija->naziv;
+                            $ispis .= '<div class="form-group">';
                             $ispis .= '<input type="radio" name="' . $vrstaVarijacije->naziv . '" id="' . $naziv . '" value="' . $cena . '"';
                             if($i == 1) {
                                 $ispis .= ' checked="checked" >';
@@ -112,7 +117,9 @@ class Proizvod extends Model
                             } else {
                                 $ispis .= '>';
                             }
-                            $ispis .= '<label for="' . $naziv . '">' . $naziv . '</label>';
+                            $ispis .= '<label>' . $naziv . '</label>';
+                            $ispis .= '<span class="cena-varijacije">' . $cena . ',00 RSD</span>';
+                            $ispis .= '</div>';
                         }
                     }
                 }
@@ -127,12 +134,19 @@ class Proizvod extends Model
     public function ispisiPrilogePoRedosledu() {
         $ispis = '';
 
+        if($this->imaPriloge()) {
+            $ispis .= '<h5 class="dodaci-naslov">Dodaci</h5>';
+        }
+
         $prilozi = $this->getPrilozi;
         foreach ($prilozi as $prilog) {
             $naziv = $prilog->naziv;
             $cena = $prilog->dohvatiCenuPriloga($this->id);
+            $ispis .= '<div class="form-group">';
             $ispis .= '<input type="checkbox" name="' . $naziv . '" id="' . $naziv . '" value="' . $cena . '">';
-            $ispis .= '<label for="' . $cena . '">' . $naziv . '</label>';
+            $ispis .= '<label>' . $naziv . '</label>';
+            $ispis .= '<span class="cena-priloga">' . $cena . ',00 RSD</span>';
+            $ispis .= '</div>';
         }
 
         return $ispis;

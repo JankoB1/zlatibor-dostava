@@ -11,9 +11,9 @@ let dodajUKorpuBtns = document.querySelectorAll('.dodaj-u-korpu-btn');
 let dodajUKorpuBtnsArr = [...dodajUKorpuBtns];
 
 if(ukupnaCena > 0) {
-    korpaText.innerText = 'Popunite korpu';
+    korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
 } else {
-    korpaText.innerText = 'Zavržetak kupovine';
+    korpaText.innerText = 'POPUNITE KORPU';
 }
 
 // DODAJ U KORPU
@@ -23,11 +23,15 @@ dodajUKorpuBtnsArr.forEach((btn) => {
     btn.addEventListener('click', function (e) {
         let dodatneInformacije = btn.parentElement;
         let proizvodContent = dodatneInformacije.parentElement;
+        let klase = proizvodContent.className;
+        let klaseArr = klase.split(' ');
+        let proizvodId = klaseArr[1];
         let nazivProizvoda = proizvodContent.querySelector('.proizvod-title').innerText;
         let cenaProizvoda = 0;
         let cenaVarijacije = 0;
         let varijacije = [];
         let prilozi = [];
+        let komentar = proizvodContent.querySelector('#komentar').value;
 
         let vrsteVarijacija = proizvodContent.querySelectorAll('.varijacija-naziv');
         let varijacijeObjekat = regulisiVarijacijeZaDodavanje(vrsteVarijacija, cenaProizvoda, proizvodContent, ukupnaCena, varijacije, nazivProizvoda, cenaVarijacije);
@@ -43,19 +47,24 @@ dodajUKorpuBtnsArr.forEach((btn) => {
         ukupnaCena = priloziObjekat.ukupnaCena;
 
         nazivProizvoda = dodajVarijacijeNazivu(varijacije, nazivProizvoda);
+        let nazivSaVarijacijama = nazivProizvoda;
+        nazivProizvoda = dodajPrilogeNazivu(prilozi, nazivProizvoda);
 
         proizvod = {
-            'naziv'     : nazivProizvoda,
-            'cena'      : cenaProizvoda,
-            'slika'     : '',
-            'varijacije': varijacije,
-            'prilozi'   : prilozi
+            'proizvodID'            : proizvodId,
+            'naziv'                 : nazivProizvoda,
+            'cena'                  : cenaProizvoda,
+            'slika'                 : '',
+            'varijacije'            : varijacije,
+            'prilozi'               : prilozi,
+            'komentar'              : komentar,
+            'nazivSaVarijacijama'   : nazivSaVarijacijama
         }
 
         proizvodiUKorpi.push(nazivProizvoda);
 
         if(ukupnaCena != 0) {
-            korpaText.innerText = 'Zavržetak kupovine';
+            korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
         }
         korpaCena.innerHTML = ukupnaCena;
 
@@ -95,6 +104,7 @@ izbaciBtnsArr.forEach((btn) => {
         let cenaVarijacije = 0;
         let varijacije = [];
         let prilozi = [];
+        let staraCena = ukupnaCena;
 
         let vrsteVarijacija = proizvodContent.querySelectorAll('.varijacija-naziv');
         let varijacijeObjekat = regulisiVarijacijeZaOduzimanje(vrsteVarijacija, cenaProizvoda, proizvodContent, ukupnaCena, varijacije, nazivProizvoda, cenaVarijacije);
@@ -107,34 +117,38 @@ izbaciBtnsArr.forEach((btn) => {
 
         ukupnaCena = priloziObjekat.ukupnaCena;
 
-        if(ukupnaCena > 0) {
-            korpaText.innerText = 'Zavržetak kupovine';
+        nazivProizvoda = dodajVarijacijeNazivu(varijacije, nazivProizvoda);
+        nazivProizvoda = dodajPrilogeNazivu(prilozi, nazivProizvoda);
+        if(proizvodiUKorpi.includes(nazivProizvoda)) {
+            proizvodiUKorpi = izbaciIzKorpe(proizvodiUKorpi, nazivProizvoda);
+
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                }
+            });
+            jQuery.ajax({
+                url: window.location.origin + '/smanji-za-1/' + nazivProizvoda,
+                method: 'post',
+                data: {
+                    naziv: nazivProizvoda,
+                },
+                success: function (result) {
+                    console.log('Success');
+                }
+            })
         } else {
-            korpaText.innerText = 'Popunite korpu';
+            ukupnaCena = staraCena;
+            alert('Ne možete ukloniti proizvod koji vam nije u korpi! Proverite da li ste selektovali iste dodatke ili uklonite željeni proizvod u korpi.');
+        }
+
+        if(ukupnaCena > 0) {
+            korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
+        } else {
+            korpaText.innerText = 'POPUNITE KORPU';
         }
         korpaCena.innerHTML = ukupnaCena;
-
-        nazivProizvoda = dodajVarijacijeNazivu(varijacije, nazivProizvoda);
-        proizvodiUKorpi = izbaciIzKorpe(proizvodiUKorpi, nazivProizvoda);
-
-        e.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            }
-        });
-        jQuery.ajax({
-            url: window.location.origin + '/smanji-za-1/' + nazivProizvoda,
-            method: 'post',
-            data: {
-                naziv: nazivProizvoda,
-            },
-            success: function (result) {
-                console.log('Success');
-            }
-        })
-
-        console.log(window.location.origin + 'ukloni/' + nazivProizvoda);
 
     });
 });
@@ -150,11 +164,15 @@ dodajBtnsArr.forEach((btn) => {
         let dodajIzbaciContainer = btn.parentElement;
         let dodatneInformacije = dodajIzbaciContainer.parentElement;
         let proizvodContent = dodatneInformacije.parentElement;
+        let klase = proizvodContent.className;
+        let klaseArr = klase.split(' ');
+        let proizvodId = klaseArr[1];
         let nazivProizvoda = proizvodContent.querySelector('.proizvod-title').innerText;
         let cenaProizvoda = 0;
         let cenaVarijacije = 0;
         let varijacije = [];
         let prilozi = [];
+        let komentar = proizvodContent.querySelector('#komentar').value;
 
         let vrsteVarijacija = proizvodContent.querySelectorAll('.varijacija-naziv');
         let varijacijeObjekat = regulisiVarijacijeZaDodavanje(vrsteVarijacija, cenaProizvoda, proizvodContent, ukupnaCena, varijacije, nazivProizvoda, cenaVarijacije);
@@ -170,19 +188,24 @@ dodajBtnsArr.forEach((btn) => {
         ukupnaCena = priloziObjekat.ukupnaCena;
 
         nazivProizvoda = dodajVarijacijeNazivu(varijacije, nazivProizvoda);
+        let nazivSaVarijacijama = nazivProizvoda;
+        nazivProizvoda = dodajPrilogeNazivu(prilozi, nazivProizvoda);
 
         proizvod = {
-            'naziv'     : nazivProizvoda,
-            'cena'      : cenaProizvoda,
-            'slika'     : '',
-            'varijacije': varijacije,
-            'prilozi'   : prilozi
+            'proizvodId'            : proizvodId,
+            'naziv'                 : nazivProizvoda,
+            'cena'                  : cenaProizvoda,
+            'slika'                 : '',
+            'varijacije'            : varijacije,
+            'prilozi'               : prilozi,
+            'komentar'              : komentar,
+            'nazivSaVarijacijama'   : nazivSaVarijacijama
         }
 
         proizvodiUKorpi.push(nazivProizvoda);
 
         if(ukupnaCena != 0) {
-            korpaText.innerText = 'Zavržetak kupovine';
+            korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
         }
         korpaCena.innerHTML = ukupnaCena;
 
@@ -192,9 +215,8 @@ dodajBtnsArr.forEach((btn) => {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             }
         });
-        var url = $('#ajaxSubmit').data('url');
         jQuery.ajax({
-            url: url,
+            url: window.location.origin + '/dodaj-u-korpu',
             method: 'post',
             data: {
                 proizvod: proizvod,
@@ -202,7 +224,8 @@ dodajBtnsArr.forEach((btn) => {
             success: function (result) {
                 console.log(result);
             }
-        })
+        });
+
 
     });
 });
@@ -240,9 +263,27 @@ function dodajVarijacijeNazivu(varijacije, nazivProizvoda) {
     return nazivProizvoda;
 }
 
+function dodajPrilogeNazivu(prilozi, nazivProizvoda) {
+    if(prilozi[0] == nazivProizvoda) {
+        return nazivProizvoda;
+    }
+
+    if(prilozi.length != 0) {
+        nazivProizvoda += ' ('
+        for(i = 0; i < prilozi.length; i++) {
+            nazivProizvoda += prilozi[i];
+            if(i != prilozi.length-1) {
+                nazivProizvoda += ', ';
+            }
+        }
+        nazivProizvoda += ')';
+    }
+    return nazivProizvoda;
+}
+
 function regulisiVarijacijeZaDodavanje(vrsteVarijacija, cenaProizvoda, proizvodContent, ukupnaCena, varijacije, nazivProizvoda, cenaVarijacije) {
     if (vrsteVarijacija.length == 0) {
-        cenaProizvoda = parseInt(proizvodContent.querySelector('input[type="hidden"]').value)
+        cenaProizvoda = parseInt(proizvodContent.querySelector('input[type="hidden"]').value);
         ukupnaCena += cenaProizvoda;
         varijacije.push(nazivProizvoda);
     }
@@ -268,7 +309,7 @@ function regulisiVarijacijeZaDodavanje(vrsteVarijacija, cenaProizvoda, proizvodC
 
 function regulisiVarijacijeZaOduzimanje(vrsteVarijacija, cenaProizvoda, proizvodContent, ukupnaCena, varijacije, nazivProizvoda, cenaVarijacije) {
     if (vrsteVarijacija.length == 0) {
-        cenaProizvoda = parseInt(proizvodContent.querySelector('input[type="hidden"]').value)
+        cenaProizvoda = parseInt(proizvodContent.querySelector('input[type="hidden"]').value);
         ukupnaCena -= cenaProizvoda;
         varijacije.push(nazivProizvoda);
     }
@@ -320,7 +361,12 @@ function regulisiPrilogeZaOduzimanje(priloziContainer, ukupnaCena, prilozi) {
 
 function izbaciIzKorpe(proizvodiUKorpi, nazivProizvoda) {
 
-    return proizvodiUKorpi.filter(function(proizvod){
-        return proizvod != nazivProizvoda;
-    });
+    for(i = 0; i < proizvodiUKorpi.length; i++) {
+        if(proizvodiUKorpi[i] == nazivProizvoda) {
+            proizvodiUKorpi.splice(i, 1);
+            break;
+        }
+    }
+
+    return proizvodiUKorpi;
 }

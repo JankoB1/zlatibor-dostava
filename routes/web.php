@@ -3,6 +3,7 @@
 use App\Http\Controllers\KorpaController;
 use App\Http\Controllers\KuhinjaController;
 use App\Http\Controllers\ObjekatController;
+use App\Http\Controllers\PorudzbinaController;
 use App\Http\Controllers\ProizvodController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,8 @@ Route::get('/korpa', [ProizvodController::class, 'prikaziKorpu'])->name('korpa')
 Route::get('/ukloni/{naziv}', [ProizvodController::class, 'ukloniProizvod'])->name('korpa.ukloni');
 
 // Porudzbina
-Route::get('/porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina');
+Route::get('/uspesna-porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina');
+Route::get('/posalji-porudzbinu/{user}', [PorudzbinaController::class, 'posaljiPorudzbinu'])->name('porudzbina.posalji');
 
 Auth::routes(['verify' => true]);
 

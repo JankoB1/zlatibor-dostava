@@ -1,4 +1,4 @@
-<div class="container slider-cont">
+<div class="slider-cont">
     <div class="slider-container">
         <div class="swiper-container mySwiper">
             <div class="swiper-wrapper">

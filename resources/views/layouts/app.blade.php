@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,7 +25,10 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white">
+
+    <x-auth-modali></x-auth-modali>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white mobilni-navigacija">
         <div class="row top-navigacija">
             <div class="col-4">
                 <div class="logo-container">
@@ -35,19 +38,23 @@
                 </div>
             </div>
             <div class="col-4">
-                <input type="search">
+                <input type="text">
             </div>
             <div class="col-4">
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
+                                Prijava
+                            </button>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistracija">
+                                Registracija
+                            </button>
                         </li>
                     @endif
                 @else
@@ -89,6 +96,68 @@
             </div>
             <div class="col-2 ">
                 <a href="#"><img src="" alt=""></a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="desktop-navigacija">
+        <div class="row">
+            <div class="col-2 offset-2">
+                <div class="logo-container">
+                    <a href="{{ route('pocetna') }}">
+                        <img src="{{ asset('images/site/logo.svg') }}" alt="red combi logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-2 piktogrami">
+                <div class="piktogrami-cont">
+                    <a href="{{ route('kuhinje') }}"><img src="{{ asset('images/site/dostava-hrane.svg') }}"
+                                                          alt=""></a>
+                    <a href="#"><img src="{{ asset('images/site/prodavnica.svg') }}" alt=""></a>
+                    <a href="#"><img src="{{ asset('images/site/safe-driver.svg') }}" alt=""></a>
+                    <a href="#"><img src="{{ asset('images/site/apoteka.svg') }}" alt=""></a>
+                    <a href="#"><img src="" alt=""></a>
+                </div>
+            </div>
+            <div class="col-2 search-cont">
+                <input type="text">
+            </div>
+            <div class="col-2">
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
+                                Prijava
+                            </button>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistracija">
+                                Registracija
+                            </button>
+                        </li>
+                    @endif
+                @else
+
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img src="#" alt="">
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                @endguest
             </div>
         </div>
     </nav>

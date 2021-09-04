@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Korpa;
+use App\Models\Objekat;
 use App\Models\Proizvod;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
@@ -15,6 +16,14 @@ class ProizvodController extends Controller
         $korpa = new Korpa($staraKopra);
         $korpa->dodaj($request->proizvod, $request->proizvod['naziv']);
 
+        $referer = $request->headers->get('referer');
+        $slugs = explode('/', $referer);
+        $restoranSlug = end($slugs);
+        $restoran = Objekat::query()
+            ->where('slug', '=', $restoranSlug)
+            ->first();
+
+        $request->session()->put('restoran', $restoran);
         $request->session()->put('korpa', $korpa);
     }
 
@@ -52,7 +61,13 @@ class ProizvodController extends Controller
         $korpa = new Korpa($staraKorpa);
         $proizvodi = $korpa->proizvodi;
         $ukupnaCena = $korpa->ukupnaCena;
-        return view('korpa', compact('proizvodi', 'ukupnaCena'));
+
+        $restoran = new Objekat();
+        if(Session::has('restoran')){
+            $restoran = Session::get('restoran');
+        }
+
+        return view('korpa', compact('proizvodi', 'ukupnaCena', 'restoran'));
     }
 
     public function prikaziPorudzbinu() {
@@ -63,7 +78,7 @@ class ProizvodController extends Controller
         $korpa = new Korpa($staraKorpa);
         $proizvodi = $korpa->proizvodi;
         $ukupnaCena = $korpa->ukupnaCena;
-        return view('porudzbina', compact('proizvodi', 'ukupnaCena'));
+        return view('uspesna-porudzbina', compact('proizvodi', 'ukupnaCena'));
     }
 
 }

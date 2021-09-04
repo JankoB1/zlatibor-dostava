@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Pocetna
+@endsection
+
 @section('styles')
     <!-- Swipper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"/>
@@ -7,16 +11,19 @@
 @endsection
 
 @section('content')
-    <x-glavni-slider></x-glavni-slider>
+
+    @include('includes.row-top')
 
     <div class="container pocetna">
-        @if(\Illuminate\Support\Facades\Session::has('korpa'))
-            {{ json_encode(\Illuminate\Support\Facades\Session::get('korpa')) }}
-        @endif
+
+        <x-glavni-slider></x-glavni-slider>
+
+{{--        @if(Session::has('korpa'))--}}
+{{--            {{ json_encode(Session::get('korpa')) }}--}}
+{{--        @endif--}}
 
         <div class="text-i-adresa-container">
-            <h4>Restaurants, Groceries,<br> Your Cars and <span>more</span>, delivered to your door!</h4>
-            <input type="text">
+            <h4>Restaurants, Groceries, Your Cars and <br> <span>more</span>, delivered to your door!</h4>
         </div>
 
         <!-- Naruci iz prodavnice -->
@@ -134,10 +141,14 @@
 
 @section('scriptsBottom')
     <!-- Swipper JS -->
+    <script src="{{ asset('js/pocetna.js') }}" type="text/javascript"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".mySwiper", {
+
+        let width = window.innerWidth;
+
+        let swiper = new Swiper(".mySwiper", {
             pagination: {
                 el: ".swiper-pagination",
             },
@@ -145,48 +156,96 @@
                 delay: 2500,
                 disableOnInteraction: false,
             },
-            loop: true
-        });
-
-        var swiper2 = new Swiper(".mySwiper2", {
-            slidesPerView: 2.5,
-            spaceBetween: 10,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             loop: true
         });
 
-        var swiper3 = new Swiper(".mySwiper3", {
-            slidesPerView: 2.5,
-            spaceBetween: 10,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true
-        });
 
-        var swiper4 = new Swiper(".mySwiper4", {
-            slidesPerView: 2.5,
-            spaceBetween: 10,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true
-        });
+        let swiper2, swiper3, swiper4, swiper5;
+        if (width <= 620) {
+            swiper2 = new Swiper(".mySwiper2", {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
 
-        var swiper5 = new Swiper(".mySwiper5", {
-            slidesPerView: 2.5,
-            spaceBetween: 10,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true
-        });
+            swiper3 = new Swiper(".mySwiper3", {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+
+            swiper4 = new Swiper(".mySwiper4", {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+
+            swiper5 = new Swiper(".mySwiper5", {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+        } else {
+            swiper2 = new Swiper(".mySwiper2", {
+                slidesPerView: 3,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+
+            swiper3 = new Swiper(".mySwiper3", {
+                slidesPerView: 3,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+
+            swiper4 = new Swiper(".mySwiper4", {
+                slidesPerView: 3,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+
+            swiper5 = new Swiper(".mySwiper5", {
+                slidesPerView: 3,
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
+        }
 
     </script>
 @endsection

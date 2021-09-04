@@ -84,7 +84,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'janko.tbbt@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'jblagoj01@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
@@ -113,6 +113,6 @@ return [
             'verify_peer' => false,
             'verify_peer_name' => false,
         ],
-    ]
+    ],
 
 ];

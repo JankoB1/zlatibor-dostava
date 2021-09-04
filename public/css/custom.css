@@ -9,12 +9,24 @@ html, body, .swiper-container {
     position:relative;
 }
 
-/*img {*/
-/*    width: 100%;*/
-/*}*/
+.py-4 {
+    padding-bottom: 0 !important;
+}
 
 input[type=checkbox] {
-    display: block;
+    display: inline-block;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    appearance: none;
+    background: white;
+    border-radius: 5px;
+    border: .5px solid #5c5c5c;
+}
+
+input[type=checkbox]:checked {
+    background: #FFC822;
 }
 
 input[type=radio] {
@@ -23,6 +35,54 @@ input[type=radio] {
 
 .varijacije label {
     margin-right: 50px;
+}
+
+.mobilni-navigacija {
+    display: none;
+}
+
+.desktop-navigacija {
+    display: block;
+}
+
+.desktop-navigacija .row {
+    padding: 10px 0;
+    background: #0A0A0A;
+}
+
+.desktop-navigacija .row .piktogrami {
+    background: #CD272E;
+    padding: 5px 0;
+}
+
+.desktop-navigacija .row .piktogrami .piktogrami-cont {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.desktop-navigacija .row input[type=text] {
+    background: #0A0A0A;
+    border-radius: 10px;
+    position: relative;
+    top: 7px;
+    border-width: 0;
+    color: white;
+    display: inline-block;
+    width: 90%;
+}
+
+.desktop-navigacija .search-cont:after {
+    content: '\26B2';
+    color: white;
+    display: inline-block;
+    font-size: 25px;
+    transform: rotate(-45deg);
+    position: relative;
+    top: 5px;
+}
+
+.desktop-navigacija .row .piktogrami img {
+    height: 32px;
 }
 
 .row.top-navigacija, .row.bottom-navigacija {
@@ -50,24 +110,32 @@ input[type=radio] {
     background: #1E1E1E;
 }
 
-.swiper-button-next, .swiper-button-prev {
-    display: none !important;
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    left: 91% !important;
+    bottom: 70% !important;
 }
 
 .swiper-pagination-bullet {
     opacity: .4 !important;
     background: white !important;
+    display: block !important;
+    margin: 10px 0 !important;
 }
 
 .swiper-pagination-bullet-active {
     opacity: 1 !important;
 }
 
+.swiper-button-next, .swiper-button-prev {
+    top: 5% !important;
+    z-index: 70 !important;
+}
+
 .text-i-adresa-container h4 {
     color: white;
     text-align: center;
     width: 70%;
-    margin: 0 auto;
+    margin: 70px auto 0 auto;
 }
 
 .text-i-adresa-container span {
@@ -84,11 +152,6 @@ input[type=radio] {
 .pocetna {
     background: #1E1E1E;
     padding-bottom: 50px;
-}
-
-.slider-cont {
-    padding-top: 90px;
-    margin-bottom: 50px;
 }
 
 .slider-objekti h4 {
@@ -115,6 +178,31 @@ input[type=radio] {
     background: white !important;
     height: 185px !important;
     border-radius: 10px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    display: none !important;
+}
+
+.mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
+    display: block !important;
+}
+
+.mySwiper .swiper-button-next {
+    right: 0 !important;
+}
+
+.mySwiper .swiper-button-prev {
+    left: 93% !important;
+}
+
+.mySwiper .swiper-slide {
+    background: transparent !important;
+}
+
+.mySwiper .swiper-slide img {
+    border-radius: 0 !important;
+    width: 90% !important;
 }
 
 .swiper-slide img {
@@ -147,7 +235,7 @@ input[type=radio] {
 
 footer {
     background: #0A0A0A;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
 }
 
 footer ul {
@@ -162,6 +250,11 @@ footer ul li {
     font-weight: 200;
     line-height: 2.5em;
     margin: 0 auto;
+    text-align: center;
+}
+
+footer p {
+    text-align: center;
 }
 
 footer ul li strong {
@@ -200,14 +293,11 @@ footer ul li strong {
 
 .korpa-container {
     background: #FFC822;
-    width: 90%;
-    position: fixed;
-    bottom: 100px;
-    left: 5%;
-    padding: 10px;
     border-radius: 10px;
     color: #2C2C2C;
     font-size: 30px;
+    z-index: 5;
+    text-align: center;
 }
 
 .korpa-container p {
@@ -215,8 +305,15 @@ footer ul li strong {
     display: inline-block;
 }
 
+.korpa-text, .korpa-cena, .valuta {
+    color: #2c2c2c;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .proizvod-title {
     display: inline-block;
+    color: white !important;
 }
 
 .dodatne-informacije {
@@ -226,22 +323,22 @@ footer ul li strong {
 }
 
 .dodatne-informacije.active {
-    max-height: 700px;
+    max-height: 1000px;
 }
 
 .expander {
-    font-size: 30px;
+    font-size: 15px;
     position: relative;
-    top: 4px;
+    top: -1px;
 }
 
-#forma-registracija label {
+#forma-registracija label, #forma-login label {
     color: black;
 }
 
 footer .drustvene-mreze {
     width: fit-content;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
 }
 
 footer img {
@@ -250,7 +347,213 @@ footer img {
     display: inline-block;
 }
 
+.korpa-row {
+    padding: 0 5%;
+    margin-top: -30px;
+}
+
+.objekat-container {
+    padding: 0 !important;
+}
+
+.objekat-container .objekat-title {
+    background: rgba(0, 0, 0, .9);
+    position: relative;
+    top: -63px;
+    padding: 10px;
+}
+
+.objekat-container .proizvod-levo, .objekat-container .proizvod-desno {
+    display: inline-block;
+}
+
+.objekat-container .proizvod-levo {
+    width: 54%;
+    padding-bottom: 20px;
+}
+
+.objekat-container .proizvod-desno {
+    width: 44%;
+    vertical-align: top;
+    margin-top: 20px;
+}
+
+.objekat-container img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.proizvod-levo h5, .expander {
+    color: #FFC822;
+}
+
+.varijacije {
+    border-bottom: 1px solid #5c5c5c;
+    padding-bottom: 20px;
+}
+
+.varijacija-naziv {
+    border-top: 1px solid #5c5c5c;
+    padding-top: 20px;
+}
+
+.dodaci-naslov {
+    padding-top: 20px;
+}
+
+.proizvod-content {
+    padding: 20px 0;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px solid #5c5c5c;
+}
+
+.dodaj-izbaci {
+    width: 70%;
+    display: inline-block;
+}
+
+.dodaj-izbaci div {
+    display: inline-block;
+    width: fit-content;
+    float: right;
+    text-align: right;
+}
+
+.dodaj-izbaci div span {
+    font-size: 35px;
+    font-weight: 200;
+    padding: 15px;
+}
+
+.broj-proizvoda-u-korpi-cont {
+    width: fit-content;
+    display: inline-block;
+}
+
+.dodatne-informacije .dodaj-u-korpu-btn {
+    vertical-align: top;
+}
+
+.prilozi label {
+    padding-left: 20px;
+}
+
+#komentar {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.kuhinja-title {
+    width: 90%;
+    margin: 20px auto 0 auto;
+}
+
+.kuhinja-title-linija {
+    height: 3px;
+    width: 10%;
+    background: #CD272E;
+    margin: 5px 0 0 5%;
+}
+
+.cena-priloga, .cena-varijacije {
+    float: right;
+}
+
+.row.row-top {
+    margin: 20px 0 0 0;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+
+.row-top .prva {
+    background: white;
+}
+
+.row-top .adresa-container p {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    letter-spacing: 1px;
+}
+
+.adresa-container img {
+    margin-right: 10px;
+    position: relative;
+    bottom: 5px;
+}
+
+.checked-td div {
+    background: #FFC822;
+    padding: 3px 10px !important;
+    color: #2C2C2C;
+    border-radius: 50%;
+}
+
+.td-prvi-broj {
+    color: #FFC822;
+    padding: 10px 20px !important;
+}
+
+.td-info {
+    width: 100%
+}
+
+.td-drugi-broj, .td-cena {
+    padding: 10px 20px !important;
+}
+
+.korpa-row table tr {
+    border-top: 1px solid #5c5c5c;
+}
+
+.korpa-row table td {
+    padding: 10px 0;
+    vertical-align: top;
+}
+
+.korpa-row .col-12 {
+    padding-bottom: 110px;
+}
+
+.bottom-row-korpa {
+    width: 94%;
+    margin: 0 3%;
+    padding: 10px 0;
+    border-top: 1px solid #5c5c5c;
+}
+
+.bottom-row-korpa div {
+    display: inline-block;
+    width: fit-content;
+}
+
+.bottom-row-korpa .ukupna-cena {
+    float: right;
+}
+
+.korpa-header h1, .korpa-header h2 {
+    padding: 0 5%;
+    position: relative;
+    top: -40px;
+}
+
+.korpa-header h1 {
+    background: black;
+    color: #FFC822;
+}
+
 @media only screen and (max-width: 620px) {
+
+    .mobilni-navigacija {
+        display: block;
+    }
+
+    .desktop-navigacija {
+        display: none;
+    }
 
     .swiper-container.mySwiper {
         height: 300px;
@@ -258,5 +561,58 @@ footer img {
 
     .slider-objekti .swiper-slide {
         height: 185px !important;
+    }
+
+    .korpa-container {
+        width: 90%;
+        position: fixed;
+        bottom: 100px;
+        left: 5%;
+        font-size: 30px;
+    }
+
+    .slider-cont {
+        padding-top: 90px;
+        margin-bottom: 50px;
+    }
+
+    footer {
+        padding-bottom: 70px;
+    }
+
+    .container.pocetna {
+        padding: 0 0 50px 0;
+    }
+
+    .mySwiper .swiper-slide img {
+        width: 100% !important;
+    }
+
+    .slider-container {
+        margin-top: 1px !important;
+    }
+
+    .slider-objekti {
+        padding: 0 5% !important;
+    }
+
+    .mySwiper .swiper-button-prev, .mySwiper .swiper-button-next {
+        display: none !important;
+    }
+
+    .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 30px !important;
+        width: auto !important;
+        left: 0 !important;
+        position: relative !important;
+    }
+
+    .swiper-pagination-bullet {
+        display: inline-block !important;
+        margin: 0 5px !important;
+    }
+
+    .row-top .prva {
+        width: 100% !important;
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid objekat-container">
 
         <div class="korpa-container">
             <a href="{{ route('korpa') }}"><p class="korpa-text"></p></a>
@@ -14,8 +14,13 @@
         <img src="{{ asset('images/objekti/' . $slug . '/cover.png') }}" alt="{{ $slug }}">
         <h1 class="objekat-title">{{ $objekat->naziv }}</h1>
 
+        @if(\Illuminate\Support\Facades\Session::has('restoran'))
+            {{ \Illuminate\Support\Facades\Session::get('restoran') }}
+        @endif
+
         @foreach($kuhinjeProizvoda as $kuhinjaProizvoda)
-            <h2>{{ $kuhinjaProizvoda->naziv }}</h2>
+            <h2 class="kuhinja-title">{{ $kuhinjaProizvoda->naziv }}</h2>
+            <div class="kuhinja-title-linija"></div>
             @foreach($proizvodi as $proizvod)
                 @if($kuhinjaProizvoda->id == $proizvod->kuhinja_proizvoda_id)
                     <div class="proizvod-content {{ $proizvod->id }}">
@@ -42,16 +47,21 @@
                             <a class="dodaj-u-korpu-btn">Dodaj u korpu</a>
                             <div class="broj-proizvoda-u-korpi-cont"><span class="broj-proizvoda-u-korpi"></span></div>
                             <div class="dodaj-izbaci">
-                                <div class="izbaci"><span><</span></div>
                                 <div class="dodaj"><span>></span></div>
+                                <div class="izbaci"><span><</span></div>
+                            </div>
+                            <div class="komentar">
+                                <label for="komentar">Komentar</label>
+                                <textarea name="komentar" id="komentar" cols="30" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
                 @endif
             @endforeach
         @endforeach
-
     </div>
+
+    <x-footer></x-footer>
 @endsection
 
 @section('scriptsBottom')

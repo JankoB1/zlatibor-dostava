@@ -12,7 +12,16 @@ class ObjekatController extends Controller
 
     public function index() {
         $restorani = Objekat::dohvatiSveRestorane();
-        return view('pocetna', compact('restorani'));
+
+        $ukupnaCena = 0;
+
+        if (Session::has('korpa')) {
+            $staraKorpa = Session::get('korpa');
+            $korpa = new Korpa($staraKorpa);
+            $ukupnaCena = $korpa->ukupnaCena;
+        }
+
+        return view('pocetna', compact('restorani', 'ukupnaCena'));
     }
 
     public function show($slug){
@@ -21,6 +30,7 @@ class ObjekatController extends Controller
         $kuhinjeProizvoda = $objekat->getKuhinjeProizvoda;
         if(!strpos(url()->previous(), 'korpa')) {
             Session::forget('korpa');
+            Session::forget('restoran');
         }
 
         $ukupnaCena = 0;
