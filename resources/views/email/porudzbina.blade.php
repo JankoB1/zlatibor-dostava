@@ -9,7 +9,7 @@
 <body style="width: 70%;margin: 0 auto;">
     <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}" alt="{{ $restoran->slug }}">
     <div class="korpa-header">
-        <h1 class="zavrsetak-kupovine">Porudžbina broj:</h1>
+        <h1 class="zavrsetak-kupovine">Porudžbina broj: {{ $brojPorudzbine }}</h1>
         <h2 class="korpa-naziv-restorana">{{ $restoran->naziv }}</h2>
     </div>
 

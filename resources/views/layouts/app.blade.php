@@ -38,7 +38,9 @@
                 </div>
             </div>
             <div class="col-4">
-                <input type="text">
+                <form class="forma-search" action="{{ route('search') }}" method="GET">
+                    <input type="text" name="search" required/>
+                </form>
             </div>
             <div class="col-4">
                 @guest
@@ -58,6 +60,8 @@
                         </li>
                     @endif
                 @else
+
+                    {{ Auth::user()->dohvatiInicijale }}
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -120,7 +124,9 @@
                 </div>
             </div>
             <div class="col-2 search-cont">
-                <input type="text">
+                <form class="forma-search" action="{{ route('search') }}" method="GET">
+                    <input type="text" name="search" required/>
+                </form>
             </div>
             <div class="col-2">
                 @guest

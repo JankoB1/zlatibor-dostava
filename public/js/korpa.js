@@ -1,4 +1,3 @@
-
 // UKLONI PROIZVOD IZ KORPE
 
 let ukloniBtns = document.querySelectorAll('.ukloni');
@@ -41,6 +40,15 @@ ukloniBtnsArr.forEach((btn) => {
 
     });
 });
+
+// REDIREKCIJA PORUDZBINE
+
+let btnContainer = document.querySelector('.korpa-container');
+if (window.location.href.indexOf("porudzbina") != -1) {
+    btnContainer.innerHTML = '<a href="http://127.0.0.1:8000/vrati-na-pocetnu">' +
+        '<p class="korpa-text">Vrati se na početnu stranicu</p>' +
+        '<a/>';
+}
 
 //POVECAJ ZA 1
 

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Korpa;
 use App\Models\Objekat;
+use App\Models\Porudzbina;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
@@ -24,14 +26,37 @@ class PorudzbinaController extends Controller
             $restoran = Session::get('restoran');
         }
 
+        while(1) {
+            $brojPorudzbine = rand(100000, 999999);
+            $porudzbina = Porudzbina::query()
+                ->where('broj_porudzbine', '=', $brojPorudzbine)
+                ->get()
+                ->first();
+
+            if($porudzbina == null) {
+                break;
+            }
+        }
+
+        Session::put('broj-porudzbine', $brojPorudzbine);
 
         $data = [
-            'email'         => $user->email,
-            'ime'           => $user->ime_i_prezime,
-            'restoran'      => $restoran,
-            'ukupnaCena'    => $ukupnaCena,
-            'proizvodi'     => $proizvodi
+            'userId'            => $user->id,
+            'email'             => $user->email,
+            'ime'               => $user->ime_i_prezime,
+            'restoran'          => $restoran,
+            'ukupnaCena'        => $ukupnaCena,
+            'proizvodi'         => $proizvodi,
+            'brojPorudzbine'   => $brojPorudzbine
         ];
+
+        $porudzbina = [
+            'broj_porudzbine'   => $brojPorudzbine,
+            'user_id'           => $data['userId'],
+            'cena'              => $ukupnaCena,
+        ];
+
+        Porudzbina::create($porudzbina);
 
         Mail::send('email.porudzbina', $data, function($message) use ($data)
         {
@@ -40,7 +65,7 @@ class PorudzbinaController extends Controller
             $message->subject('NASLOV PROBA');
         });
 
-        return redirect()->route('porudzbina');
+        return redirect()->route('porudzbina.uspesna');
     }
 
 }

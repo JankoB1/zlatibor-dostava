@@ -545,6 +545,11 @@ footer img {
     color: #FFC822;
 }
 
+.forma-search input {
+    width: 100%;
+    margin-left: 10px;
+}
+
 @media only screen and (max-width: 620px) {
 
     .mobilni-navigacija {

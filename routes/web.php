@@ -22,6 +22,7 @@ Route::get('/', [ObjekatController::class, 'index'])->name('pocetna');
 Route::get('/objekat/{slug}', [ObjekatController::class, 'show'])->name('objekat');
 Route::get('/kuhnje', [KuhinjaController::class, 'index'])->name('kuhinje');
 Route::get('/restorani/{slug}', [KuhinjaController::class, 'show'])->name('restorani.kuhinja');
+Route::get('/search/', [ObjekatController::class, 'search'])->name('search');
 
 // Korpa
 Route::post('/dodaj-u-korpu', [ProizvodController::class, 'dodajProizvodUKorpu'])->name('dodajukorpu');
@@ -30,8 +31,9 @@ Route::get('/korpa', [ProizvodController::class, 'prikaziKorpu'])->name('korpa')
 Route::get('/ukloni/{naziv}', [ProizvodController::class, 'ukloniProizvod'])->name('korpa.ukloni');
 
 // Porudzbina
-Route::get('/uspesna-porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina');
+Route::get('/uspesna-porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina.uspesna');
 Route::get('/posalji-porudzbinu/{user}', [PorudzbinaController::class, 'posaljiPorudzbinu'])->name('porudzbina.posalji');
+Route::get('/vrati-na-pocetnu', [ProizvodController::class, 'resetujKorpu'])->name('korpa.resetuj');
 
 Auth::routes(['verify' => true]);
 

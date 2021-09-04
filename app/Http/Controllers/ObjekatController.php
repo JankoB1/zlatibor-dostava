@@ -25,7 +25,10 @@ class ObjekatController extends Controller
     }
 
     public function show($slug){
-        $objekat = Objekat::query()->where('slug', $slug)->get()->first();
+        $objekat = Objekat::query()
+            ->where('slug', $slug)
+            ->get()
+            ->first();
         $proizvodi = $objekat->getProizvodi;
         $kuhinjeProizvoda = $objekat->getKuhinjeProizvoda;
         if(!strpos(url()->previous(), 'korpa')) {
@@ -42,6 +45,18 @@ class ObjekatController extends Controller
         }
 
         return view('objekat', compact('slug', 'objekat', 'proizvodi', 'kuhinjeProizvoda', 'ukupnaCena'));
+    }
+
+    public function search(Request $request){
+
+        $search = $request->input('search');
+
+        $restorani = Objekat::query()
+            ->where('naziv', 'LIKE', "%{$search}%")
+            ->orWhere('opis', 'LIKE', "%{$search}%")
+            ->get();
+
+        return view('search', compact('restorani'));
     }
 
 }

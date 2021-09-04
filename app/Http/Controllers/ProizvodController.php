@@ -21,9 +21,12 @@ class ProizvodController extends Controller
         $restoranSlug = end($slugs);
         $restoran = Objekat::query()
             ->where('slug', '=', $restoranSlug)
+            ->get()
             ->first();
 
-        $request->session()->put('restoran', $restoran);
+        $request->session()->put('restoran
+
+        ', $restoran);
         $request->session()->put('korpa', $korpa);
     }
 
@@ -78,7 +81,21 @@ class ProizvodController extends Controller
         $korpa = new Korpa($staraKorpa);
         $proizvodi = $korpa->proizvodi;
         $ukupnaCena = $korpa->ukupnaCena;
-        return view('uspesna-porudzbina', compact('proizvodi', 'ukupnaCena'));
+
+        $restoran = new Objekat();
+        if(Session::has('restoran')){
+            $restoran = Session::get('restoran');
+        }
+
+        return view('uspesna-porudzbina', compact('proizvodi', 'ukupnaCena', 'restoran'));
     }
 
+    public function resetujKorpu() {
+
+        Session::forget('korpa');
+        Session::forget('restoran');
+        Session::forget('broj-porudzbine');
+
+        return redirect()->route('pocetna');
+    }
 }
