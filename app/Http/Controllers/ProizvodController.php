@@ -66,7 +66,6 @@ class ProizvodController extends Controller
         $restoran = new Objekat();
         if(Session::has('restoran')){
             $restoran = Session::get('restoran');
-            echo 'ima';
         }
 
         return view('korpa', compact('proizvodi', 'ukupnaCena', 'restoran'));
