@@ -776,7 +776,7 @@ class ProizvodVVTableSeeder extends Seeder
             [ 'proizvod_id' => 747, 'vrsta_varijacije_id' =>1 ],
             [ 'proizvod_id' => 748, 'vrsta_varijacije_id' =>1 ],
             [ 'proizvod_id' => 749, 'vrsta_varijacije_id' =>1 ],
-            [ 'proizvod_id' => 740, 'vrsta_varijacije_id' =>1 ],
+            [ 'proizvod_id' => 750, 'vrsta_varijacije_id' =>1 ],
             [ 'proizvod_id' => 751, 'vrsta_varijacije_id' =>1 ],
             [ 'proizvod_id' => 752, 'vrsta_varijacije_id' =>1 ],
             [ 'proizvod_id' => 753, 'vrsta_varijacije_id' =>1 ],

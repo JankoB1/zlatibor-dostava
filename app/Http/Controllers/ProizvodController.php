@@ -24,9 +24,7 @@ class ProizvodController extends Controller
             ->get()
             ->first();
 
-        $request->session()->put('restoran
-
-        ', $restoran);
+        $request->session()->put('restoran', $restoran);
         $request->session()->put('korpa', $korpa);
     }
 
@@ -68,6 +66,7 @@ class ProizvodController extends Controller
         $restoran = new Objekat();
         if(Session::has('restoran')){
             $restoran = Session::get('restoran');
+            echo 'ima';
         }
 
         return view('korpa', compact('proizvodi', 'ukupnaCena', 'restoran'));

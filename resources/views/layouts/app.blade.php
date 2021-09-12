@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,11 +27,9 @@
 <body>
 <div id="app">
 
-    <x-auth-modali></x-auth-modali>
-
     <nav class="navbar navbar-expand-md navbar-light bg-white mobilni-navigacija">
         <div class="row top-navigacija">
-            <div class="col-4">
+            <div class="col-4 logo">
                 <div class="logo-container">
                     <a href="{{ route('pocetna') }}">
                         <img src="{{ asset('images/site/logo.svg') }}" alt="red combi logo">
@@ -39,33 +38,20 @@
             </div>
             <div class="col-4">
                 <form class="forma-search" action="{{ route('search') }}" method="GET">
-                    <input type="text" name="search" required/>
+                    <input type="text" name="search" placeholder="Pretraga" required/>
                 </form>
             </div>
-            <div class="col-4">
+            <div class="col-4 user-navigacija">
                 @guest
                     @if (Route::has('login'))
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
-                                Prijava
-                            </button>
-                        </li>
+                        <a href="{{ route('login') }}">Prijavi se</a>
                     @endif
 
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistracija">
-                                Registracija
-                            </button>
-                        </li>
-                    @endif
                 @else
-
-                    {{ Auth::user()->dohvatiInicijale }}
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src="#" alt="">
+                        {{ Auth::user()->dohvatiInicijale() }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -140,7 +126,8 @@
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistracija">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#modalRegistracija">
                                 Registracija
                             </button>
                         </li>
@@ -149,7 +136,7 @@
 
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src="#" alt="">
+                        {{ Auth::user()->dohvatiInicijale() }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

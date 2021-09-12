@@ -3,6 +3,7 @@
 let ukloniBtns = document.querySelectorAll('.ukloni');
 let ukloniBtnsArr = [...ukloniBtns];
 
+let korpaCena = document.querySelector('.korpa-cena');
 let ukupnaCenaText = document.querySelector('.ukupna-cena');
 let ukupnaCena = parseInt(document.querySelector('.ukupna-cena').innerText);
 
@@ -19,6 +20,7 @@ ukloniBtnsArr.forEach((btn) => {
 
         ukupnaCena -= cena;
         ukupnaCenaText.innerHTML = ukupnaCena;
+        korpaCena.innerText = ukupnaCena;
         tabelaTr.parentElement.removeChild(tabelaTr);
 
         e.preventDefault();

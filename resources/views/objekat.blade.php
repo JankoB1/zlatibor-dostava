@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container-fluid objekat-container">
+
+        @include('includes.row-top')
 
         <div class="korpa-container">
             <a href="{{ route('korpa') }}"><p class="korpa-text"></p></a>
@@ -11,12 +14,8 @@
 
         <span id="ajaxSubmit" data-url="{{ route('dodajukorpu') }}" style="display: none"></span>
 
-        <img src="{{ asset('images/objekti/' . $slug . '/cover.png') }}" alt="{{ $slug }}">
+        <img class="pocetna-slika" src="{{ asset('images/objekti/' . $slug . '/cover.png') }}" alt="{{ $slug }}">
         <h1 class="objekat-title">{{ $objekat->naziv }}</h1>
-
-        @if(\Illuminate\Support\Facades\Session::has('restoran'))
-            {{ \Illuminate\Support\Facades\Session::get('restoran') }}
-        @endif
 
         @foreach($kuhinjeProizvoda as $kuhinjaProizvoda)
             <h2 class="kuhinja-title">{{ $kuhinjaProizvoda->naziv }}</h2>
@@ -30,11 +29,12 @@
                             <p>{{ $proizvod->opis }}</p>
                             <h5>{{ $proizvod->cena }}</h5>
                         </div>
-                        <div class="proizvod-desno">
-                            @if($proizvod->imaSliku($objekat->id))
-                                <img src="{{ asset('images/objekti/' . $slug . '/' . $proizvod->slika) }}" alt="{{ $proizvod->slug }}">
-                            @endif
-                        </div>
+                        @if($proizvod->imaSliku($objekat->id))
+                            <div class="proizvod-desno">
+                                <img src="{{ asset('images/objekti/' . $slug . '/' . $proizvod->slika) }}"
+                                     alt="{{ $proizvod->slug }}">
+                            </div>
+                        @endif
                         <div class="dodatne-informacije">
                             <div class="varijacije">
                                 <form>
@@ -44,15 +44,15 @@
                             <div class="prilozi">
                                 {!! $proizvod->ispisiPrilogePoRedosledu() !!}
                             </div>
+                            <div class="komentar">
+                                <label for="komentar">Komentar</label>
+                                <textarea name="komentar" id="komentar" cols="30" rows="4"></textarea>
+                            </div>
                             <a class="dodaj-u-korpu-btn">Dodaj u korpu</a>
                             <div class="broj-proizvoda-u-korpi-cont"><span class="broj-proizvoda-u-korpi"></span></div>
                             <div class="dodaj-izbaci">
-                                <div class="dodaj"><span>></span></div>
-                                <div class="izbaci"><span><</span></div>
-                            </div>
-                            <div class="komentar">
-                                <label for="komentar">Komentar</label>
-                                <textarea name="komentar" id="komentar" cols="30" rows="5"></textarea>
+                                <div class="dodaj"><span>+</span></div>
+                                <div class="izbaci"><span>-</span></div>
                             </div>
                         </div>
                     </div>

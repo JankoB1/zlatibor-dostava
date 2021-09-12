@@ -5,6 +5,7 @@ use App\Http\Controllers\KuhinjaController;
 use App\Http\Controllers\ObjekatController;
 use App\Http\Controllers\PorudzbinaController;
 use App\Http\Controllers\ProizvodController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Pocetna i objekti
 Route::get('/', [ObjekatController::class, 'index'])->name('pocetna');
 Route::get('/objekat/{slug}', [ObjekatController::class, 'show'])->name('objekat');
 Route::get('/kuhnje', [KuhinjaController::class, 'index'])->name('kuhinje');
@@ -34,6 +36,7 @@ Route::get('/ukloni/{naziv}', [ProizvodController::class, 'ukloniProizvod'])->na
 Route::get('/uspesna-porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina.uspesna');
 Route::get('/posalji-porudzbinu/{user}', [PorudzbinaController::class, 'posaljiPorudzbinu'])->name('porudzbina.posalji');
 Route::get('/vrati-na-pocetnu', [ProizvodController::class, 'resetujKorpu'])->name('korpa.resetuj');
+
 
 Auth::routes(['verify' => true]);
 

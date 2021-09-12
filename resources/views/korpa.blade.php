@@ -3,14 +3,19 @@
 @section('content')
 
     @guest
-        <h1>MORATE BITI ULOGOVANI KAKO BISTE NASTAVILI SA KUPOVINOM</h1>
+        <div class="korpa-upozorenje">
+            <h1>MORATE BITI ULOGOVANI KAKO BISTE NASTAVILI SA KUPOVINOM</h1>
+        </div>
     @else
         @if(Auth::user()->email_verified_at)
             @if(\Illuminate\Support\Facades\Session::has('korpa'))
 
                 @include('includes.row-top')
 
-                <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}" alt="{{ $restoran->slug }}">
+                <div class="slika-korpa">
+                    <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}"
+                         alt="{{ $restoran->slug }}">
+                </div>
                 <div class="korpa-header">
                     <h1 class="zavrsetak-kupovine">Završetak kupovine</h1>
                     <h2 class="korpa-naziv-restorana">{{ $restoran->naziv }}</h2>
@@ -52,10 +57,14 @@
                     </div>
                 </div>
             @else
-                <h1>NEMA NISTA U KORPI</h1>
+                <div class="korpa-upozorenje">
+                    <h1>NEMA NISTA U KORPI</h1>
+                </div>
             @endif
         @else
-            <h1>MORATE VERIFIKOVATI EMAIL</h1>
+            <div class="korpa-upozorenje">
+                <h1>MORATE VERIFIKOVATI EMAIL</h1>
+            </div>
         @endif
     @endguest
 @endsection

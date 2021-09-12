@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+
     <x-glavni-slider></x-glavni-slider>
 
     <div class="container">

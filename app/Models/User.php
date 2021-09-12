@@ -71,4 +71,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function dohvatiInicijale() {
+        $imeIPrezime = $this->ime_i_prezime;
+        $inicijali = $imeIPrezime[0];
+        $imeIPrezimeArr = explode(' ', $imeIPrezime);
+        $inicijali .= $imeIPrezimeArr[1][0];
+
+        return $inicijali;
+    }
 }

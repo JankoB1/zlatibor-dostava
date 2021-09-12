@@ -370,3 +370,16 @@ function izbaciIzKorpe(proizvodiUKorpi, nazivProizvoda) {
 
     return proizvodiUKorpi;
 }
+
+// STILIZACIJA BEZ SLIKE
+
+let proizvodi = document.querySelectorAll('.proizvod-content');
+let proizvodiArr = [...proizvodi];
+
+proizvodiArr.forEach((proizvod) => {
+    let desnoCont = proizvod.querySelector('.proizvod-desno');
+    if(!desnoCont) {
+        let levoCont = proizvod.querySelector('.proizvod-levo');
+        levoCont.classList.add('puna-sirina');
+    }
+});

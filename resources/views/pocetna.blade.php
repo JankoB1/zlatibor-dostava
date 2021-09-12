@@ -12,13 +12,14 @@
 
 @section('content')
 
-    @include('includes.row-top')
-
     <div class="container pocetna">
+
+        @include('includes.row-top')
 
         <x-glavni-slider></x-glavni-slider>
 
-{{--        @if(Session::has('korpa'))--}}
+
+        {{--        @if(Session::has('korpa'))--}}
 {{--            {{ json_encode(Session::get('korpa')) }}--}}
 {{--        @endif--}}
 
