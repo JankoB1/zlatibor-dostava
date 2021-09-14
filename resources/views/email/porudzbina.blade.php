@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Potvrda porudžbine</title>
 </head>
-<body style="width: 70%;margin: 0 auto;">
+<body>
     <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}" alt="{{ $restoran->slug }}">
     <div class="korpa-header">
         <h1 class="zavrsetak-kupovine">Porudžbina broj: {{ $brojPorudzbine }}</h1>
@@ -43,18 +43,24 @@
         </div>
         <div class="info-o-korisniku">
             <table class="korisnik-table">
-                <thead>
-                <th>Ime i prezime</th>
-                <th>Adresa</th>
-                <th>Apartman</th>
-                <th>Email</th>
-                <th>Telfon</th>
-                </thead>
                 <tr>
+                    <td>Ime i prezime</td>
                     <td>{{ Auth::user()->ime_i_prezime }}</td>
+                </tr>
+                <tr>
+                    <td>Adresa</td>
                     <td>{{ Auth::user()->adresa }}</td>
+                </tr>
+                <tr>
+                    <td>Apartman</td>
                     <td>{{ Auth::user()->apartman }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
                     <td>{{ Auth::user()->email }}</td>
+                </tr>
+                <tr>
+                    <td>Telefon</td>
                     <td>{{ Auth::user()->telefon }}</td>
                 </tr>
             </table>

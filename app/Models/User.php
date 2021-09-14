@@ -75,7 +75,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $imeIPrezime = $this->ime_i_prezime;
         $inicijali = $imeIPrezime[0];
         $imeIPrezimeArr = explode(' ', $imeIPrezime);
-        $inicijali .= $imeIPrezimeArr[1][0];
+        if($imeIPrezimeArr[1] != null) {
+            $inicijali .= $imeIPrezimeArr[1][0];
+        }
 
         return $inicijali;
     }

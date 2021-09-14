@@ -19,7 +19,6 @@ a {
 
 input[type=checkbox] {
     display: inline-block;
-    display: inline-block;
     width: 20px;
     height: 20px;
     vertical-align: middle;
@@ -231,7 +230,7 @@ input[type=radio] {
 }
 
 .slider-objekti p {
-    color: black;
+    color: #2C2C2C;
     font-weight: 700;
     font-size: 12px;
     padding: 10px 10px 0 10px;
@@ -239,7 +238,7 @@ input[type=radio] {
 }
 
 .slider-objekti .kuhinje {
-    color: black;
+    color: #2C2C2C;
     opacity: .7;
     font-size: 12px;
     padding: 10px;
@@ -300,7 +299,7 @@ footer ul li strong {
 
 .title-objekat {
     padding: 10px;
-    color: black;
+    color: #2C2C2C;
 }
 
 .korpa-container {
@@ -354,7 +353,7 @@ footer ul li strong {
 }
 
 #forma-registracija label, #forma-login label {
-    color: black;
+    color: #2C2C2C;
 }
 
 footer .drustvene-mreze {
@@ -442,7 +441,7 @@ footer img {
     width: fit-content;
     float: right;
     text-align: right;
-    border: 1px solid white;
+    border: 1px solid #FFC822;
     border-radius: 10px;
 }
 
@@ -454,6 +453,7 @@ footer img {
     font-size: 25px;
     font-weight: 200;
     padding: 5px 13px;
+    color: #FFC822;
 }
 
 .broj-proizvoda-u-korpi-cont {
@@ -466,12 +466,12 @@ footer img {
 }
 
 a.dodaj-u-korpu-btn {
-    color: white;
+    color: #FFC822;
     text-transform: uppercase;
-    padding: 7px 15px;
-    border: 1px solid white;
+    padding: 13px 15px;
+    border: 1px solid #FFC822;
     position: relative;
-    top: 35px;
+    top: 32px;
     border-radius: 10px;
     letter-spacing: .5px;
 }
@@ -508,7 +508,7 @@ a.dodaj-u-korpu-btn {
 }
 
 .row.row-top {
-    margin: 0;
+    margin: 20px 0 0 0;
     position: fixed;
     z-index: 10;
     width: 100%;
@@ -527,7 +527,7 @@ a.dodaj-u-korpu-btn {
 }
 
 .row-top .adresa-container p {
-    color: black;
+    color: #2C2C2C;
     font-size: 17px;
     text-align: center;
     padding-top: 10px;
@@ -575,7 +575,7 @@ a.dodaj-u-korpu-btn {
 }
 
 .korpa-row .col-12 {
-    padding-bottom: 110px;
+    padding-bottom: 50px;
 }
 
 .bottom-row-korpa {
@@ -595,14 +595,16 @@ a.dodaj-u-korpu-btn {
 }
 
 .korpa-header h1, .korpa-header h2 {
-    padding: 0 5%;
+    padding: 10px 5%;
     position: relative;
     top: -40px;
+    font-size: 25px;
 }
 
 .korpa-header h1 {
     background: black;
     color: #FFC822;
+    font-size: 25px;
 }
 
 .forma-search input {
@@ -616,7 +618,7 @@ a.dodaj-u-korpu-btn {
     text-align: center;
     color: white;
     position: relative;
-    top: 6px;
+    top: 2px;
 }
 
 .forma-search input:focus-visible {
@@ -638,12 +640,19 @@ a.dodaj-u-korpu-btn {
 
 .user-navigacija a {
     text-transform: none;
-    color: white;
     font-weight: 500;
     position: relative;
     top: 5px;
     text-align: center;
     letter-spacing: .5px;
+}
+
+.user-navigacija .prijavi-se-link {
+    color: white;
+}
+
+.user-navigacija a.dropdown-item {
+    top: 0;
 }
 
 a#navbarDropdown {
@@ -653,6 +662,7 @@ a#navbarDropdown {
 
 .slika-korpa img {
     width: 100%;
+    margin-top: 75px;
 }
 
 .login {
@@ -701,6 +711,8 @@ a#navbarDropdown {
     border-radius: 50px;
     background: #CD272E;
     border: 1px solid #CD272E;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .login .col-md-12, .register .col-md-12 {
@@ -715,6 +727,12 @@ a#navbarDropdown {
 
 .login .login-pocetak a {
     color: #CD272E;
+    font-weight: 500;
+}
+
+.login .login-pocetak p {
+    color: #B7B7B7;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -757,7 +775,44 @@ a#navbarDropdown {
     background: rgba(0, 0, 0, .6);
     padding: 7px 10px;
     font-size: 25px;
+    color: white;
 }
+
+.info-o-korisniku {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.info-o-korisniku table {
+    width: 100%;
+}
+
+.adresa-container span {
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: -48px;
+    background: white;
+    left: 0;
+    color: #CD272E;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+    padding: 11px 0;
+}
+
+.btn-danger {
+    border-color: #CD272E !important;
+    background-color: #CD272E !important;
+}
+
+.arrow-down {
+    top: 0px;
+}
+
+.promeni-adresu-link span.active {
+    opacity: 1 !important;
+}
+
 
 @media only screen and (max-width: 620px) {
 
@@ -799,7 +854,7 @@ a#navbarDropdown {
     }
 
     footer {
-        padding-bottom: 70px;
+        padding: 50px 0 90px 0;
     }
 
     .container.pocetna {
@@ -839,7 +894,4 @@ a#navbarDropdown {
         padding-top: 8px;
     }
 
-    .row {
-        margin-right: 0 !important;
-    }
 }

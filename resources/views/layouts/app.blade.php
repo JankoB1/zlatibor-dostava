@@ -44,7 +44,7 @@
             <div class="col-4 user-navigacija">
                 @guest
                     @if (Route::has('login'))
-                        <a href="{{ route('login') }}">Prijavi se</a>
+                        <a class="prijavi-se-link" href="{{ route('login') }}">Prijavi se</a>
                     @endif
 
                 @else
@@ -58,7 +58,7 @@
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Odjavi se') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -159,6 +159,10 @@
         @yield('content')
     </main>
 </div>
+
+{{-- Main JS --}}
+<script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 @yield('scriptsBottom')
