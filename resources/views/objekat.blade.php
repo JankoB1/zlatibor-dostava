@@ -12,6 +12,10 @@
             <span class="valuta">RSD</span>
         </div>
 
+        <p class="prethodna-cena" style="display: none">
+
+        </p>
+
         <span id="ajaxSubmit" data-url="{{ route('dodajukorpu') }}" style="display: none"></span>
 
         <img class="pocetna-slika" src="{{ asset('images/objekti/' . $slug . '/cover.png') }}" alt="{{ $slug }}">

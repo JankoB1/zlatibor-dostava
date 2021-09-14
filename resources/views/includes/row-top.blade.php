@@ -8,7 +8,7 @@
                     {{ Auth::user()->adresa }}
                     <img class="arrow-down" src="{{ asset('images/site/arrow-down-sign-to-navigate.svg') }}" width="20"
                          alt="arrow-down">
-                    <a href="#" class="promeni-adresu-link">
+                    <a href="{{ route('user.prikazipromeniadresu') }}" class="promeni-adresu-link">
                         <span>Promeni Adresu</span>
                     </a>
                 </p>

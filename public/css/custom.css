@@ -146,7 +146,7 @@ input[type=radio] {
     color: white;
     text-align: center;
     width: 70%;
-    margin: 90px auto 0 auto;
+    margin: 100px auto 0 auto;
 }
 
 .text-i-adresa-container span {
@@ -223,6 +223,10 @@ input[type=radio] {
 
 .swiper-slide {
     height: 100% !important;
+}
+
+.mySwiper .swiper-slide {
+    height: auto !important;
 }
 
 .swiper-container {
@@ -352,7 +356,7 @@ footer ul li strong {
     width: 100% !important;
 }
 
-#forma-registracija label, #forma-login label {
+#forma-registracija label, #forma-login label, #forma-adresa label {
     color: #2C2C2C;
 }
 
@@ -370,6 +374,7 @@ footer img {
 .korpa-row {
     padding: 0 5% 150px 5%;
     margin-top: -30px;
+    margin-right: 0;
 }
 
 .objekat-container {
@@ -391,6 +396,10 @@ footer img {
 .objekat-container .proizvod-levo {
     width: 54%;
     padding-bottom: 20px;
+}
+
+.proizvod-levo p {
+    margin-top: 15px;
 }
 
 .objekat-container .proizvod-desno {
@@ -416,14 +425,15 @@ footer img {
 .varijacija-naziv {
     border-top: 1px solid #5c5c5c;
     padding-top: 20px;
+    margin-bottom: 25px;
 }
 
 .dodaci-naslov {
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .proizvod-content {
-    padding: 20px 0;
+    padding: 20px 0 30px 0;
     width: 90%;
     margin: 0 auto;
     border-bottom: 1px solid #5c5c5c;
@@ -665,7 +675,7 @@ a#navbarDropdown {
     margin-top: 75px;
 }
 
-.login {
+.login, .adresa {
     background: white !important;
     height: 100vh;
 }
@@ -674,7 +684,7 @@ a#navbarDropdown {
     background: white !important;
 }
 
-#forma-login {
+#forma-login, #forma-adresa {
     padding: 5vh 10%;
 }
 
@@ -682,7 +692,7 @@ a#navbarDropdown {
     padding: 0 10% 10vh 10%;
 }
 
-#forma-login input:focus, #forma-registracija input:focus {
+#forma-login input:focus, #forma-registracija input:focus, #forma-adresa input:focus {
     border-color: #CD272E !important;
     box-shadow: 0 0 0 0.02rem #CD272E;
 }
@@ -691,13 +701,13 @@ a#navbarDropdown {
     color: #2c2c2c;
 }
 
-#forma-login label, #forma-registracija label {
+#forma-login label, #forma-registracija label, #forma-adresa label {
     color: #2C2C2C;
     font-weight: 500;
     font-size: 15px;
 }
 
-#forma-login input, #forma-registracija input {
+#forma-login input, #forma-registracija input, #forma-adresa input {
     background: #F7F7F7;
     border-radius: 8px;
 }
@@ -706,7 +716,7 @@ a#navbarDropdown {
     margin: 3px 0 0 15px;
 }
 
-#forma-login button.btn.btn-primary, #forma-registracija button.btn.btn-primary {
+#forma-login button.btn.btn-primary, #forma-registracija button.btn.btn-primary, #forma-adresa button.btn.btn-primary {
     width: 100%;
     border-radius: 50px;
     background: #CD272E;
@@ -715,7 +725,7 @@ a#navbarDropdown {
     font-size: 15px;
 }
 
-.login .col-md-12, .register .col-md-12 {
+.login .col-md-12, .register .col-md-12, .adresa .col-md-12 {
     padding: 0 !important;
 }
 
@@ -829,7 +839,7 @@ a#navbarDropdown {
     }
 
     .swiper-container.mySwiper {
-        height: 300px;
+        height: 250px;
     }
 
     .slider-objekti .swiper-slide {
@@ -845,7 +855,7 @@ a#navbarDropdown {
     }
 
     .slider-cont {
-        margin-bottom: 50px;
+        margin-bottom: 0;
     }
 
     .pocetna .slider-cont {
@@ -878,7 +888,7 @@ a#navbarDropdown {
     }
 
     .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
-        bottom: 30px !important;
+        bottom: 20px !important;
         width: auto !important;
         left: 0 !important;
         position: relative !important;

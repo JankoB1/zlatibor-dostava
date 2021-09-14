@@ -5,6 +5,7 @@ use App\Http\Controllers\KuhinjaController;
 use App\Http\Controllers\ObjekatController;
 use App\Http\Controllers\PorudzbinaController;
 use App\Http\Controllers\ProizvodController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,9 @@ Route::get('/uspesna-porudzbina', [ProizvodController::class, 'prikaziPorudzbinu
 Route::get('/posalji-porudzbinu/{user}', [PorudzbinaController::class, 'posaljiPorudzbinu'])->name('porudzbina.posalji');
 Route::get('/vrati-na-pocetnu', [ProizvodController::class, 'resetujKorpu'])->name('korpa.resetuj');
 
+// User
+Route::get('/promeni-adresu', [UserController::class, 'prikaziPromeniAdresu'])->middleware('auth')->name('user.prikazipromeniadresu');
+Route::patch('/promeni-adresu/{user}', [UserController::class, 'promeniAdresu'])->middleware('auth')->name('user.promeniadresu');
 
 Auth::routes(['verify' => true]);
 

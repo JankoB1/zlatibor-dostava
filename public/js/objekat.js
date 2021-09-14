@@ -234,10 +234,21 @@ dodajBtnsArr.forEach((btn) => {
 
 let plusevi = document.querySelectorAll('.expander');
 let pluseviArr = [...plusevi];
+let naslovi = document.querySelectorAll('.proizvod-title');
+let nasloviArr = [...naslovi];
 
 pluseviArr.forEach((plus) => {
     plus.addEventListener('click', function () {
         let proizvodLevo = plus.parentElement;
+        let proizvodContainer = proizvodLevo.parentElement;
+        let dodatneInformacije = proizvodContainer.querySelector('.dodatne-informacije');
+        dodatneInformacije.classList.toggle('active');
+    });
+});
+
+nasloviArr.forEach((naslov) => {
+    naslov.addEventListener('click', function () {
+        let proizvodLevo = naslov.parentElement;
         let proizvodContainer = proizvodLevo.parentElement;
         let dodatneInformacije = proizvodContainer.querySelector('.dodatne-informacije');
         dodatneInformacije.classList.toggle('active');
