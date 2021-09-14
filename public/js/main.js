@@ -1,5 +1,5 @@
-let width = window.innerWidth;
-if(width > 620) {
+let sirinaUredjaja = window.innerWidth;
+if(sirinaUredjaja > 620) {
     let root = document.getElementById('app');
     root.innerHTML = "DESKTOP VERZIJA SAJTA JE U IZRADI, MOLIMO VAS DA UDJETE NA SAJT PREKO MOBILNOG TELEFONA!";
 }
