@@ -34,7 +34,8 @@ Route::get('/korpa', [ProizvodController::class, 'prikaziKorpu'])->name('korpa')
 Route::get('/ukloni/{naziv}', [ProizvodController::class, 'ukloniProizvod'])->name('korpa.ukloni');
 
 // Porudzbina
-Route::get('/uspesna-porudzbina', [ProizvodController::class, 'prikaziPorudzbinu'])->name('porudzbina.uspesna');
+Route::get('/pregled-porudzbine', [PorudzbinaController::class, 'prikaziPorudzbinu'])->name('porudzbina');
+Route::get('/uspesna-porudzbina', [PorudzbinaController::class, 'prikaziUspesnuPorudzbinu'])->name('porudzbina.uspesna');
 Route::get('/posalji-porudzbinu/{user}', [PorudzbinaController::class, 'posaljiPorudzbinu'])->name('porudzbina.posalji');
 Route::get('/vrati-na-pocetnu', [ProizvodController::class, 'resetujKorpu'])->name('korpa.resetuj');
 

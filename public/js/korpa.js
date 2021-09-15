@@ -8,7 +8,11 @@ let ukupnaCenaText = document.querySelector('.ukupna-cena');
 let ukupnaCena = parseInt(document.querySelector('.ukupna-cena').innerText);
 
 let korpaText = document.querySelector('.korpa-text');
-korpaText.innerText = 'Klikni da bi poručio/la';
+korpaText.innerText = 'Pregled porudžbine';
+
+if (window.location.href.indexOf('pregled-porudzbine') != -1) {
+    korpaText.innerText = 'Klikni kako bi poručio/la'
+}
 
 ukloniBtnsArr.forEach((btn) => {
     btn.addEventListener('click', function (e) {
@@ -47,7 +51,7 @@ ukloniBtnsArr.forEach((btn) => {
 
 let btnContainer = document.querySelector('.korpa-container');
 if (window.location.href.indexOf("porudzbina") != -1) {
-    btnContainer.innerHTML = '<a href="http://127.0.0.1:8000/vrati-na-pocetnu">' +
+    btnContainer.innerHTML = '<a href="http://zlatibordostava.rs/vrati-na-pocetnu">' +
         '<p class="korpa-text">Vrati se na početnu stranicu</p>' +
         '<a/>';
 }

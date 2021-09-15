@@ -14,6 +14,40 @@ use Illuminate\Support\Facades\Session;
 class PorudzbinaController extends Controller
 {
 
+    public function prikaziUspesnuPorudzbinu() {
+        if (!Session::has('korpa')) {
+            return view('korpa');
+        }
+        $staraKorpa = Session::get('korpa');
+        $korpa = new Korpa($staraKorpa);
+        $proizvodi = $korpa->proizvodi;
+        $ukupnaCena = $korpa->ukupnaCena;
+
+        $restoran = new Objekat();
+        if(Session::has('restoran')){
+            $restoran = Session::get('restoran');
+        }
+
+        return view('uspesna-porudzbina', compact('proizvodi', 'ukupnaCena', 'restoran'));
+    }
+
+    public function prikaziPorudzbinu() {
+        if (!Session::has('korpa')) {
+            return view('korpa');
+        }
+        $staraKorpa = Session::get('korpa');
+        $korpa = new Korpa($staraKorpa);
+        $proizvodi = $korpa->proizvodi;
+        $ukupnaCena = $korpa->ukupnaCena;
+
+        $restoran = new Objekat();
+        if(Session::has('restoran')){
+            $restoran = Session::get('restoran');
+        }
+
+        return view('porudzbina-pregled', compact('proizvodi', 'ukupnaCena', 'restoran'));
+    }
+
     public function posaljiPorudzbinu(User $user) {
 
         $staraKorpa = Session::get('korpa');

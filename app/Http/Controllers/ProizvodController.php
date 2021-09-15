@@ -72,23 +72,6 @@ ProizvodController extends Controller
         return view('korpa', compact('proizvodi', 'ukupnaCena', 'restoran'));
     }
 
-    public function prikaziPorudzbinu() {
-        if (!Session::has('korpa')) {
-            return view('korpa');
-        }
-        $staraKorpa = Session::get('korpa');
-        $korpa = new Korpa($staraKorpa);
-        $proizvodi = $korpa->proizvodi;
-        $ukupnaCena = $korpa->ukupnaCena;
-
-        $restoran = new Objekat();
-        if(Session::has('restoran')){
-            $restoran = Session::get('restoran');
-        }
-
-        return view('uspesna-porudzbina', compact('proizvodi', 'ukupnaCena', 'restoran'));
-    }
-
     public function resetujKorpu() {
 
         Session::forget('korpa');
