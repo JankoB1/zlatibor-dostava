@@ -9,7 +9,8 @@ use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class ProizvodController extends Controller
+class
+ProizvodController extends Controller
 {
     public function dodajProizvodUKorpu(Request $request) {
         $staraKopra = Session::has('korpa') ? Session::get('korpa') : null;

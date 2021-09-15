@@ -356,7 +356,7 @@ footer ul li strong {
     width: 100% !important;
 }
 
-#forma-registracija label, #forma-login label, #forma-adresa label {
+#forma-registracija label, #forma-login label, #forma-adresa label, #forma-password-reset label, #forma-password-reset-email label {
     color: #2C2C2C;
 }
 
@@ -675,7 +675,7 @@ a#navbarDropdown {
     margin-top: 75px;
 }
 
-.login, .adresa {
+.login, .adresa, .password-reset, .password-reset-email {
     background: white !important;
     height: 100vh;
 }
@@ -684,7 +684,7 @@ a#navbarDropdown {
     background: white !important;
 }
 
-#forma-login, #forma-adresa {
+#forma-login, #forma-adresa, #forma-password-reset, #forma-password-reset-email {
     padding: 5vh 10%;
 }
 
@@ -692,7 +692,7 @@ a#navbarDropdown {
     padding: 0 10% 10vh 10%;
 }
 
-#forma-login input:focus, #forma-registracija input:focus, #forma-adresa input:focus {
+#forma-login input:focus, #forma-registracija input:focus, #forma-adresa input:focus, #forma-password-reset input:focus, #forma-password-reset-email input:focus {
     border-color: #CD272E !important;
     box-shadow: 0 0 0 0.02rem #CD272E;
 }
@@ -701,13 +701,13 @@ a#navbarDropdown {
     color: #2c2c2c;
 }
 
-#forma-login label, #forma-registracija label, #forma-adresa label {
+#forma-login label, #forma-registracija label, #forma-adresa label, #forma-password-reset label, #forma-password-reset-email label {
     color: #2C2C2C;
     font-weight: 500;
     font-size: 15px;
 }
 
-#forma-login input, #forma-registracija input, #forma-adresa input {
+#forma-login input, #forma-registracija input, #forma-adresa input, #forma-password-reset input, #forma-password-reset-email input {
     background: #F7F7F7;
     border-radius: 8px;
 }
@@ -716,7 +716,7 @@ a#navbarDropdown {
     margin: 3px 0 0 15px;
 }
 
-#forma-login button.btn.btn-primary, #forma-registracija button.btn.btn-primary, #forma-adresa button.btn.btn-primary {
+#forma-login button.btn.btn-primary, #forma-registracija button.btn.btn-primary, #forma-adresa button.btn.btn-primary, #forma-password-reset button.btn.btn-primary, #forma-password-reset-email button.btn.btn-primary {
     width: 100%;
     border-radius: 50px;
     background: #CD272E;
@@ -725,7 +725,7 @@ a#navbarDropdown {
     font-size: 15px;
 }
 
-.login .col-md-12, .register .col-md-12, .adresa .col-md-12 {
+.login .col-md-12, .register .col-md-12, .adresa .col-md-12, .password-reset .col-md-12, .password-reset-email .col-md-12 {
     padding: 0 !important;
 }
 
