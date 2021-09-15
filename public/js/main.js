@@ -1,7 +1,9 @@
 let sirinaUredjaja = window.innerWidth;
 if(sirinaUredjaja > 620) {
     let root = document.getElementById('app');
-    root.innerHTML = "DESKTOP VERZIJA SAJTA JE U IZRADI, MOLIMO VAS DA UDJETE NA SAJT PREKO MOBILNOG TELEFONA!";
+    root.innerHTML = '<div class="desktop-u-pripremi">' +
+                        '<h1>DESKTOP VERZIJA WEBSAJTA JE U IZRADI, MOLIMO VAS DA UDJETE NA SAJT PREKO SVOG TELEFONA.</h1>' +
+                     '</div>';
 }
 
 let adresaCont = document.querySelector('.adresa-container');

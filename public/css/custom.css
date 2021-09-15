@@ -746,7 +746,11 @@ a#navbarDropdown {
     font-weight: 500;
 }
 
-.korpa-upozorenje {
+.desktop-u-pripremi {
+    margin-top: 40vh !important;
+}
+
+.korpa-upozorenje, .desktop-u-pripremi {
     text-align: center;
     padding: 20px;
     font-size: 30px;
@@ -756,7 +760,7 @@ a#navbarDropdown {
     border-radius: 10px;
 }
 
-.korpa-upozorenje h1 {
+.korpa-upozorenje h1, .desktop-u-pripremi h1 {
     font-size: 25px;
 }
 
