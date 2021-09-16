@@ -29,9 +29,9 @@ if(!imaAdresa) {
     if(sliderCont) {
         sliderCont.setAttribute('style', 'top: 0 !important');
     }
-    // if(textPocetna) {
-    //     textPocetna.style.marginTop = '50px';
-    // }
+    if(textPocetna) {
+        textPocetna.style.marginTop = '20px';
+    }
     if(pocetnaSlika) {
         pocetnaSlika.style.marginTop = '0';
     }
