@@ -55,6 +55,11 @@
                         <div class="ukupna-cena-text"><p>Ukupna cena porudžbine</p></div>
                         <div class="ukupna-cena"><p>{{ $ukupnaCena }} RSD</p></div>
                     </div>
+                    <div class="vrati-se-u-restoran">
+                        <a href="{{ route('objekat', ['slug' => $restoran->slug]) }}">
+                            <p>Poruči dodatnu stavku iz restorana!</p>
+                        </a>
+                    </div>
                 </div>
             @else
                 <div class="korpa-upozorenje">

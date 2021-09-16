@@ -31,9 +31,13 @@ class ObjekatController extends Controller
             ->first();
         $proizvodi = $objekat->getProizvodi;
         $kuhinjeProizvoda = $objekat->getKuhinjeProizvoda;
-        if(!strpos(url()->previous(), 'korpa')) {
-            Session::forget('korpa');
-            Session::forget('restoran');
+
+        if(Session::has('restoran')) {
+            $restoran = Session::get('restoran');
+            if($restoran->id != $objekat->id) {
+                Session::forget('korpa');
+                Session::forget('restoran');
+            }
         }
 
         $ukupnaCena = 0;

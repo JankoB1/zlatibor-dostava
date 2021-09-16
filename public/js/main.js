@@ -42,6 +42,7 @@ if(!imaAdresa) {
     if(arrowDown) {
         arrowDown.addEventListener('click', function () {
             promeniAdresuSpan.classList.toggle('active');
+            arrowDown.classList.toggle('open');
         });
     }
     if(slikaKorpa) {

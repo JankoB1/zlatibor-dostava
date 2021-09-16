@@ -444,6 +444,8 @@ footer img {
     display: inline-block;
     float: right;
     vertical-align: top;
+    position: relative;
+    bottom: 2px;
 }
 
 .dodaj-izbaci div {
@@ -481,9 +483,21 @@ a.dodaj-u-korpu-btn {
     padding: 13px 15px;
     border: 1px solid #FFC822;
     position: relative;
-    top: 32px;
+    top: 30px;
     border-radius: 10px;
     letter-spacing: .5px;
+    transition: all .2s ease-in;
+}
+
+a.dodaj-u-korpu-btn:hover, .dodaj-izbaci div:hover, .expander:hover {
+    background: #FFC822;
+    color: #2c2c2c;
+    transition: all .2s ease-in;
+}
+
+.dodaj-izbaci div:hover > span {
+    color: #2c2c2c;
+    transition: all .2s ease-in;
 }
 
 .prilozi label {
@@ -602,6 +616,10 @@ a.dodaj-u-korpu-btn {
 
 .bottom-row-korpa .ukupna-cena {
     float: right;
+}
+
+.ukupna-cena-text, .ukupna-cena {
+    font-size: 20px;
 }
 
 .korpa-header h1, .korpa-header h2 {
@@ -725,6 +743,10 @@ a#navbarDropdown {
     font-size: 15px;
 }
 
+#forma-login button.btn.btn-primary:focus, #forma-registracija button.btn.btn-primary:focus, #forma-adresa button.btn.btn-primary:focus, #forma-password-reset button.btn.btn-primary:focus, #forma-password-reset-email button.btn.btn-primary:focus {
+    box-shadow: none !important;
+}
+
 .login .col-md-12, .register .col-md-12, .adresa .col-md-12, .password-reset .col-md-12, .password-reset-email .col-md-12 {
     padding: 0 !important;
 }
@@ -809,13 +831,14 @@ a#navbarDropdown {
     width: 100%;
     display: block;
     position: absolute;
-    bottom: -48px;
+    bottom: 0;
     background: white;
     left: 0;
     color: #CD272E;
     opacity: 0;
-    transition: opacity .4s ease-in-out;
+    transition: all .4s ease-in-out;
     padding: 11px 0;
+    z-index: -1;
 }
 
 .btn-danger {
@@ -827,8 +850,28 @@ a#navbarDropdown {
     top: 0px;
 }
 
+.vrati-se-u-restoran {
+    width: 95%;
+    text-align: center;
+    background: #CD272E;
+    border-radius: 50px;
+    margin: 0 auto 30px auto;
+}
+
+.vrati-se-u-restoran p {
+    padding: 10px;
+    color: white;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.arrow-down.open {
+    transform: rotate(180deg);
+}
+
 .promeni-adresu-link span.active {
     opacity: 1 !important;
+    bottom: -48px !important;
 }
 
 
@@ -858,7 +901,7 @@ a#navbarDropdown {
         width: 90%;
         position: fixed;
         bottom: 100px;
-        left: 5%;
+        left: 4%;
         font-size: 30px;
     }
 
