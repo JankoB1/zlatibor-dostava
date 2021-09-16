@@ -17,8 +17,6 @@ class UserController extends Controller
         $input = \request()->validate([
             'nova-adresa' => 'required',
         ]);
-        echo json_encode($user);
-        echo json_encode($input);
         $user->adresa = $input['nova-adresa'];
         $user->save();
 
