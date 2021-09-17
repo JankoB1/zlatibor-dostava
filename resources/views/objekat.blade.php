@@ -6,12 +6,6 @@
 
         @include('includes.row-top')
 
-        <div class="korpa-container">
-            <a href="{{ route('korpa') }}"><p class="korpa-text"></p></a>
-            <p class="korpa-cena">{{ $ukupnaCena }}</p>
-            <span class="valuta">RSD</span>
-        </div>
-
         <p class="prethodna-cena" style="display: none">
 
         </p>
