@@ -15,14 +15,16 @@
             </div>
         @endguest
     </div>
-    @if(Session::has('korpa'))
-        <div class="col-lg-6">
-            <div class="korpa-container">
-                <a href="@if(Route::current()->getName() == 'porudzbina'){{ route('porudzbina.posalji', ['user' => Auth::user()]) }}@elseif(Route::current()->getName() == 'korpa'){{ route('porudzbina') }}@else{{ route('korpa') }} @endif">
-                    <p class="korpa-text"></p></a>
-                <p class="korpa-cena">{{ $ukupnaCena }}</p>
-                <span class="valuta">RSD</span>
-            </div>
+    <div class="col-lg-6">
+        <div class="korpa-container">
+            <a href="@if(Route::current()->getName() == 'porudzbina'){{ route('porudzbina.posalji', ['user' => Auth::user()]) }}@elseif(Route::current()->getName() == 'korpa'){{ route('porudzbina') }}@else{{ route('korpa') }} @endif">
+                <p class="korpa-text"></p></a>
+            <p class="korpa-cena">
+                @if(Session::has('korpa'))
+                    {{ $ukupnaCena }}
+                @endif
+            </p>
+            <span class="valuta">RSD</span>
         </div>
-    @endif
+    </div>
 </div>
