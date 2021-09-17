@@ -20,7 +20,7 @@
             <a href="@if(Route::current()->getName() == 'porudzbina'){{ route('porudzbina.posalji', ['user' => Auth::user()]) }}@elseif(Route::current()->getName() == 'korpa'){{ route('porudzbina') }}@else{{ route('korpa') }} @endif">
                 <p class="korpa-text"></p></a>
             <p class="korpa-cena">
-                @if(Session::has('korpa'))
+                @if(\Illuminate\Support\Facades\Session::has('korpa'))
                     {{ $ukupnaCena }}
                 @endif
             </p>
