@@ -10,6 +10,8 @@ let korpaCena = document.querySelector('.korpa-cena');
 
 let ukupnaCena = parseInt(korpaCena.innerText);
 
+console.log(ukupnaCena);
+
 let dodajUKorpuBtns = document.querySelectorAll('.dodaj-u-korpu-btn');
 let dodajUKorpuBtnsArr = [...dodajUKorpuBtns];
 
