@@ -1,5 +1,8 @@
 // AUTOMATSKI ISPISI PROMENE U KORPI NA FRONTU I POSALJI IH AJAX-OM
 
+const zavrsetakKupovine = 'Završetak kupovine';
+const popuniteKorpu = 'Popunite korpu';
+
 let proizvodiUKorpi = [];
 
 let korpaText = document.querySelector('.korpa-text');
@@ -11,9 +14,9 @@ let dodajUKorpuBtns = document.querySelectorAll('.dodaj-u-korpu-btn');
 let dodajUKorpuBtnsArr = [...dodajUKorpuBtns];
 
 if(ukupnaCena > 0) {
-    korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
+    korpaText.innerText = zavrsetakKupovine;
 } else {
-    korpaText.innerText = 'POPUNITE KORPU';
+    korpaText.innerText = popuniteKorpu;
 }
 
 // DODAJ U KORPU
@@ -64,7 +67,7 @@ dodajUKorpuBtnsArr.forEach((btn) => {
         proizvodiUKorpi.push(nazivProizvoda);
 
         if(ukupnaCena != 0) {
-            korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
+            korpaText.innerText = zavrsetakKupovine;
         }
         korpaCena.innerHTML = ukupnaCena;
 
@@ -85,7 +88,6 @@ dodajUKorpuBtnsArr.forEach((btn) => {
                 console.log(result);
             }
         })
-
     });
 });
 
@@ -144,9 +146,9 @@ izbaciBtnsArr.forEach((btn) => {
         }
 
         if(ukupnaCena > 0) {
-            korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
+            korpaText.innerText = zavrsetakKupovine;
         } else {
-            korpaText.innerText = 'POPUNITE KORPU';
+            korpaText.innerText = popuniteKorpu;
         }
         korpaCena.innerHTML = ukupnaCena;
 
@@ -192,7 +194,7 @@ dodajBtnsArr.forEach((btn) => {
         nazivProizvoda = dodajPrilogeNazivu(prilozi, nazivProizvoda);
 
         proizvod = {
-            'proizvodId'            : proizvodId,
+            'proizvodID'            : proizvodId,
             'naziv'                 : nazivProizvoda,
             'cena'                  : cenaProizvoda,
             'slika'                 : '',
@@ -205,7 +207,7 @@ dodajBtnsArr.forEach((btn) => {
         proizvodiUKorpi.push(nazivProizvoda);
 
         if(ukupnaCena != 0) {
-            korpaText.innerText = 'ZAVRŠETAK KUPOVINE';
+            korpaText.innerText = zavrsetakKupovine;
         }
         korpaCena.innerHTML = ukupnaCena;
 
@@ -225,8 +227,6 @@ dodajBtnsArr.forEach((btn) => {
                 console.log(result);
             }
         });
-
-
     });
 });
 

@@ -310,9 +310,13 @@ footer ul li strong {
     background: #FFC822;
     border-radius: 10px;
     color: #2C2C2C;
-    font-size: 30px;
     z-index: 5;
     text-align: center;
+    padding: 5px;
+}
+
+.korpa-text, .korpa-cena {
+    margin-bottom: 0 !important;
 }
 
 .korpa-container p {
@@ -322,7 +326,7 @@ footer ul li strong {
 
 .korpa-text, .korpa-cena, .valuta {
     color: #2c2c2c;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -693,7 +697,7 @@ a#navbarDropdown {
     margin-top: 75px;
 }
 
-.login, .adresa, .password-reset, .password-reset-email, .verifikacija {
+.login, .adresa, .password-reset, .password-reset-email, .verifikacija, .home {
     background: white !important;
     height: 100vh;
 }
@@ -734,7 +738,7 @@ a#navbarDropdown {
     margin: 3px 0 0 15px;
 }
 
-#forma-login button.btn.btn-primary, #forma-registracija button.btn.btn-primary, #forma-adresa button.btn.btn-primary, #forma-password-reset button.btn.btn-primary, #forma-password-reset-email button.btn.btn-primary, #forma-verifikacija button.btn.btn-link {
+#forma-login button.btn.btn-primary, #forma-registracija button.btn.btn-primary, #forma-adresa button.btn.btn-primary, #forma-password-reset button.btn.btn-primary, #forma-password-reset-email button.btn.btn-primary, #forma-verifikacija button.btn.btn-link, .home button.btn.btn-primary {
     width: 100%;
     border-radius: 50px;
     background: #CD272E;
@@ -759,7 +763,16 @@ a#navbarDropdown {
     font-size: 15px;
 }
 
-#forma-login button.btn.btn-primary:focus, #forma-registracija button.btn.btn-primary:focus, #forma-adresa button.btn.btn-primary:focus, #forma-password-reset button.btn.btn-primary:focus, #forma-password-reset-email button.btn.btn-primary:focus {
+.home {
+    padding: 0;
+    color: #2c2c2c;
+}
+
+.home h2, .home a {
+    color: white
+}
+
+#forma-login button.btn.btn-primary:focus, #forma-registracija button.btn.btn-primary:focus, #forma-adresa button.btn.btn-primary:focus, #forma-password-reset button.btn.btn-primary:focus, #forma-password-reset-email button.btn.btn-primary:focus,  #forma-verifikacija button.btn.btn-link:focus {
     box-shadow: none !important;
 }
 
@@ -916,9 +929,8 @@ a#navbarDropdown {
     .korpa-container {
         width: 90%;
         position: fixed;
-        bottom: 100px;
+        bottom: 85px;
         left: 4%;
-        font-size: 30px;
     }
 
     .slider-cont {

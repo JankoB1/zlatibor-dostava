@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Korpa;
 use App\Models\Objekat;
+use Composer\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -25,6 +26,8 @@ class ObjekatController extends Controller
     }
 
     public function show($slug){
+        \cache()->flush();
+
         $objekat = Objekat::query()
             ->where('slug', $slug)
             ->get()

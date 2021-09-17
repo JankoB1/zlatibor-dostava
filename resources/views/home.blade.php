@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container home">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+
+                <div class="register-pocetak">
+                    <h2>Prijavljeni ste</h2>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +16,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <button class="btn btn-primary"><a href="{{ route('pocetna') }}">Početna stranica</a></button>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

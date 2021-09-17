@@ -7,6 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Prevent Cache -->
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="cache-control" content="must-revalidate" />
+    <meta http-equiv="expires"       content="0" />
+    <meta http-equiv="expires"       content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma"        content="no-cache" />
+
     <title>@yield('title')</title>
 
     <!-- Scripts -->
@@ -72,20 +81,34 @@
 
         <div class="row bottom-navigacija">
             <div class="col-2 offset-1">
-                <a href="{{ route('kuhinje') }}"><img src="{{ asset('images/site/dostava-hrane.svg') }}"
-                                                      alt=""></a>
+                <a href="{{ route('kuhinje') }}">
+                    <img src="{{ asset('images/site/dostava-hrane.svg') }}" alt="">
+{{--                    <p>Restorani</p>--}}
+                </a>
             </div>
             <div class="col-2">
-                <a href="#"><img src="{{ asset('images/site/prodavnica.svg') }}" alt=""></a>
+                <a href="#">
+                    <img src="{{ asset('images/site/prodavnica.svg') }}" alt="">
+{{--                    <p>Prodavnica</p>--}}
+                </a>
             </div>
             <div class="col-2">
-                <a href="#"><img src="{{ asset('images/site/safe-driver.svg') }}" alt=""></a>
+                <a href="#">
+                    <img src="{{ asset('images/site/safe-driver.svg') }}" alt="">
+{{--                    <p>Safe driver</p>--}}
+                </a>
             </div>
             <div class="col-2">
-                <a href="#"><img src="{{ asset('images/site/apoteka.svg') }}" alt=""></a>
+                <a href="#">
+                    <img src="{{ asset('images/site/apoteka.svg') }}" alt="">
+{{--                    <p>Apoteka</p>--}}
+                </a>
             </div>
             <div class="col-2 ">
-                <a href="#"><img src="" alt=""></a>
+                <a href="#">
+                    <img src="" alt=""><img src="#" alt="">
+{{--                    <p>Piće</p>--}}
+                </a>
             </div>
         </div>
     </nav>

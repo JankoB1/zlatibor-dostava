@@ -39,7 +39,6 @@
                                        class="form-control @error('adresa') is-invalid @enderror"
                                        name="adresa" value="{{ old('adresa') }}" required autocomplete="adresa"
                                        autofocus>
-
                                 @error('adresa')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -50,12 +49,12 @@
 
                         <div class="form-group row">
                             <label for="apartman"
-                                   class="col-md-12 col-form-label text-md-left">{{ __('Apartman') }}</label>
+                                   class="col-md-12 col-form-label text-md-left">{{ __('Apartman (opciono)') }}</label>
 
                             <div class="col-md-12">
                                 <input id="apartman" type="text"
                                        class="form-control @error('apartman') is-invalid @enderror" name="apartman"
-                                       value="{{ old('apartman') }}" required autocomplete="apartman" autofocus>
+                                       value="" autocomplete="apartman" autofocus>
 
                                 @error('apartman')
                                 <span class="invalid-feedback" role="alert">

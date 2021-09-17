@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     @guest
         <h1>MORATE BITI ULOGOVANI KAKO BISTE NASTAVILI SA KUPOVINOM</h1>
     @else
@@ -14,10 +13,8 @@
                     <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}" alt="{{ $restoran->slug }}">
                 </div>
                 <div class="korpa-header">
-                    <h1 class="zavrsetak-kupovine">Porudžbina broj: {{ Session::get('broj-porudzbine') }}</h1>
-                    <h2 class="korpa-naziv-restorana">{{ $restoran->naziv }}</h2>
+                    <h1 class="zavrsetak-kupovine">{{ $restoran->naziv }}</h1>
                 </div>
-
                 <div class="row korpa-row">
                     <div class="col-12">
                         <table>
