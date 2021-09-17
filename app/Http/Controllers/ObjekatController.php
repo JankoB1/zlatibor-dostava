@@ -42,7 +42,7 @@ class ObjekatController extends Controller
             }
         }
 
-        //$ukupnaCena = 0;
+        $ukupnaCena = 0;
 
         if(Session::has('korpa')) {
             $staraKorpa = Session::get('korpa');
