@@ -4,7 +4,7 @@ namespace App\Models;
 
 class GoogleTimezoneModel
 {
-    private const GEOCODE_TIMEZONE_API_KEY = "AIzaSyBY3VOhNhDC8kWojcUFqxiUXFHezwZ8p7A";
+    private const GEOCODE_TIMEZONE_API_KEY = "";
 
     private const GEOCODE_API_BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json";
     private const TIMEZONE_API_BASE_URL = "https://maps.googleapis.com/maps/api/timezone/json";
