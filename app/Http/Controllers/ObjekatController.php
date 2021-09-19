@@ -24,7 +24,7 @@ class ObjekatController extends Controller
         return view('pocetna', compact('restorani', 'ukupnaCena'));
     }
 
-    public function show($slug){
+    public function show($slug) {
 
         $objekat = Objekat::query()
             ->where('slug', $slug)

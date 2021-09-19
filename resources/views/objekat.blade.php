@@ -12,46 +12,52 @@
         <h1 class="objekat-title">{{ $objekat->naziv }}</h1>
 
         @foreach($kuhinjeProizvoda as $kuhinjaProizvoda)
-            <h2 class="kuhinja-title">{{ $kuhinjaProizvoda->naziv }}</h2>
-            <div class="kuhinja-title-linija"></div>
-            @foreach($proizvodi as $proizvod)
-                @if($kuhinjaProizvoda->id == $proizvod->kuhinja_proizvoda_id)
-                    <div class="proizvod-content {{ $proizvod->id }}">
-                        <div class="proizvod-levo">
-                            <span class="expander">+</span>
-                            <h5 class="proizvod-title">{{ $proizvod->naziv }}</h5>
-                            <p>{{ $proizvod->opis }}</p>
-                            <h5>{{ $proizvod->cena }}</h5>
-                        </div>
-                        @if($proizvod->imaSliku($objekat->id))
-                            <div class="proizvod-desno">
-                                <img src="{{ asset('images/objekti/' . $slug . '/' . $proizvod->slika) }}"
-                                     alt="{{ $proizvod->slug }}">
+            <div class="kuhinja-container" id="{{ $kuhinjaProizvoda->id }}">
+                <h2 class="kuhinja-title">{{ $kuhinjaProizvoda->naziv }}</h2>
+                <div class="kuhinja-title-linija"></div>
+                <div class="kuhinja-proizvodi">
+                    @foreach($proizvodi as $proizvod)
+                        @if($kuhinjaProizvoda->id == $proizvod->kuhinja_proizvoda_id)
+                            <div class="proizvod-content {{ $proizvod->id }}">
+                                <div class="proizvod-levo">
+                                    <span class="expander">+</span>
+                                    <h5 class="proizvod-title">{{ $proizvod->naziv }}</h5>
+                                    <p>{{ $proizvod->opis }}</p>
+                                    <h5>{{ $proizvod->cena }}</h5>
+                                </div>
+                                @if($proizvod->imaSliku($objekat->id))
+                                    <div class="proizvod-desno">
+                                        <img src="{{ asset('images/objekti/' . $slug . '/' . $proizvod->slika) }}"
+                                             alt="{{ $proizvod->slug }}">
+                                    </div>
+                                @endif
+                                <div class="dodatne-informacije">
+                                    <div class="varijacije">
+                                        <form>
+                                            {!! $proizvod->ispisiVarijacijePoRedosledu() !!}
+                                        </form>
+                                    </div>
+                                    <div class="prilozi">
+                                        {!! $proizvod->ispisiPrilogePoRedosledu() !!}
+                                    </div>
+                                    <div class="komentar">
+                                        <label for="komentar">Komentar</label>
+                                        <textarea name="komentar" id="komentar" cols="30" rows="4"></textarea>
+                                    </div>
+                                    <a class="dodaj-u-korpu-btn">Dodaj u korpu</a>
+                                    <div class="broj-proizvoda-u-korpi-cont"><span
+                                            class="broj-proizvoda-u-korpi"></span>
+                                    </div>
+                                    <div class="dodaj-izbaci">
+                                        <div class="dodaj"><span>+</span></div>
+                                        <div class="izbaci"><span>-</span></div>
+                                    </div>
+                                </div>
                             </div>
                         @endif
-                        <div class="dodatne-informacije">
-                            <div class="varijacije">
-                                <form>
-                                    {!! $proizvod->ispisiVarijacijePoRedosledu() !!}
-                                </form>
-                            </div>
-                            <div class="prilozi">
-                                {!! $proizvod->ispisiPrilogePoRedosledu() !!}
-                            </div>
-                            <div class="komentar">
-                                <label for="komentar">Komentar</label>
-                                <textarea name="komentar" id="komentar" cols="30" rows="4"></textarea>
-                            </div>
-                            <a class="dodaj-u-korpu-btn">Dodaj u korpu</a>
-                            <div class="broj-proizvoda-u-korpi-cont"><span class="broj-proizvoda-u-korpi"></span></div>
-                            <div class="dodaj-izbaci">
-                                <div class="dodaj"><span>+</span></div>
-                                <div class="izbaci"><span>-</span></div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endforeach
+                </div>
+            </div>
         @endforeach
     </div>
 

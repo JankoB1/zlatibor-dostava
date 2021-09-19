@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Korpa;
 use App\Models\Objekat;
 use App\Models\Proizvod;
-use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 

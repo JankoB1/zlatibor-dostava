@@ -260,6 +260,29 @@ nasloviArr.forEach((naslov) => {
     });
 });
 
+let kuhinjeContaineri = document.querySelectorAll('.kuhinja-container');
+let kuhinjeContaineriArr = [...kuhinjeContaineri];
+let kuhinjeProizvodi = document.querySelectorAll('.kuhinja-proizvodi');
+let kuhinjeProizvodiArr = [...kuhinjeProizvodi];
+
+kuhinjeContaineriArr.forEach((kuhinjaContainer) => {
+    let kuhinjaTitle = kuhinjaContainer.querySelector('.kuhinja-title');
+    let kuhinjaProizvodi = kuhinjaContainer.querySelector('.kuhinja-proizvodi');
+    kuhinjaTitle.addEventListener('click', function() {
+        kuhinjaProizvodi.classList.toggle('active');
+        kuhinjeContaineriArr.forEach((kuhinjaContainer2) => {
+            if(kuhinjaContainer.id == kuhinjaContainer2.id) {
+                return;
+            }
+            let kuhinjaProizvodi2 = kuhinjaContainer2.querySelector('.kuhinja-proizvodi');
+            kuhinjaProizvodi2.classList.remove('active');
+        });
+        kuhinjaTitle.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 // FUNKCIJE
 
 function dodajVarijacijeNazivu(varijacije, nazivProizvoda) {

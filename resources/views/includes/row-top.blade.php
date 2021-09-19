@@ -25,6 +25,7 @@
                 @endif
             </p>
             <span class="valuta">RSD</span>
+
         </div>
     </div>
 </div>
