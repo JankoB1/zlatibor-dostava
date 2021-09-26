@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Pocetna
+    Početna
 @endsection
 
 @section('styles')

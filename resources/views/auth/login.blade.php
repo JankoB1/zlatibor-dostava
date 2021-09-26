@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Prijava
+@endsection
+
 @section('content')
     <div class="container-fluid login">
         <div class="row justify-content-center">

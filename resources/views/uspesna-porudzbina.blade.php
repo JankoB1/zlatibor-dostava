@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Uspešna Porudžbina
+@endsection
+
 @section('content')
 
     @guest

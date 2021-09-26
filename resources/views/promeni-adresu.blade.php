@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Promena Adrese
+@endsection
+
 @section('content')
     <div class="container-fluid adresa">
         <div class="row justify-content-center">

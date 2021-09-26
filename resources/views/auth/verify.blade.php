@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Verifikacija
+@endsection
+
 @section('content')
     <div class="container-fluid verifikacija">
         <div class="row justify-content-center">

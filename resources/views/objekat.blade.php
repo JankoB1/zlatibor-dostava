@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ $objekat->naziv }}
+@endsection
+
 @section('content')
 
     <div class="container-fluid objekat-container">

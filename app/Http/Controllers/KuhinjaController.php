@@ -17,6 +17,6 @@ class KuhinjaController extends Controller
     public function show($slug){
         $kuhinja = Kuhinja::query()->where('slug', $slug)->get()->first();
         $restorani = $kuhinja->getRestorani;
-        return view('kuhinja', compact('slug', 'restorani'));
+        return view('kuhinja', compact('slug', 'restorani', 'kuhinja'));
     }
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ $kuhinja->naziv }}
+@endsection
+
 @section('styles')
     <!-- Swipper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />

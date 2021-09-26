@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Pregled Porudžbine
+@endsection
+
 @section('content')
     @guest
         <h1>MORATE BITI ULOGOVANI KAKO BISTE NASTAVILI SA KUPOVINOM</h1>
