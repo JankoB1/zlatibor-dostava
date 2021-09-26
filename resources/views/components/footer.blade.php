@@ -15,5 +15,5 @@
         <a href="https://www.instagram.com/zlatibordostava/"><img src="{{ asset('images/site/instagram.svg') }}" alt="instagram"></a>
         <a href="https://www.facebook.com/profile.php?id=100072357630235"><img src="{{ asset('images/site/facebook.svg') }}" alt="facebook"></a>
     </div>
-    <div><a href="https://www.instagram.com/zlatibordostava/"><p style="color: white;">@red_combii</p></a></div>
+    <div><a href="https://www.instagram.com/zlatibordostava/"><p style="color: white;">@zlatibordostava</p></a></div>
 </footer>
