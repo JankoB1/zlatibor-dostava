@@ -8,7 +8,7 @@
 
 </head>
 <body
-    style="color: white;overflow-x: hidden;width: 40%;margin: 0 auto;background: #1E1E1E !important;padding: 50px 5%;">
+    style="color: white;overflow-x: hidden;width: 100%;margin: 0 auto;background: #1E1E1E !important;padding: 50px 5%;">
 <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}" alt="{{ $restoran->slug }}">
 <div class="korpa-header">
     <h1 class="zavrsetak-kupovine"
