@@ -25,7 +25,7 @@ Route::get('/', [ObjekatController::class, 'index'])->name('pocetna');
 Route::get('/objekat/{slug}', [ObjekatController::class, 'show'])->name('objekat');
 Route::get('/kuhnje', [KuhinjaController::class, 'index'])->name('kuhinje');
 Route::get('/restorani/{slug}', [KuhinjaController::class, 'show'])->name('restorani.kuhinja');
-Route::get('/search/', [ObjekatController::class, 'search'])->name('search');
+Route::get('/search', [ObjekatController::class, 'search'])->name('search');
 
 // Korpa
 Route::post('/dodaj-u-korpu', [ProizvodController::class, 'dodajProizvodUKorpu'])->name('dodajukorpu');

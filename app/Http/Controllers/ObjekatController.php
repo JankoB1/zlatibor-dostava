@@ -56,12 +56,20 @@ class ObjekatController extends Controller
 
         $search = $request->input('search');
 
+        $ukupnaCena = 0;
+
+        if(Session::has('korpa')) {
+            $staraKorpa = Session::get('korpa');
+            $korpa = new Korpa($staraKorpa);
+            $ukupnaCena = $korpa->ukupnaCena;
+        }
+
         $restorani = Objekat::query()
             ->where('naziv', 'LIKE', "%{$search}%")
             ->orWhere('opis', 'LIKE', "%{$search}%")
             ->get();
 
-        return view('search', compact('restorani'));
+        return view('search', compact('restorani', 'ukupnaCena'));
     }
 
 }
