@@ -23,6 +23,7 @@
                                 <img src="{{ asset('images/objekti/' . $restoran->slug . '/cover.png') }}"
                                      alt="{{ $restoran->slug }}">
                                 <h3 class="title-objekat">{{ $restoran->naziv }}</h3>
+                                <p class="vreme-dostave">30-60<br>min</p>
                                 <p>{{ $restoran->opis }}</p>
                             </a>
                         </div>

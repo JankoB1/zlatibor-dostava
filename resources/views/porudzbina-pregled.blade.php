@@ -15,6 +15,7 @@
                 <div class="korpa-header">
                     <h1 class="zavrsetak-kupovine">{{ $restoran->naziv }}</h1>
                 </div>
+                <x-cena-dostave></x-cena-dostave>
                 <div class="row korpa-row">
                     <div class="col-12">
                         <table>
@@ -34,7 +35,7 @@
                                         @endif
                                     </td>
                                     <td class="td-drugi-broj">x{{ $proizvod['broj'] }}</td>
-                                    <td class="td-cena">{{ $proizvod['cena'] }} RSD</td>
+                                    <td class="td-cena uspesna-porudzbina-cena">{{ $proizvod['cena'] }} RSD</td>
                                 </tr>
                             @endforeach
                         </table>

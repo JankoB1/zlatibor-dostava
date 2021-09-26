@@ -17,7 +17,12 @@
                          alt="{{ $restoran->slug }}">
                 </div>
                 <div class="korpa-header">
-                    <h1 class="zavrsetak-kupovine">Završetak kupovine</h1>
+                    <h1 class="zavrsetak-kupovine">Korpa</h1>
+                </div>
+
+                <x-cena-dostave></x-cena-dostave>
+
+                <div class="korpa-header">
                     <h2 class="korpa-naziv-restorana">{{ $restoran->naziv }}</h2>
                 </div>
 

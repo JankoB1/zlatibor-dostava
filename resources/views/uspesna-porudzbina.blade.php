@@ -15,6 +15,9 @@
                 </div>
                 <div class="korpa-header">
                     <h1 class="zavrsetak-kupovine">Porudžbina broj: {{ Session::get('broj-porudzbine') }}</h1>
+                    <div class="uspesna-porudzbina-info">
+                        <h3>Vaša porudžbina je uspešno poslata. Hrana će biti na vašim vratima za <span>30-60'</span></h3>
+                    </div>
                     <h2 class="korpa-naziv-restorana">{{ $restoran->naziv }}</h2>
                 </div>
 
@@ -37,7 +40,7 @@
                                         @endif
                                     </td>
                                     <td class="td-drugi-broj">x{{ $proizvod['broj'] }}</td>
-                                    <td class="td-cena">{{ $proizvod['cena'] }} RSD</td>
+                                    <td class="td-cena uspesna-porudzbina-cena">{{ $proizvod['cena'] }} RSD</td>
                                 </tr>
                             @endforeach
                         </table>

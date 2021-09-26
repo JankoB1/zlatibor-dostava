@@ -104,9 +104,9 @@
 {{--                    <p>Apoteka</p>--}}
                 </a>
             </div>
-            <div class="col-2 ">
+            <div class="col-2">
                 <a href="#">
-                    <img src="" alt=""><img src="#" alt="">
+                    <img class="pivo-slika" src="{{ asset('images/site/beer.svg') }}" alt="">
 {{--                    <p>Piće</p>--}}
                 </a>
             </div>

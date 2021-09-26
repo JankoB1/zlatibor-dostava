@@ -115,6 +115,14 @@ input[type=radio] {
     padding: 15px 0;
 }
 
+.td-cena.uspesna-porudzbina-cena {
+    padding: 10px 0 !important;
+}
+
+.pivo-slika {
+    width: 120%;
+}
+
 .slider-container {
     margin-top: 19px;
     padding-bottom: 0;
@@ -304,6 +312,23 @@ footer ul li strong {
 .title-objekat {
     padding: 10px;
     color: #2C2C2C;
+    width: fit-content;
+    display: inline-block;
+    font-size: 20px;
+    padding-bottom: 14px;
+}
+
+p.vreme-dostave {
+    display: inline-block;
+    width: fit-content;
+    float: right;
+    vertical-align: top !important;
+    margin-left: auto !important;
+    text-align: center;
+    color: #2C2C2C;
+    background: #dcdcdc;
+    padding: 5px;
+    border-bottom-right-radius: 10px;
 }
 
 .korpa-container {
@@ -377,7 +402,7 @@ footer img {
 
 .korpa-row {
     padding: 0 5% 150px 5%;
-    margin-top: -30px;
+    margin-top: 0px;
     margin-right: 0;
 }
 
@@ -627,9 +652,8 @@ a.dodaj-u-korpu-btn:hover, .dodaj-izbaci div:hover, .expander:hover {
 }
 
 .korpa-header h1, .korpa-header h2 {
-    padding: 10px 5%;
+    padding: 10px 6%;
     position: relative;
-    top: -40px;
     font-size: 25px;
 }
 
@@ -637,6 +661,71 @@ a.dodaj-u-korpu-btn:hover, .dodaj-izbaci div:hover, .expander:hover {
     background: black;
     color: #FFC822;
     font-size: 25px;
+    top: -40px;
+}
+
+.uspesna-porudzbina-info {
+    padding: 10px;
+    margin: -30px 4% 0 4%;
+    border: 1px solid #FFC822;
+    border-radius: 10px;
+}
+
+.uspesna-porudzbina-info h3 {
+    text-align: center;
+    font-size: 20px;
+    color: #FFC822;
+}
+
+.uspesna-porudzbina-info span {
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0 auto;
+    padding: 25px 12px;
+    border-radius: 50%;
+    background: #ffc822;
+    color: #2c2c2c;
+}
+
+.obavestenje-cena-dostave {
+    margin: -30px 4% 20px 4%;
+    border: 2px solid #CD272E;
+    border-radius: 10px;
+}
+
+.obavestenje-cena-dostave h3 {
+    padding: 10px;
+    background: #CD272E;
+    color: white;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    text-transform: uppercase;
+}
+
+.obavestenje-cena-dostave p {
+    text-align: center;
+    padding: 0 10px 10px 10px;
+    border-bottom: 1px solid #CD272E;
+    margin-bottom: 0;
+}
+
+.obavestenje-cena-dostave table {
+    width: 100%;
+    text-align: center;
+}
+
+.obavestenje-cena-dostave table td {
+    width: 50%;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.obavestenje-cena-dostave table tr {
+    border-bottom: 1px solid #CD272E;
+}
+
+.obavestenje-cena-dostave .zadnji-red {
+    border-bottom: 0 !important;
 }
 
 .forma-search input {

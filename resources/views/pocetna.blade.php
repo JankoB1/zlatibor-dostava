@@ -18,10 +18,7 @@
 
         <x-glavni-slider></x-glavni-slider>
 
-
-        {{--        @if(Session::has('korpa'))--}}
-{{--            {{ json_encode(Session::get('korpa')) }}--}}
-{{--        @endif--}}
+{{--        <x-input-mapa></x-input-mapa>--}}
 
         <div class="text-i-adresa-container">
             <h4>Restaurants, Groceries, Your Cars and <span>more</span>, delivered to your door!</h4>
@@ -41,7 +38,7 @@
                                 <p>{{ $restoran->naziv }}</p>
                                 <div class="kuhinje">
                                     @foreach($restoran->getKuhinje as $kuhinja)
-                                        <span>{{ $kuhinja->naziv }}</span>
+                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje)), @endif</span>
                                     @endforeach
                                 </div>
                             </a>
@@ -68,7 +65,7 @@
                                 <p>{{ $restoran->naziv }}</p>
                                 <div class="kuhinje">
                                     @foreach($restoran->getKuhinje as $kuhinja)
-                                        <span>{{ $kuhinja->naziv }}</span>
+                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje)), @endif</span>
                                     @endforeach
                                 </div>
                             </a>
@@ -95,7 +92,7 @@
                                 <p>{{ $restoran->naziv }}</p>
                                 <div class="kuhinje">
                                     @foreach($restoran->getKuhinje as $kuhinja)
-                                        <span>{{ $kuhinja->naziv }}</span>
+                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje)), @endif</span>
                                     @endforeach
                                 </div>
                             </a>
@@ -122,7 +119,7 @@
                                 <p>{{ $restoran->naziv }}</p>
                                 <div class="kuhinje">
                                     @foreach($restoran->getKuhinje as $kuhinja)
-                                        <span>{{ $kuhinja->naziv }}</span>
+                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje)), @endif</span>
                                     @endforeach
                                 </div>
                             </a>
