@@ -367,7 +367,7 @@ p.vreme-dostave {
 }
 
 .dodatne-informacije.active {
-    max-height: 1000px;
+    max-height: 1500px;
 }
 
 .expander {
@@ -391,7 +391,7 @@ p.vreme-dostave {
 
 footer .drustvene-mreze {
     width: fit-content;
-    margin: 0 auto 20px auto;
+    margin: 20px auto;
 }
 
 footer img {
@@ -927,8 +927,8 @@ a#navbarDropdown {
     height: 50px;
     left: 70px;
     background: rgba(0, 0, 0, .6);
-    padding: 7px 10px;
-    font-size: 25px;
+    padding: 12px 10px;
+    font-size: 20px;
     color: white;
 }
 
@@ -1002,6 +1002,39 @@ a#navbarDropdown {
     max-height: 10000px;
 }
 
+.footer-info {
+    padding: 0 0 20px 5%;
+    background: #747474;
+}
+
+.footer-info p {
+    text-align: left !important;
+}
+
+.footer-info h5:first-child {
+    padding-top: 20px;
+}
+
+.footer-info h5 {
+    margin-top: 20px;
+}
+
+.footer-linija {
+    width: 10%;
+    height: 2px;
+    background: #CD272E;
+    margin: 0 auto 10px 0;
+}
+
+.footer-info a {
+    color: white;
+    display: block;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 620px) {
 
     #app {
@@ -1041,7 +1074,7 @@ a#navbarDropdown {
     }
 
     footer {
-        padding: 50px 0 90px 0;
+        padding: 0 0 90px 0;
     }
 
     .container.pocetna {
@@ -1081,4 +1114,8 @@ a#navbarDropdown {
         padding-top: 8px;
     }
 
+}
+
+.proizvod-content.\32 64, .proizvod-content.\32 65 {
+    display: none;
 }

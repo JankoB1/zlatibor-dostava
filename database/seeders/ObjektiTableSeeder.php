@@ -19,12 +19,12 @@ class ObjektiTableSeeder extends Seeder
             ['naziv' => 'Irish pub', 'slug' => 'irish-pub', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Central Inn Gastro Bar', 'slug' => 'central-inn-gastro-bar', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Restoran Gozba', 'slug' => 'restoran-gozba', 'vrsta_objekta_id' => '1'],
-            ['naziv' => 'Pizza-pasta bar La Montagina', 'slug' => 'pizza-pasta-bar-la-montagina', 'vrsta_objekta_id' => '1'],
+            ['naziv' => 'Pizza-pasta bar La Montagnia', 'slug' => 'pizza-pasta-bar-la-montagnia', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Grand Restoran', 'slug' => 'grand-restoran', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Gondola Gastro Bar', 'slug' => 'gondola-gastro-bar', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Restoran Jezero', 'slug' => 'restoran-jezero', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Restoran Bajka', 'slug' => 'restoran-bajka', 'vrsta_objekta_id' => '1'],
-            ['naziv' => 'Dusko', 'slug' => 'dusko', 'vrsta_objekta_id' => '1'],
+            ['naziv' => 'Djusko', 'slug' => 'dusko', 'vrsta_objekta_id' => '1'],
             ['naziv' => 'Donut Factory', 'slug' => 'donut-factory', 'vrsta_objekta_id' => '1']
         ];
 

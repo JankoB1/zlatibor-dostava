@@ -51,7 +51,7 @@ ukloniBtnsArr.forEach((btn) => {
 
 let btnContainer = document.querySelector('.korpa-container');
 if (window.location.href.indexOf("porudzbina") != -1) {
-    btnContainer.innerHTML = '<a href="http://zlatibordostava.rs/vrati-na-pocetnu">' +
+    btnContainer.innerHTML = '<a href="https://zlatibordostava.rs/vrati-na-pocetnu">' +
         '<p class="korpa-text">Vrati se na početnu stranicu</p>' +
         '<a/>';
 }

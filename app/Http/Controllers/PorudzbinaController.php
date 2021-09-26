@@ -96,7 +96,7 @@ class PorudzbinaController extends Controller
         {
             $message->from(env('MAIL_FROM_ADDRESS', 'jblagoj01@gmail.com'));
             $message->to($data['email'],$data['ime']);
-            $message->subject('NASLOV PROBA');
+            $message->subject('Vaša Porudžbina - Rad Combi Dostava');
         });
 
         return redirect()->route('porudzbina.uspesna');

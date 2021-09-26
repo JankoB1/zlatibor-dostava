@@ -66,12 +66,12 @@
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="{{ route('objekat', ['slug' => 'pizza-pasta-bar-la-montagina']) }}">
+                    <a href="{{ route('objekat', ['slug' => 'pizza-pasta-bar-la-montagnia']) }}">
                         <img
-                            src="{{ asset('/images/objekti/pizza-pasta-bar-la-montagina/cover.png') }}"
+                            src="{{ asset('/images/objekti/pizza-pasta-bar-la-montagnia/cover.png') }}"
                             alt="pizza pasta bar la montagina">
                         <img class="slajder-logo"
-                             src="{{ asset('/images/objekti/pizza-pasta-bar-la-montagina/logo.png') }}"
+                             src="{{ asset('/images/objekti/pizza-pasta-bar-la-montagnia/logo.png') }}"
                              alt="pizza pasta bar la montagina logo">
                         <h1>Pizza Pasta Bar La Montagnia</h1>
                     </a>

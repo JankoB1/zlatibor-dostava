@@ -86,6 +86,7 @@ class VarijacijaTableSeeder extends Seeder
             ['naziv' => 'Jagoda', 'slug' => 'jagoda', 'vrsta_varijacije_id' => '6'],
             ['naziv' => 'Kobasica sa sirom', 'slug' => 'kobasica-sa-sirom', 'vrsta_varijacije_id' => '4'],
             ['naziv' => '28cm', 'slug' => '28cm', 'vrsta_varijacije_id' => '2'],
+            ['naziv' => 'Makarone', 'slug' => 'makarone', 'vrsta_varijacije_id' => '9'],
         ];
 
         foreach ($varijacije as $varijacija) {
