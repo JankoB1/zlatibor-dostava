@@ -418,6 +418,54 @@ footer img {
     font-size: 25px;
 }
 
+.objekat-container .kuhinja-container {
+    background: #CD272E;
+    margin: 0 5%;
+    padding: 5px 0;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.objekat-container .kuhinja-title-container {
+    padding-bottom: 10px !important;
+}
+
+.objekat-container .kuhinja-title {
+    width: fit-content;
+    display: inline-block;
+    margin: 20px auto 0 18px !important;
+}
+
+.kuhinja-title-container span {
+    float: right;
+    display: inline-block;
+    font-size: 25px;
+    margin: 5px 20px 0 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.kuhinja-title-container span.active {
+    transform: rotate(180deg);
+}
+
+.kuhinja-container.prvi {
+    margin-top: -30px;
+    border-radius: 10px 10px 0 0;
+}
+
+.objekat-container .kuhinja-container:last-child {
+    margin-bottom: 20px;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 20px;
+}
+
+.objekat-container .kuhinja-container .kuhinja-title {
+    margin-top: 10px !important;
+}
+
+.objekat-container .kuhinja-title-linija {
+    background: #FFC822 !important;
+}
+
 .objekat-container .proizvod-levo, .objekat-container .proizvod-desno {
     display: inline-block;
 }
@@ -996,6 +1044,7 @@ a#navbarDropdown {
     max-height: 0;
     transition: .4s ease-in-out;
     overflow: hidden;
+    background: #1e1e1e;
 }
 
 .kuhinja-proizvodi.active {
@@ -1035,6 +1084,25 @@ footer p {
     margin-bottom: 10px;
 }
 
+.kuhinja-stranica {
+    padding: 0 !important;
+}
+
+.kuhinja-stranica .sve-kuhinje {
+    padding: 0 5% !important;
+}
+
+.kuhinja-stranica .row {
+    padding-top: 30px;
+}
+
+.kuhinja-stranica .vreme-dostave {
+    margin-top: 0;
+    background: #dcdcdc;
+    color: #2c2c2c;
+    opacity: 1;
+}
+
 @media only screen and (max-width: 620px) {
 
     #app {
@@ -1061,7 +1129,7 @@ footer p {
         width: 90%;
         position: fixed;
         bottom: 85px;
-        left: 4%;
+        left: 5%;
     }
 
     .slider-cont {

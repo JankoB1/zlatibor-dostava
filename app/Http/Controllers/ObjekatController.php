@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Korpa;
+use App\Models\Kuhinja;
 use App\Models\Objekat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -12,6 +13,7 @@ class ObjekatController extends Controller
 
     public function index() {
         $restorani = Objekat::dohvatiSveRestorane();
+        $kuhinje = Kuhinja::dohvatiSveKuhinje();
 
         $ukupnaCena = 0;
 
@@ -21,7 +23,7 @@ class ObjekatController extends Controller
             $ukupnaCena = $korpa->ukupnaCena;
         }
 
-        return view('pocetna', compact('restorani', 'ukupnaCena'));
+        return view('pocetna', compact('restorani', 'kuhinje', 'ukupnaCena'));
     }
 
     public function show($slug) {

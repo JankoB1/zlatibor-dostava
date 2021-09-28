@@ -12,11 +12,15 @@
 
 @section('content')
 
+    @include('includes.row-top')
+
     <x-glavni-slider></x-glavni-slider>
 
-    <div class="container">
+    <div class="container kuhinja-stranica">
 
         <div class="sve-kuhinje">
+            <h2 class="kuhinja-title">{{ $kuhinja->naziv }}</h2>
+            <div class="kuhinja-title-linija"></div>
             <div class="row">
                 @foreach($restorani as $restoran)
                     <div class="col-12">
@@ -39,6 +43,7 @@
 
     @section('scriptsBottom')
         <!-- Swipper JS -->
+            <script src="{{ asset('js/pocetna.js') }}" type="text/javascript"></script>
             <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
             <script>

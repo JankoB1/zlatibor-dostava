@@ -16,9 +16,11 @@
         <h1 class="objekat-title">{{ $objekat->naziv }}</h1>
 
         @foreach($kuhinjeProizvoda as $kuhinjaProizvoda)
-            <div class="kuhinja-container" id="{{ $kuhinjaProizvoda->id }}">
-                <h2 class="kuhinja-title">{{ $kuhinjaProizvoda->naziv }}</h2>
-                <div class="kuhinja-title-linija"></div>
+            <div class="kuhinja-container @if($loop->index == 0)prvi @endif" id="{{ $kuhinjaProizvoda->id }}">
+                <div class="kuhinja-title-container">
+                    <h2 class="kuhinja-title">{{ $kuhinjaProizvoda->naziv }}</h2><span>&dtrif;</span>
+                    <div class="kuhinja-title-linija"></div>
+                </div>
                 <div class="kuhinja-proizvodi">
                     @foreach($proizvodi as $proizvod)
                         @if($kuhinjaProizvoda->id == $proizvod->kuhinja_proizvoda_id)

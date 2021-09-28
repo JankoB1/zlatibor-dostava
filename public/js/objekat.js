@@ -266,10 +266,12 @@ let kuhinjeProizvodi = document.querySelectorAll('.kuhinja-proizvodi');
 let kuhinjeProizvodiArr = [...kuhinjeProizvodi];
 
 kuhinjeContaineriArr.forEach((kuhinjaContainer) => {
-    let kuhinjaTitle = kuhinjaContainer.querySelector('.kuhinja-title');
     let kuhinjaProizvodi = kuhinjaContainer.querySelector('.kuhinja-proizvodi');
-    kuhinjaTitle.addEventListener('click', function() {
+    let kuhinjaTitleContainer = kuhinjaContainer.querySelector('.kuhinja-title-container');
+    let strelica = kuhinjaContainer.querySelector('span');
+    kuhinjaTitleContainer.addEventListener('click', function() {
         kuhinjaProizvodi.classList.toggle('active');
+        strelica.classList.toggle('active');
         // kuhinjeContaineriArr.forEach((kuhinjaContainer2) => {
         //     if(kuhinjaContainer.id == kuhinjaContainer2.id) {
         //         return;

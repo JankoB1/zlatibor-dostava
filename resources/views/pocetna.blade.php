@@ -51,23 +51,18 @@
             </div>
         </div>
 
-        <!-- Hrana blizu vas -->
+        <!-- Kategorije -->
         <div class="hrana-blizu-vas slider-objekti">
-            <h4>Food near you</h4>
+            <h4>Kategorije</h4>
             <div class="crvena-linija"></div>
             <div class="swiper-container mySwiper4">
                 <div class="swiper-wrapper">
-                    @foreach($restorani as $restoran)
+                    @foreach($kuhinje as $kuhinja)
                         <div class="swiper-slide">
-                            <a href="{{ route('objekat', ['slug' => $restoran->slug]) }}">
-                                <img src="{{ asset('images/objekti/'. $restoran->slug . '/cover.png') }}"
-                                     alt="{{ $restoran->slug }}">
-                                <p>{{ $restoran->naziv }}</p>
-                                <div class="kuhinje">
-                                    @foreach($restoran->getKuhinje as $kuhinja)
-                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje)), @endif</span>
-                                    @endforeach
-                                </div>
+                            <a href="{{ route('restorani.kuhinja', ['slug' => $kuhinja->slug]) }}">
+                                <img src="{{ asset('images/kuhinje/' . 'categories-'. $kuhinja->slug . '.png') }}"
+                                     alt="{{ $kuhinja->slug }}">
+                                <p>{{ $kuhinja->naziv }}</p>
                             </a>
                         </div>
                     @endforeach

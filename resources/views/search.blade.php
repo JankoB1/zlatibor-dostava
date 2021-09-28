@@ -16,7 +16,7 @@
 
     <x-glavni-slider></x-glavni-slider>
 
-    <div class="container">
+    <div class="container kuhinja-stranica">
 
         <div class="sve-kuhinje">
             <div class="row">
@@ -41,6 +41,7 @@
 
     @section('scriptsBottom')
         <!-- Swipper JS -->
+            <script src="{{ asset('js/pocetna.js') }}" type="text/javascript"></script>
             <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
             <script>
