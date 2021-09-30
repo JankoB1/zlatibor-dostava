@@ -87,25 +87,25 @@
                 </a>
             </div>
             <div class="col-2">
-                <a href="#">
+                <a href="{{ route('priprema') }}">
                     <img src="{{ asset('images/site/prodavnica.svg') }}" alt="">
 {{--                    <p>Prodavnica</p>--}}
                 </a>
             </div>
             <div class="col-2">
-                <a href="#">
+                <a href="{{ route('priprema') }}">
                     <img src="{{ asset('images/site/safe-driver.svg') }}" alt="">
 {{--                    <p>Safe driver</p>--}}
                 </a>
             </div>
             <div class="col-2">
-                <a href="#">
+                <a href="{{ route('priprema') }}">
                     <img src="{{ asset('images/site/apoteka.svg') }}" alt="">
 {{--                    <p>Apoteka</p>--}}
                 </a>
             </div>
             <div class="col-2">
-                <a href="#">
+                <a href="{{ route('priprema') }}">
                     <img class="pivo-slika" src="{{ asset('images/site/beer.svg') }}" alt="">
 {{--                    <p>Piće</p>--}}
                 </a>

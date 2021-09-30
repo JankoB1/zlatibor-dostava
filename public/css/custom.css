@@ -433,6 +433,7 @@ footer img {
     width: fit-content;
     display: inline-block;
     margin: 20px auto 0 18px !important;
+    font-size: 22px;
 }
 
 .kuhinja-title-container span {
@@ -1103,6 +1104,21 @@ footer p {
     opacity: 1;
 }
 
+.vrati-se-na-pocetnu h5 {
+    text-align: center;
+    background: #FFC822;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px;
+    color: #1e1e1e;
+    text-transform: uppercase;
+}
+
+.desktop-u-pripremi.sadrzaj-priprema {
+    margin-top: 30vh !important;
+}
+
 @media only screen and (max-width: 620px) {
 
     #app {
@@ -1143,10 +1159,11 @@ footer p {
 
     footer {
         padding: 0 0 90px 0;
+        margin-top: 30px;
     }
 
     .container.pocetna {
-        padding: 0 0 50px 0;
+        padding: 0;
     }
 
     .mySwiper .swiper-slide img {

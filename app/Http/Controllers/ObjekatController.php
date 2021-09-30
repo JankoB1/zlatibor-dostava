@@ -74,4 +74,8 @@ class ObjekatController extends Controller
         return view('search', compact('restorani', 'ukupnaCena'));
     }
 
+    public function priprema() {
+        return view('stranica-u-pripremi');
+    }
+
 }

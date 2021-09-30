@@ -147,7 +147,6 @@
                 },
                 loop: true
             });
-
         }
 
     </script>
