@@ -44,6 +44,8 @@
                                 <br>
                             @endforeach
                         @endif
+                        <br>
+                        {{ $proizvod['proizvod']['komentar'] }}
                     </td>
                     <td class="td-drugi-broj"
                         style="padding: 10px 20px !important;vertical-align: top;color: white;font-size: 16px;">

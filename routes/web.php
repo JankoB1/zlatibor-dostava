@@ -28,6 +28,11 @@ Route::get('/restorani/{slug}', [KuhinjaController::class, 'show'])->name('resto
 Route::get('/search', [ObjekatController::class, 'search'])->name('search');
 Route::get('/sadrzaj-u-pripremi', [ObjekatController::class, 'priprema'])->name('priprema');
 
+// Sitemap
+Route::get('/sitemap.xml', function () {
+   return redirect('/sitemap.xml');
+});
+
 // Korpa
 Route::post('/dodaj-u-korpu', [ProizvodController::class, 'dodajProizvodUKorpu'])->name('dodajukorpu');
 Route::post('/smanji-za-1/{naziv}', [ProizvodController::class, 'smanjiZaJedan'])->name('korpa.smanjizajedan');

@@ -96,14 +96,14 @@ class PorudzbinaController extends Controller
         {
             $message->from(env('MAIL_FROM_ADDRESS', 'jblagoj01@gmail.com'));
             $message->to($data['email'],$data['ime']);
-            $message->subject('Vaša Porudžbina - Rad Combi Dostava');
+            $message->subject('Vaša Porudžbina - Red Combi Dostava');
         });
 
         Mail::send('email.porudzbina', $data, function($message) use ($data)
         {
             $message->from(env('MAIL_FROM_ADDRESS', 'jblagoj01@gmail.com'));
-            $message->to('zlatibor@zlatibordostava.rs', 'Zlatibor Dostava');
-            $message->subject('Vaša Porudžbina - Rad Combi Dostava');
+            $message->to('dostava@zlatibordostava.rs', 'Zlatibor Dostava');
+            $message->subject('Vaša Porudžbina - Red Combi Dostava');
         });
 
         return redirect()->route('porudzbina.uspesna');
