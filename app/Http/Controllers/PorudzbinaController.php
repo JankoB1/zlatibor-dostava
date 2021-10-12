@@ -106,6 +106,14 @@ class PorudzbinaController extends Controller
             $message->subject('Vaša Porudžbina - Red Combi Dostava');
         });
 
+        Mail::send('email.porudzbina', $data, function($message) use ($data)
+        {
+            $message->from(env('MAIL_FROM_ADDRESS', 'jblagoj01@gmail.com'));
+            $message->to('temelkovskiluka07@gmail.com', 'Zlatibor Dostava');
+            $message->subject('Vaša Porudžbina - Red Combi Dostava');
+
+        });
+
         return redirect()->route('porudzbina.uspesna');
     }
 

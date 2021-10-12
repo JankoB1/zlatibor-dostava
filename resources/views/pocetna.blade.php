@@ -73,7 +73,6 @@
             </div>
         </div>
 
-
     <x-footer></x-footer>
 
 @endsection
