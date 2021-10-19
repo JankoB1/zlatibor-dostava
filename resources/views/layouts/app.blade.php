@@ -40,6 +40,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="./style.css" />
     @yield('styles')
     @yield('scriptsTop')
 </head>

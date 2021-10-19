@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Mapa testiranje
+Route::get('/mapa', function () {
+   return view('mapa');
+});
+
 // Pocetna i objekti
 Route::get('/', [ObjekatController::class, 'index'])->name('pocetna');
 Route::get('/objekat/{slug}', [ObjekatController::class, 'show'])->name('objekat');
@@ -55,3 +60,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function() {
 });
+
+// Unos i izmena proizvoda

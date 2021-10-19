@@ -18,7 +18,7 @@
 
         <x-glavni-slider></x-glavni-slider>
 
-{{--        <x-input-mapa></x-input-mapa>--}}
+        {{--        <x-input-mapa></x-input-mapa>--}}
 
         <div class="text-i-adresa-container">
             <h4>Restaurants, Groceries, Your Cars and <span>more</span>, delivered to your door!</h4>
@@ -38,7 +38,8 @@
                                 <p>{{ $restoran->naziv }}</p>
                                 <div class="kuhinje">
                                     @foreach($restoran->getKuhinje as $kuhinja)
-                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje)), @endif</span>
+                                        <span>{{ $kuhinja->naziv }}@if($loop->index + 1 < count($restoran->getKuhinje))
+                                                , @endif</span>
                                     @endforeach
                                 </div>
                             </a>
@@ -78,6 +79,7 @@
 @endsection
 
 @section('scriptsBottom')
+
     <!-- Swipper JS -->
     <script src="{{ asset('js/pocetna.js') }}" type="text/javascript"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>

@@ -14,8 +14,17 @@
                 <div class="swiper-slide">
                     <a href="{{ route('objekat', ['slug' => 'central-inn-gastro-bar']) }}">
                         <img src="{{ asset('/images/objekti/central-inn-gastro-bar/cover.png') }}"
-                             alt="central inn gastro bar">
+                             alt="restoran beli dvor">
                         <img class="slajder-logo" src="{{ asset('/images/objekti/central-inn-gastro-bar/logo.png') }}"
+                             alt="restoran beli dvor logo">
+                        <h1>Restoran Beli Dvor</h1>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="{{ route('objekat', ['slug' => 'restoran-beli-dvor']) }}">
+                        <img src="{{ asset('/images/objekti/restoran-beli-dvor/cover.png') }}"
+                             alt="central inn gastro bar">
+                        <img class="slajder-logo" src="{{ asset('/images/objekti/restoran-beli-dvor/logo.png') }}"
                              alt="central inn gastro bar logo">
                         <h1>Central Inn Gastro Bar</h1>
                     </a>
@@ -45,6 +54,24 @@
                         <img class="slajder-logo" src="{{ asset('/images/objekti/restoran-bajka/logo.png') }}"
                              alt="restoran bajka logo">
                         <h1>Restoran Bajka</h1>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="{{ route('objekat', ['slug' => 'feniks-poslasticarnica']) }}">
+                        <img src="{{ asset('/images/objekti/feniks-poslasticarnica/cover.png') }}"
+                             alt="feniks poslasticarnica">
+                        <img class="slajder-logo" src="{{ asset('/images/objekti/feniks-poslasticarnica/logo.png') }}"
+                             alt="feniks poslasticarnica logo">
+                        <h1>Feniks Poslastičarnica</h1>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="{{ route('objekat', ['slug' => 'feniks-palacinkarnica']) }}">
+                        <img src="{{ asset('/images/objekti/feniks-palacinkarnica/cover.png') }}"
+                             alt="feniks palacinkarnica">
+                        <img class="slajder-logo" src="{{ asset('/images/objekti/feniks-palacinkarnica/logo.png') }}"
+                             alt="feniks palacinkarnica logo">
+                        <h1>Feniks Palačinkarnica</h1>
                     </a>
                 </div>
                 <div class="swiper-slide">
