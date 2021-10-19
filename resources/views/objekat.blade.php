@@ -71,5 +71,6 @@
 @endsection
 
 @section('scriptsBottom')
+    <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/objekat.js') }}" type="text/javascript"></script>
 @endsection
