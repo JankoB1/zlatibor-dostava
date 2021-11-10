@@ -24,13 +24,13 @@
                     <div class="uspesna-porudzbina-info">
                         <h3>Da biste potvrdili porudžbinu potrebno je da pošaljete broj porudžbine preko
                             <strong>SMS-a</strong>. To možete učiniti <strong>klikom na ikonicu ispod.</strong></h3>
-                        <h3> Nakon što pošaljete poruku Vaša porudžbina će biti aktivna i neko od dostavljača će
-                            Vas kontaktirati.</h3>
                         <div class="viber-sms">
                             <a href="sms:+381611609716;?&body={{ Session::get('broj-porudzbine') }}"><img width="52"
                                                                                                         src="{{ asset('images/site/sms.png') }}"
                                                                                                         alt="sms"></a>
                         </div>
+                        <h3> Nakon što pošaljete poruku Vaša porudžbina će biti aktivna i neko od dostavljača će
+                            Vas kontaktirati.</h3><br>
                         <h3>Prosečno vreme dostave je<span>30-60'</span></h3>
                     </div>
                     <div class="google-ocena">
