@@ -36,7 +36,7 @@
         </div>
 
         <div class="svi-restorani">
-            <h4>All restaurants</h4>
+            <h4>Svi restorani</h4>
             <div class="crvena-linija"></div>
             <div class="row">
                 @foreach($restorani as $restoran)
