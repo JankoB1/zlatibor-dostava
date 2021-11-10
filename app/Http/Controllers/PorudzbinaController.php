@@ -48,6 +48,10 @@ class PorudzbinaController extends Controller
         return view('porudzbina-pregled', compact('proizvodi', 'ukupnaCena', 'restoran'));
     }
 
+    public function prikaziPotvrduPorudzbine() {
+        return view('porudzbina-potvrdi');
+    }
+
     public function posaljiPorudzbinu(User $user) {
 
         $staraKorpa = Session::get('korpa');
@@ -109,7 +113,7 @@ class PorudzbinaController extends Controller
         Mail::send('email.porudzbina', $data, function($message) use ($data)
         {
             $message->from(env('MAIL_FROM_ADDRESS', 'jblagoj01@gmail.com'));
-            $message->to('temelkovskiluka07@gmail.com', 'Zlatibor Dostava');
+            $message->to('dostavazlatibor@gmail.com', 'Zlatibor Dostava');
             $message->subject('Vaša Porudžbina - Red Combi Dostava');
 
         });

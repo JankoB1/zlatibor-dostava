@@ -85,6 +85,7 @@
             <h1>MORATE VERIFIKOVATI EMAIL</h1>
         @endif
     @endguest
+    <x-footer></x-footer>
 @endsection
 
 @section('scriptsBottom')

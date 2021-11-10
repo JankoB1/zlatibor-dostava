@@ -25,4 +25,8 @@ class Varijacija extends Model
             ->first()
             ->cena;
     }
+
+    public static function dohvatiSveVarijacije() {
+        return Varijacija::all();
+    }
 }

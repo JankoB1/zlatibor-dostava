@@ -49,6 +49,7 @@ Route::get('/pregled-porudzbine', [PorudzbinaController::class, 'prikaziPorudzbi
 Route::get('/uspesna-porudzbina', [PorudzbinaController::class, 'prikaziUspesnuPorudzbinu'])->name('porudzbina.uspesna');
 Route::get('/posalji-porudzbinu/{user}', [PorudzbinaController::class, 'posaljiPorudzbinu'])->name('porudzbina.posalji');
 Route::get('/vrati-na-pocetnu', [ProizvodController::class, 'resetujKorpu'])->name('korpa.resetuj');
+Route::get('/potvrdi-porudzbinu', [PorudzbinaController::class, 'prikaziPotvrduPorudzbine'])->name('porudzbina.potvrdi');
 
 // User
 Route::get('/promeni-adresu', [UserController::class, 'prikaziPromeniAdresu'])->middleware('auth')->name('user.prikazipromeniadresu');
@@ -59,6 +60,9 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function() {
+    Route::get('/admin', [UserController::class, 'prikaziAdmin'])->name('admin.prikaziAdmin');
+    Route::get('/admin/proizvod/novi', [ProizvodController::class, 'prikaziDodajNoviProizvod'])->name('admin.proizvod.prikaziDodajNovi');
+    Route::patch('/dodaj-novi-proizvod', [ProizvodController::class, 'dodajNoviProizvod'])->name('admin.proizvod.dodajNovi');
 });
 
 // Unos i izmena proizvoda

@@ -16,4 +16,8 @@ class VrstaVarijacije extends Model
     public function getVarijacije() {
         return $this->hasMany(Varijacija::class, 'vrsta_varijacije_id');
     }
+
+    public static function dohvatiSveVrsteVarijacija() {
+        return VrstaVarijacije::all();
+    }
 }

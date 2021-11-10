@@ -81,6 +81,7 @@
             </div>
         @endif
     @endguest
+    <x-footer></x-footer>
 @endsection
 
 @section('scriptsBottom')

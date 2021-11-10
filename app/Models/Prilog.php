@@ -21,4 +21,8 @@ class Prilog extends Model
             ->first()
             ->cena;
     }
+
+    public static function dohvatiSvePriloge() {
+        return Prilog::all();
+    }
 }

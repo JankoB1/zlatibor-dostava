@@ -22,4 +22,8 @@ class UserController extends Controller
 
         return redirect()->route('pocetna');
     }
+
+    public function prikaziAdmin() {
+        return view('admin/admin');
+    }
 }

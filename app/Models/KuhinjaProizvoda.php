@@ -14,4 +14,8 @@ class KuhinjaProizvoda extends Model
     public function getRestorani() {
         return $this->belongsToMany(Objekat::class, 'kuhinja_proizvod_objekat', 'kuhinja_proizvoda_id');
     }
+
+    public static function getSveKuhinjeProizvoda() {
+        return KuhinjaProizvoda::all();
+    }
 }

@@ -251,6 +251,7 @@ pluseviArr.forEach((plus) => {
     });
 });
 
+
 nasloviArr.forEach((naslov) => {
     naslov.addEventListener('click', function () {
         let proizvodLevo = naslov.parentElement;
