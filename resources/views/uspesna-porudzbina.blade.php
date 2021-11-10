@@ -23,7 +23,7 @@
                     <h1 class="zavrsetak-kupovine">Porudžbina broj: {{ Session::get('broj-porudzbine') }}</h1>
                     <div class="uspesna-porudzbina-info">
                         <h3>Da biste potvrdili porudžbinu potrebno je da pošaljete broj porudžbine preko
-                            <strong>SMS-a</strong>. To možete učiniti klikom na ikonicu ispod.</h3>
+                            <strong>SMS-a</strong>. To možete učiniti <strong>klikom na ikonicu ispod.</strong></h3>
                         <h3> Nakon što pošaljete poruku Vaša porudžbina će biti aktivna i neko od dostavljača će
                             Vas kontaktirati.</h3>
                         <div class="viber-sms">
