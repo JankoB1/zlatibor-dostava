@@ -28,6 +28,9 @@
                                 <div class="proizvod-levo">
                                     <span class="expander">+</span>
                                     <h5 class="proizvod-title">{{ $proizvod->naziv }}</h5>
+                                    @if(\Illuminate\Support\Facades\Auth::user()->rola == 'admin')
+                                        <a href="{{ route('admin.proizvod.promeni', ['id' => $proizvod->id]) }}">Edit</a>
+                                    @endif
                                     <p>{{ $proizvod->opis }}</p>
                                     <h5>{{ $proizvod->cena }}</h5>
                                 </div>

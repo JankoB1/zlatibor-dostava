@@ -18,19 +18,105 @@ console.log(mapaVVObjekti);
 
 let vrstaVarijacije = document.getElementById('vrsta-varijacije');
 vrstaVarijacije.onchange = function () {
-    let posebnaVarijacijaCont = document.querySelector('.posebna-varijacija');
-    let formaVarijacije = '<select name="varijacija[]" id="varijacija">';
+
+    let varijacijeCont = document.querySelector('.varijacije');
+
+    let posebnaVarijacijaCont = document.createElement('div');
+    posebnaVarijacijaCont.classList.add('posebna-varijacija');
+
+    let posebnaVarijacijaSegment = document.createElement('div');
+    posebnaVarijacijaSegment.classList.add('posebna-varijacija-segment');
+
+    let select = document.createElement('select');
+    select.name = 'varijacija[]';
+    select.id = 'varijacija';
+
     mapaVVObjekti.forEach((vrstaV) => {
         if (vrstaV.naziv == vrstaVarijacije.value) {
             let izabraneVarijacije = vrstaV.varijacije;
             izabraneVarijacije.forEach((varijacija) => {
-                formaVarijacije += '<option value="' + varijacija.naziv + '">' + varijacija.naziv + '</option>';
+
+                let option = document.createElement('option');
+                option.value = varijacija.naziv;
+                option.innerHTML = varijacija.naziv;
+                select.appendChild(option);
+
             });
-        }
-        ;
+        };
     });
-    formaVarijacije += '</select>';
-    formaVarijacije += '<label for="cena-priloga">Cena Proizvoda (izabrane varijacije)</label>\n' +
-        '<input type="number" name="cena-proizvoda-v[]" id="cena-proizvoda-v">' + '<div class="dodaj-novu-varijaciju">+</div>';
-    posebnaVarijacijaCont.innerHTML = formaVarijacije;
+
+    let label = document.createElement('label');
+    label.for = 'cena-priloga';
+    label.innerText = 'Cena Proizvoda (izabrane varijacije)';
+
+    let input = document.createElement('input');
+    input.type = 'number';
+    input.name = 'cena-proizvoda-v[]';
+    input.id = 'cena-proizvoda-v';
+
+    let dodajNovuVarijaciju = document.createElement('div');
+    dodajNovuVarijaciju.classList.add('dodaj-novu-varijaciju');
+    dodajNovuVarijaciju.innerText = '+';
+
+    dodajNovuVarijaciju.addEventListener('click', function () {
+        let select1 = document.createElement('select');
+        select1.name = 'varijacija[]';
+        select1.id = 'varijacija';
+
+        mapaVVObjekti.forEach((vrstaV) => {
+            if (vrstaV.naziv == vrstaVarijacije.value) {
+                let izabraneVarijacije1 = vrstaV.varijacije;
+                izabraneVarijacije1.forEach((varijacija) => {
+
+                    let option1 = document.createElement('option');
+                    option1.value = varijacija.naziv;
+                    option1.innerHTML = varijacija.naziv;
+                    select1.appendChild(option1);
+
+                });
+            };
+        });
+
+        let label1 = document.createElement('label');
+        label1.for = 'cena-priloga';
+        label1.innerText = 'Cena Proizvoda (izabrane varijacije)';
+
+        let input1 = document.createElement('input');
+        input1.type = 'number';
+        input1.name = 'cena-proizvoda-v[]';
+        input1.id = 'cena-proizvoda-v';
+
+        let izbrisiVarijaciju1 = document.createElement('div');
+        izbrisiVarijaciju1.classList.add('izbrisi-varijaciju');
+        izbrisiVarijaciju1.innerText = '-';
+
+        let posebnaVarijacijaSegment1 = document.createElement('div');
+        posebnaVarijacijaSegment1.classList.add('posebna-varijacija-segment');
+        posebnaVarijacijaSegment1.appendChild(select1);
+        posebnaVarijacijaSegment1.appendChild(label1);
+        posebnaVarijacijaSegment1.appendChild(input1);
+        posebnaVarijacijaSegment1.appendChild(izbrisiVarijaciju1);
+        posebnaVarijacijaCont.appendChild(posebnaVarijacijaSegment1);
+
+        izbrisiVarijaciju1.addEventListener('click', function () {
+            posebnaVarijacijaCont.removeChild(posebnaVarijacijaSegment1);
+        });
+    });
+
+    let izbrisiVarijaciju = document.createElement('div');
+    izbrisiVarijaciju.classList.add('izbrisi-varijaciju');
+    izbrisiVarijaciju.innerText = '-';
+
+    posebnaVarijacijaSegment.appendChild(select);
+    posebnaVarijacijaSegment.appendChild(label);
+    posebnaVarijacijaSegment.appendChild(input);
+    posebnaVarijacijaSegment.appendChild(izbrisiVarijaciju);
+    posebnaVarijacijaCont.appendChild(posebnaVarijacijaSegment);
+    posebnaVarijacijaCont.appendChild(dodajNovuVarijaciju);
+
+    izbrisiVarijaciju.addEventListener('click', function () {
+        posebnaVarijacijaCont.removeChild(posebnaVarijacijaSegment);
+    });
+
+    varijacijeCont.appendChild(posebnaVarijacijaCont);
 };

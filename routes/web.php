@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin', [UserController::class, 'prikaziAdmin'])->name('admin.prikaziAdmin');
     Route::get('/admin/proizvod/novi', [ProizvodController::class, 'prikaziDodajNoviProizvod'])->name('admin.proizvod.prikaziDodajNovi');
     Route::patch('/dodaj-novi-proizvod', [ProizvodController::class, 'dodajNoviProizvod'])->name('admin.proizvod.dodajNovi');
+    Route::get('/proizvod/{id}/edit', [ProizvodController::class, 'promeniProizvod'])->name('admin.proizvod.promeni');
 });
 
 // Unos i izmena proizvoda

@@ -22,7 +22,7 @@
 
                 <div class="form-group row mb-0">
                     <div class="col-md-12 offset-md-4">
-                        <label for="opis">Opis Proizvoda</label>
+                        <label for="opis" class="opis-proizvod">Opis Proizvoda</label>
                         <textarea name="opis" id="opis" cols="30" rows="5"></textarea>
                     </div>
                 </div>
@@ -62,15 +62,11 @@
                 <div class="form-group row mb-0 varijacije">
                     <label>Moguce Varijacije</label>
                     <select name="vrsta-varijacije" id="vrsta-varijacije">
+                        <option value="Izaberite vrstu varijacije" selected="selected">Izaberite vrstu varijacije</option>
                         @foreach($vrsteVarijacija as $vrstaVarijacije)
-                            <option
-                                @if($loop->index==0){{"selected=selected"}}@else() @endif value="{{ $vrstaVarijacije->naziv }}">{{ $vrstaVarijacije->naziv }}</option>
+                            <option value="{{ $vrstaVarijacije->naziv }}">{{ $vrstaVarijacije->naziv }}</option>
                         @endforeach
                     </select>
-                    <div class="posebna-varijacija">
-                        <label for="cena-priloga">Cena Proizvoda (izabrane varijacije)</label>
-                        <input type="number" name="cena-proizvoda-v[]" id="cena-proizvoda-v">
-                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">

@@ -10,6 +10,7 @@ use App\Models\Proizvod;
 use App\Models\Varijacija;
 use App\Models\VrstaVarijacije;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class
@@ -104,18 +105,122 @@ ProizvodController extends Controller
         $mapaVV = substr($mapaVV, 0, -1);
         $mapaVV .= ']';
 
-        return view('admin/admin-novi-proizvod', compact('kuhinje_proizvoda','mapaVV', 'prilozi', 'vrsteVarijacija', 'varijacije'));
+        return view('admin/admin-novi-proizvod', compact('kuhinje_proizvoda', 'mapaVV', 'prilozi', 'vrsteVarijacija', 'varijacije'));
     }
 
     public function dodajNoviProizvod(Request $request)
     {
         $naziv = $request->naziv;
+        $slug = strtolower($naziv);
         $opis = $request->opis;
-        $cena = $request->cena;
-        $prilozi = $request->input('moguci-prilozi');
-        $cenePriloga = $request->input('cena-priloga');
+        $kuhinjaProizvodaInput = $request->input('kuhinja-proizvoda');
+        $kuhinjaProizvoda = KuhinjaProizvoda::query()
+            ->where('naziv', '=', $kuhinjaProizvodaInput)
+            ->get()
+            ->first();
 
-        echo json_encode($prilozi);
-        echo json_encode($cenePriloga);
+        $cena = $request->cena;
+        $prilozi = $request->input('prilog');
+        $cenePriloga = $request->input('cena-priloga');
+        $varijacije = $request->input('varijacija');
+        $ceneVarijacije = $request->input('cena-proizvoda-v');
+
+        $proizvod = [
+            'naziv' => $naziv,
+            'opis' => $opis,
+            'slug' => $slug,
+            'cena' => $cena,
+            'kuhinja_proizvoda_id' => $kuhinjaProizvoda->id,
+            'objekat_id' => 9
+        ];
+
+        Proizvod::create($proizvod);
+
+        $proizvodId = Proizvod::where('naziv', '=', $naziv)
+            ->where('opis', '=', $opis)
+            ->where('slug', '=', $slug)
+            ->where('cena', '=', $cena)
+            ->where('kuhinja_proizvoda_id', '=', $kuhinjaProizvoda->id)
+            ->where('objekat_id', '=', 9)
+            ->first()
+            ->id;
+
+        $i = 0;
+        $length = count($prilozi);
+        foreach ($cenePriloga as $cenaPriloga) {
+
+            if ($i >= $length) {
+                break;
+            }
+
+            if ($cenaPriloga != null) {
+
+                $prilogId = Prilog::query()
+                    ->where('naziv', '=', $prilozi[$i])
+                    ->get()
+                    ->first()
+                    ->id;
+
+                $proizvodPrilog = [
+                    'proizvod_id' => $proizvodId,
+                    'prilog_id' => $prilogId,
+                    'cena' => $cenaPriloga
+                ];
+
+                DB::table('proizvod_prilog')->insert($proizvodPrilog);
+
+                $i++;
+            }
+        }
+
+        $length = count($varijacije);
+        $vrstaVarijacije = null;
+        for ($i = 0; $i < $length; $i++) {
+
+            $varijacija = Varijacija::query()
+                ->where('naziv', '=', $varijacije[$i])
+                ->get()
+                ->first();
+
+            $vrstaVarijacije = VrstaVarijacije::query()
+                ->where('id', '=', $varijacija->vrsta_varijacije_id)
+                ->get()
+                ->first();
+
+            $proizvodVarijacija = [
+                'proizvod_id' => $proizvodId,
+                'varijacija_id' => $varijacija->id,
+                'cena' => $ceneVarijacije[$i]
+            ];
+
+            DB::table('proizvod_varijacija')->insert($proizvodVarijacija);
+        }
+
+        $proizvodVv = [
+            'proizvod_id' => $proizvodId,
+            'vrsta_varijacije_id' => $vrstaVarijacije->id
+        ];
+
+        DB::table('proizvod_vv')->insert($proizvodVv);
+    }
+
+    public function promeniProizvod($id)
+    {
+
+        $proizvod = Proizvod::query()
+            ->where('id', '=', $id)
+            ->get()
+            ->first();
+
+        $kuhinjaProizvoda = KuhinjaProizvoda::query()
+            ->where('id', '=', $proizvod->kuhinja_proizvoda_id)
+            ->get()
+            ->first();
+
+        $prilozi = '';
+        $vVarijacije = '';
+        $varijacije = '';
+
+        return view('admin/admin-promeni-proizvod', compact('proizvod', 'prilozi', 'vVarijacije', 'varijacije', 'kuhinjaProizvoda'));
     }
 }

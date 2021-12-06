@@ -1160,6 +1160,18 @@ footer p {
     height: fit-content !important;
 }
 
+.prilog-cont {
+    width: 100%;
+}
+
+input#cena-priloga {
+    float: right;
+}
+
+.opis-proizvod {
+    vertical-align: top;
+}
+
 @media only screen and (max-width: 620px) {
 
     #app {

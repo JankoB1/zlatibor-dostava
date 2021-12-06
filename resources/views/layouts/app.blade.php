@@ -5,6 +5,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="descriptio" content="Red Combi Dostava bavi se dostavljanjem hrane i pića na Zlatiboru. Svaka porudžbina će biti dostavljena do vašh vrata."></meta>
 
     <!-- Prevent Cache -->
 {{--    <meta http-equiv="cache-control" content="max-age=0" />--}}
