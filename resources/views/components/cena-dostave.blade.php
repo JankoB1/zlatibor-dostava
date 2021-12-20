@@ -4,15 +4,15 @@
     <table>
         <tr>
             <td>0-1,5 km</td>
-            <td>220 din</td>
+            <td>350 din</td>
         </tr>
         <tr>
             <td>1,5-3 km</td>
-            <td>360 din</td>
+            <td>450 din</td>
         </tr>
         <tr>
             <td>3-5 km</td>
-            <td>440 din</td>
+            <td>550 din</td>
         </tr>
         <tr class="zadnji-red">
             <td>5+ km</td>

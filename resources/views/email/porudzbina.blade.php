@@ -74,15 +74,15 @@
         <table style="width: 100%;text-align: center;">
             <tr style="border-top: 1px solid #5c5c5c;border-bottom: 1px solid #CD272E;">
                 <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">0-1,5 km</td>
-                <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">220 din</td>
+                <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">350 din</td>
             </tr>
             <tr style="border-top: 1px solid #5c5c5c;border-bottom: 1px solid #CD272E;">
                 <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">1,5-3 km</td>
-                <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">360 din</td>
+                <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">450 din</td>
             </tr>
             <tr style="border-top: 1px solid #5c5c5c;border-bottom: 1px solid #CD272E;">
                 <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">3-5 km</td>
-                <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">440 din</td>
+                <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">550 din</td>
             </tr>
             <tr class="zadnji-red" style="border-top: 1px solid #5c5c5c;border-bottom: 0 !important;">
                 <td style="padding: 5px;vertical-align: top;width: 50%;font-size: 16px;color: white;">5+ km</td>
