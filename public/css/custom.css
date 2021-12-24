@@ -36,10 +36,6 @@ input[type=radio] {
     margin-right: 10px;
 }
 
-.varijacije label {
-    margin-right: 50px;
-}
-
 .mobilni-navigacija {
     display: none;
 }
@@ -1256,4 +1252,85 @@ input#cena-priloga {
 
 .proizvod-content.\32 64, .proizvod-content.\32 65 {
     display: none;
+}
+
+.container.promeni-proizvod {
+    margin-top: 50px;
+}
+
+.varijacija-container-promeni {
+    width: 100%;
+}
+
+.dodaj-novu-varijaciju, .izbrisi-varijaciju {
+    width: fit-content;
+    border: 1px solid #FFC822;
+    padding: 7px 15px;
+    border-radius: 100%;
+    display: inline-block;
+    color: #FFC822;
+}
+
+.forma-novi-proizvod .posebna-varijacija {
+    position: relative;
+}
+
+.dodaj-novu-varijaciju {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+}
+
+.posebna-varijacija-segment {
+    margin-top: 20px;
+    border: 1px solid #5c5c5c;
+    padding: 30px 10px;
+}
+
+.izbrisi-varijaciju {
+    float: right;
+}
+
+.forma-novi-proizvod label.opis-proizvod, .forma-novi-proizvod textarea#opis {
+    width: 100%;
+}
+
+.forma-novi-proizvod label.opis-proizvod {
+    margin-top: 20px;
+}
+
+.forma-novi-proizvod textarea#opis {
+    margin-bottom: 20px;
+}
+
+.forma-novi-proizvod button.btn.btn-primary {
+    margin-top: 20px;
+}
+
+.forma-novi-proizvod select#kuhinja-proizvoda, .forma-novi-proizvod input#cena, .forma-novi-proizvod select#vrsta-varijacije {
+    float: right;
+}
+
+.forma-novi-proizvod input#cena {
+    margin-bottom: 40px;
+}
+
+.forma-novi-proizvod .form-group.row.mb-0.prilozi {
+    margin-bottom: 40px !important;
+}
+
+.form-group.row.mb-0.varijacije {
+    margin-top: 30px;
+}
+
+input[name="varijacija[]"], input[name="vrsta-varijacije"] {
+    width: 60%;
+}
+
+input[name="cena-proizvoda-v[]"] {
+    width: 38% !important;
+}
+
+.posebna-varijacija-segment label {
+    width: 100%;
 }

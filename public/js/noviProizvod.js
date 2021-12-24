@@ -14,7 +14,6 @@
 
 let mapaVV = document.getElementById('varijacije-js');
 let mapaVVObjekti = JSON.parse(mapaVV.innerText);
-console.log(mapaVVObjekti);
 
 let vrstaVarijacije = document.getElementById('vrsta-varijacije');
 vrstaVarijacije.onchange = function () {
@@ -23,6 +22,7 @@ vrstaVarijacije.onchange = function () {
 
     let posebnaVarijacijaCont = document.createElement('div');
     posebnaVarijacijaCont.classList.add('posebna-varijacija');
+
 
     let posebnaVarijacijaSegment = document.createElement('div');
     posebnaVarijacijaSegment.classList.add('posebna-varijacija-segment');
@@ -88,7 +88,7 @@ vrstaVarijacije.onchange = function () {
 
         let izbrisiVarijaciju1 = document.createElement('div');
         izbrisiVarijaciju1.classList.add('izbrisi-varijaciju');
-        izbrisiVarijaciju1.innerText = '-';
+        izbrisiVarijaciju1.innerText = 'x';
 
         let posebnaVarijacijaSegment1 = document.createElement('div');
         posebnaVarijacijaSegment1.classList.add('posebna-varijacija-segment');
@@ -105,7 +105,7 @@ vrstaVarijacije.onchange = function () {
 
     let izbrisiVarijaciju = document.createElement('div');
     izbrisiVarijaciju.classList.add('izbrisi-varijaciju');
-    izbrisiVarijaciju.innerText = '-';
+    izbrisiVarijaciju.innerText = 'x';
 
     posebnaVarijacijaSegment.appendChild(select);
     posebnaVarijacijaSegment.appendChild(label);
@@ -115,7 +115,7 @@ vrstaVarijacije.onchange = function () {
     posebnaVarijacijaCont.appendChild(dodajNovuVarijaciju);
 
     izbrisiVarijaciju.addEventListener('click', function () {
-        posebnaVarijacijaCont.removeChild(posebnaVarijacijaSegment);
+        posebnaVarijacijaCont.parentElement.removeChild(posebnaVarijacijaCont);
     });
 
     varijacijeCont.appendChild(posebnaVarijacijaCont);

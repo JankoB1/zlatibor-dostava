@@ -27,23 +27,27 @@
                     </div>
                 </div>
 
+                {{--                <div class="form-group row mb-0">--}}
+                {{--                    <label for="slika">Slika Proizvoda</label>--}}
+                {{--                    <input id="slika" name="slika" type="file">--}}
+                {{--                </div>--}}
+
                 <div class="form-group row mb-0">
-                    <label for="slika">Slika Proizvoda</label>
-                    <input id="slika" name="slika" type="file">
+                    <div class="col-md-12 offset-md-4">
+                        <label for="kuhinja-proizvoda">Kuhinja Proizvoda</label>
+                        <select name="kuhinja-proizvoda" id="kuhinja-proizvoda">
+                            @foreach($kuhinje_proizvoda as $kuhinja_proizvoda)
+                                <option value="{{ $kuhinja_proizvoda->naziv }}">{{ $kuhinja_proizvoda->naziv }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group row mb-0">
-                    <label for="kuhinja-proizvoda">Kuhinja Proizvoda</label>
-                    <select name="kuhinja-proizvoda" id="kuhinja-proizvoda">
-                        @foreach($kuhinje_proizvoda as $kuhinja_proizvoda)
-                            <option value="{{ $kuhinja_proizvoda->naziv }}">{{ $kuhinja_proizvoda->naziv }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group row mb-0">
-                    <label for="cena">Cena Proizvoda</label>
-                    <input id="cena" name="cena" type="text">
+                    <div class="col-md-12 offset-md-4">
+                        <label for="cena">Cena Proizvoda</label>
+                        <input id="cena" name="cena" type="text">
+                    </div>
                 </div>
 
                 <!-- PRILOZI -->
@@ -60,13 +64,16 @@
 
                 <!-- VARIJACIJE -->
                 <div class="form-group row mb-0 varijacije">
-                    <label>Moguce Varijacije</label>
-                    <select name="vrsta-varijacije" id="vrsta-varijacije">
-                        <option value="Izaberite vrstu varijacije" selected="selected">Izaberite vrstu varijacije</option>
-                        @foreach($vrsteVarijacija as $vrstaVarijacije)
-                            <option value="{{ $vrstaVarijacije->naziv }}">{{ $vrstaVarijacije->naziv }}</option>
-                        @endforeach
-                    </select>
+                    <div class="col-md-12 offset-md-4">
+                        <label>Moguce Varijacije</label>
+                        <select name="vrsta-varijacije[]" id="vrsta-varijacije">
+                            <option value="Izaberite vrstu varijacije" selected="selected">Izaberite vrstu varijacije
+                            </option>
+                            @foreach($vrsteVarijacija as $vrstaVarijacije)
+                                <option value="{{ $vrstaVarijacije->naziv }}">{{ $vrstaVarijacije->naziv }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">
