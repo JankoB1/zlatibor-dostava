@@ -129,8 +129,6 @@ ProizvodController extends Controller
         $vrsteVarijacije = $request->input('vrsta-varijacije');
 
 
-
-
 //        foreach ($varijacije as $varijacija) {
 //            $varijacija = Varijacija::query()
 //                ->where('naziv', '=', $varijacija)
@@ -185,30 +183,32 @@ ProizvodController extends Controller
             ->id;
 
         $i = 0;
-        $length = count($prilozi);
-        foreach ($cenePriloga as $cenaPriloga) {
+        if (!empty($prilozi)) {
+            $length = count($prilozi);
+            foreach ($cenePriloga as $cenaPriloga) {
 
-            if ($i >= $length) {
-                break;
-            }
+                if ($i >= $length) {
+                    break;
+                }
 
-            if ($cenaPriloga != null) {
+                if ($cenaPriloga != null) {
 
-                $prilogId = Prilog::query()
-                    ->where('naziv', '=', $prilozi[$i])
-                    ->get()
-                    ->first()
-                    ->id;
+                    $prilogId = Prilog::query()
+                        ->where('naziv', '=', $prilozi[$i])
+                        ->get()
+                        ->first()
+                        ->id;
 
-                $proizvodPrilog = [
-                    'proizvod_id' => $proizvodId,
-                    'prilog_id' => $prilogId,
-                    'cena' => $cenaPriloga
-                ];
+                    $proizvodPrilog = [
+                        'proizvod_id' => $proizvodId,
+                        'prilog_id' => $prilogId,
+                        'cena' => $cenaPriloga
+                    ];
 
-                DB::table('proizvod_prilog')->insert($proizvodPrilog);
+                    DB::table('proizvod_prilog')->insert($proizvodPrilog);
 
-                $i++;
+                    $i++;
+                }
             }
         }
 
@@ -238,7 +238,7 @@ ProizvodController extends Controller
                 ->get()
                 ->first();
 
-            if($naziv != $vrstaVarijacije->naziv) {
+            if ($naziv != $vrstaVarijacije->naziv) {
 
                 $vrstaVarijacijaBaza = VrstaVarijacije::query()
                     ->where('naziv', '=', $naziv)
@@ -430,7 +430,7 @@ ProizvodController extends Controller
                 ->get()
                 ->first();
 
-            if($naziv != $vrstaVarijacije->naziv) {
+            if ($naziv != $vrstaVarijacije->naziv) {
 
                 $vrstaVarijacijaBaza = VrstaVarijacije::query()
                     ->where('naziv', '=', $naziv)
