@@ -3,6 +3,15 @@
         <div class="swiper-container mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
+                    <a href="{{ route('objekat', ['slug' => 'burger-house']) }}">
+                        <img src="{{ asset('/images/objekti/burger-house/cover.png') }}"
+                             alt="burger house">
+{{--                        <img class="slajder-logo" src="{{ asset('/images/objekti/burger-house/logo.png') }}"--}}
+{{--                             alt="burger house logo">--}}
+                        <h1>Burger House</h1>
+                    </a>
+                </div>
+                <div class="swiper-slide">
                     <a href="{{ route('objekat', ['slug' => 'irish-pub']) }}">
                         <img src="{{ asset('/images/objekti/irish-pub/cover.png') }}"
                              alt="irish pub">
