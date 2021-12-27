@@ -11,7 +11,7 @@
                         <h1>Luis</h1>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide luis">
                     <a href="{{ route('objekat', ['slug' => 'akter']) }}">
                         <img src="{{ asset('/images/objekti/akter/cover.png') }}"
                              alt="akter">
@@ -20,7 +20,7 @@
                         <h1>Akter</h1>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide luis">
                     <a href="{{ route('objekat', ['slug' => 'burger-house']) }}">
                         <img src="{{ asset('/images/objekti/burger-house/cover.png') }}"
                              alt="burger house">
