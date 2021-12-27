@@ -133,14 +133,14 @@
                     </a>
                 </div>
             </div>
-            <div class="col-2 piktogrami">
+            <div class="col-3 piktogrami">
                 <div class="piktogrami-cont">
                     <a href="{{ route('kuhinje') }}"><img src="{{ asset('images/site/dostava-hrane.svg') }}"
                                                           alt=""></a>
-                    <a href="#"><img src="{{ asset('images/site/prodavnica.svg') }}" alt=""></a>
-                    <a href="#"><img src="{{ asset('images/site/safe-driver.svg') }}" alt=""></a>
-                    <a href="#"><img src="{{ asset('images/site/apoteka.svg') }}" alt=""></a>
-                    <a href="#"><img src="" alt=""></a>
+                    <a href="{{ route('priprema') }}"><img src="{{ asset('images/site/prodavnica.svg') }}" alt=""></a>
+                    <a href="{{ route('priprema') }}"><img src="{{ asset('images/site/safe-driver.svg') }}" alt=""></a>
+                    <a href="{{ route('priprema') }}"><img src="{{ asset('images/site/apoteka.svg') }}" alt=""></a>
+                    <a href="{{ route('priprema') }}"><img class="pivo-slika" src="{{ asset('images/site/beer.svg') }}" alt=""></a>
                 </div>
             </div>
             <div class="col-2 search-cont">
@@ -152,18 +152,7 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
-                                Prijava
-                            </button>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#modalRegistracija">
-                                Registracija
-                            </button>
+                            <a href="{{ route('login') }}">Prijava</a>
                         </li>
                     @endif
                 @else

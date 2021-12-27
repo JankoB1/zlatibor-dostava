@@ -84,8 +84,9 @@ input[type=radio] {
     display: inline-block;
     font-size: 25px;
     transform: rotate(-45deg);
-    position: relative;
+    position: absolute;
     top: 5px;
+    right: 5px;
 }
 
 .desktop-navigacija .row .piktogrami img {
@@ -1333,4 +1334,147 @@ input[name="cena-proizvoda-v[]"] {
 
 .posebna-varijacija-segment label {
     width: 100%;
+}
+
+@media only screen and (min-width: 620px) {
+
+    .desktop-navigacija .piktogrami-cont a {
+        width: fit-content;
+        display: inline-block;
+    }
+
+    .desktop-navigacija .col-3.piktogrami {
+        max-width: fit-content;
+        padding: 10px !important;
+    }
+
+    .desktop-navigacija .col-2 li.nav-item {
+        width: fit-content;
+        display: inline-block;
+        float: right;
+        position: relative;
+        top: 18px;
+    }
+
+    .desktop-navigacija .col-2 li.nav-item a {
+        color: white;
+    }
+
+    .pt-4, .py-4 {
+        padding-top: 0 !important;
+    }
+
+    .slider-container, .objekat-container .pocetna-slika {
+        margin-top: 0 !important;
+    }
+
+    .swiper-slide {
+        height: 300px !important;
+    }
+
+    .hrana-blizu-vas .swiper-slide {
+        height: 410px !important;
+    }
+
+    .row-top {
+        bottom: 150px;
+        max-width: 80% !important;
+        margin: 0 auto;
+    }
+
+    .row-top .col-lg-6 {
+        position: relative;
+        left: 25%;
+    }
+
+    .kuhinja-title-linija {
+        margin: 5px 0 0 1.5% !important;
+        width: 5%;
+    }
+
+    .komentar {
+        margin-bottom: 30px;
+    }
+
+    a.dodaj-u-korpu-btn {
+        top: 9px;
+    }
+
+    .offset-md-4 {
+        margin-left: 0 !important;
+    }
+
+    .logo-container img {
+        padding: 10px 0;
+    }
+
+    .desktop-navigacija .row {
+        padding: 0;
+    }
+
+    .desktop-navigacija .search-cont:after {
+        top: 11px;
+    }
+
+    .slika-korpa img {
+        margin-top: 0 !important;
+    }
+
+    a#navbarDropdown {
+        margin-top: 10px;
+    }
+
+    .restorani-kuhinje .col-12 {
+        flex: 0 0 33%;
+    }
+
+    .restorani-kuhinje .restoran {
+        height: auto;
+    }
+
+    .pocetna {
+        padding: 0;
+        max-width: 2560px;
+    }
+
+    .specijalne-ponude.slider-objekti, .hrana-blizu-vas.slider-objekti {
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+
+    .text-i-adresa-container h4 {
+        margin: 20px auto 0 auto !important;
+    }
+
+    .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 45% !important;
+    }
+
+    .mySwiper .swiper-slide img {
+        width: 100% !important;
+    }
+
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after, .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+        color: white;
+    }
+
+    .col-lg-6.prva {
+        border-radius: 15px;
+    }
+
+    .korpa-container {
+        padding: 9px;
+    }
+
+    .promeni-adresu-link span.active {
+        bottom: -37px !important;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .checked-td div {
+        padding: 10px 3px 10px 20px !important;
+    }
 }

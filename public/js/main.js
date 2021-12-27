@@ -1,10 +1,10 @@
-let sirinaUredjaja = window.innerWidth;
-if(sirinaUredjaja > 620) {
-    let root = document.getElementById('app');
-    root.innerHTML = '<div class="desktop-u-pripremi">' +
-                        '<h1>DESKTOP VERZIJA WEBSAJTA JE U IZRADI, MOLIMO VAS DA UDJETE NA SAJT PREKO SVOG TELEFONA.</h1>' +
-                     '</div>';
-}
+// let sirinaUredjaja = window.innerWidth;
+// if(sirinaUredjaja > 620) {
+//     let root = document.getElementById('app');
+//     root.innerHTML = '<div class="desktop-u-pripremi">' +
+//                         '<h1>DESKTOP VERZIJA WEBSAJTA JE U IZRADI, MOLIMO VAS DA UDJETE NA SAJT PREKO SVOG TELEFONA.</h1>' +
+//                      '</div>';
+// }
 
 let adresaCont = document.querySelector('.adresa-container');
 let imaAdresa = 0;
@@ -21,6 +21,7 @@ let slikaKorpa = document.querySelector('.slika-korpa img');
 let rowTop = document.querySelector('.row-top');
 let arrowDown = document.querySelector('.arrow-down');
 let promeniAdresuSpan = document.querySelector('.promeni-adresu-link span');
+let colsLg = document.querySelectorAll('.col-lg-6');
 
 if(!imaAdresa) {
     if(colPrva) {
@@ -47,5 +48,10 @@ if(!imaAdresa) {
     }
     if(slikaKorpa) {
         rowTop.style.marginTop = '20px';
+    }
+    if(window.innerWidth > 620) {
+        colsLg.forEach((col) => {
+            col.style.left = '13%';
+        });
     }
 }
