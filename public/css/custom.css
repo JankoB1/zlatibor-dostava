@@ -932,17 +932,28 @@ a#navbarDropdown {
     font-weight: 500;
 }
 
-.desktop-u-pripremi {
-    margin-top: 40vh !important;
-}
-
 .korpa-upozorenje, .desktop-u-pripremi {
     text-align: center;
     padding: 20px;
     font-size: 30px;
     color: white;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0;
+    height: 100vh;
+    border-radius: 10px;
+}
+
+.desktop-u-pripremi {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    padding: 10px 50px;
+}
+
+.desktop-u-pripremi h1 {
     background: #CD272E;
-    margin: 5vh 5%;
+    padding: 20px;
+    margin-top: 38vh;
     border-radius: 10px;
 }
 
@@ -1377,14 +1388,14 @@ input[name="cena-proizvoda-v[]"] {
     }
 
     .row-top {
-        bottom: 150px;
+        bottom: 50px;
         max-width: 80% !important;
         margin: 0 auto;
     }
 
     .row-top .col-lg-6 {
         position: relative;
-        left: 25%;
+        left: 13%;
     }
 
     .kuhinja-title-linija {
@@ -1476,5 +1487,19 @@ input[name="cena-proizvoda-v[]"] {
 
     .checked-td div {
         padding: 10px 3px 10px 20px !important;
+    }
+
+    .desktop-u-pripremi h1 span {
+        position: absolute;
+        top: 40vh;
+        right: 55px;
+        border: 2px solid white;
+        padding: 5px 14px;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+    .desktop-u-pripremi {
+        width: 100%;
     }
 }
