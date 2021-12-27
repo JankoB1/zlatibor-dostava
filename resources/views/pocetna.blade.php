@@ -21,7 +21,7 @@
         {{--        <x-input-mapa></x-input-mapa>--}}
 
         <div class="text-i-adresa-container">
-            <h4>Restaurants, Groceries, Your Cars and <span>more</span>, delivered to your door!</h4>
+            <h4>Dostava iz vaših omiljenih <span>restorana</span>, na celom <span>Zlatiboru!</span></h4>
         </div>
 
         <!-- Specijalne ponude -->
