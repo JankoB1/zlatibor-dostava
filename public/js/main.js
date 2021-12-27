@@ -51,7 +51,7 @@ if(!imaAdresa) {
     }
     if(window.innerWidth > 620) {
         colsLg.forEach((col) => {
-            col.style.left = '13%';
+            col.style.left = '25%';
         });
     }
 }
