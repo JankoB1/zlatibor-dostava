@@ -1503,3 +1503,7 @@ input[name="cena-proizvoda-v[]"] {
         width: 100%;
     }
 }
+
+.luis h1 {
+    bottom: 65px !important;
+}
