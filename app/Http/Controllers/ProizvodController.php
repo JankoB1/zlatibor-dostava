@@ -269,6 +269,8 @@ ProizvodController extends Controller
         ];
 
         DB::table('proizvod_vv')->insert($proizvodVv);
+
+        return redirect()->route('admin.proizvod.prikaziDodajNovi');
     }
 
     public function promeniProizvodPrikazi($id)
@@ -461,5 +463,7 @@ ProizvodController extends Controller
         ];
 
         DB::table('proizvod_vv')->insert($proizvodVv);
+
+        return redirect()->route('objekat', ['slug' => $userObjekat]);
     }
 }
