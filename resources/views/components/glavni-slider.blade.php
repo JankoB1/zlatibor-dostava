@@ -299,7 +299,7 @@
                         <h1>Djusko</h1>
                     </a>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide bez-logotipa">
                     <a href="{{ route('objekat', ['slug' => 'planinski-restoran']) }}">
                         <img src="{{ asset('/images/objekti/planinski-restoran/cover.png') }}"
                              alt="planinski-restoran">
