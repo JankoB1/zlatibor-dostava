@@ -989,6 +989,10 @@ a#navbarDropdown {
     color: white;
 }
 
+h1.bez-logotipa {
+    bottom: 65px !important;
+}
+
 .info-o-korisniku {
     width: 95%;
     margin: 0 auto;

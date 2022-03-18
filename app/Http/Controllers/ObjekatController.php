@@ -78,4 +78,16 @@ class ObjekatController extends Controller
         return view('stranica-u-pripremi');
     }
 
+    public function prikaziPromeniObjekat() {
+        $objekti = Objekat::all();
+        return view('admin/admin-promeni-objekat', compact('objekti'));
+    }
+
+    public function promeniObjekat(Request $request) {
+        $user = auth()->user();
+        $user->objekat = $request->objekat;
+        $user->save();
+        return redirect()->back();
+    }
+
 }
