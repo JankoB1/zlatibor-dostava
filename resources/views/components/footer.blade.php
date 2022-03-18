@@ -9,7 +9,6 @@
         <h5>Kontakt telefon</h5>
         <div class="footer-linija"></div>
         <a href="tel:%20+381611609716">061 160 97 16</a>
-        <a href="tel:%20+381653345615">065 334 56 15</a>
     </div>
     <div class="drustvene-mreze">
         <a href="https://www.instagram.com/zlatibordostava/"><img src="{{ asset('images/site/instagram.svg') }}" alt="instagram"></a>
