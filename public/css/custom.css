@@ -989,7 +989,7 @@ a#navbarDropdown {
     color: white;
 }
 
-h1.bez-logotipa {
+.bez-logotipa h1 {
     bottom: 65px !important;
 }
 
