@@ -3,6 +3,8 @@
 @section('content')
     @if(\Illuminate\Support\Facades\Auth::user()->rola == 'admin')
         <div class="card-body forma-novi-proizvod">
+            <h1>Izabrani objekat: {{ $userObjekat }}</h1>
+            <a href="{{ route('admin.proizvod.prikaziDodajNovi') }}">Dodaj novi proizod</a>
             <form style="margin-top: 50px;" id="forma-promeni-objekat" method="POST" action="{{ route('admin.objekat.promeniObjekat') }}">
                 @csrf
                 @method('POST')

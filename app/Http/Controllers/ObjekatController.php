@@ -80,7 +80,13 @@ class ObjekatController extends Controller
 
     public function prikaziPromeniObjekat() {
         $objekti = Objekat::all();
-        return view('admin/admin-promeni-objekat', compact('objekti'));
+        $user = auth()->user();
+        $objekat = Objekat::where('slug', '=', $user->objekat)
+            ->get()
+            ->first;
+
+        $userObjekat = $objekat->naziv->naziv;
+        return view('admin/admin-promeni-objekat', compact('objekti', 'userObjekat'));
     }
 
     public function promeniObjekat(Request $request) {

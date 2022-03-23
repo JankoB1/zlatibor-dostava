@@ -8,6 +8,10 @@
         </p>
 
         <div class="card-body forma-novi-proizvod">
+            <br>
+            <a href="{{ route('admin.promeniObjekat.prikazi') }}">Promeni objekat</a><br><br>
+            <a href="{{ route('objekat', ['slug' => auth()->user()->objekat]) }}">Prikazi stranicu izabranog objekta</a>
+
             <form id="forma-login" method="POST" action="{{ route('admin.proizvod.dodajNovi') }}">
                 @csrf
                 @method('PATCH')
