@@ -125,6 +125,11 @@ ProizvodController extends Controller
         $prilozi = $request->input('prilog');
         $cenePriloga = $request->input('cena-priloga');
         $varijacije = $request->input('varijacija');
+        if($varijacije == null) {
+            echo 'MORATE UNETI VARIJACIJU PROZIVODA';
+            echo '<br><br><br><a href="' . url()->previous() . '">NAZAD</a>';
+            return;
+        }
         $ceneVarijacije = $request->input('cena-proizvoda-v');
         $vrsteVarijacije = $request->input('vrsta-varijacije');
 
@@ -153,14 +158,6 @@ ProizvodController extends Controller
             ->where('slug', '=', $userObjekat)
             ->get()
             ->first();
-
-        if (!$objekat->getKuhinjeProizvoda->contains('naziv', $kuhinjaProizvoda->naziv)) {
-            $kuhinjaProizvodObjekat = [
-                'kuhinja_proizvoda_id' => $kuhinjaProizvoda->id,
-                'objekat_id' => $objekat->id
-            ];
-            DB::table('kuhinja_proizvod_objekat')->insert($kuhinjaProizvodObjekat);
-        }
 
         $proizvod = [
             'naziv' => $naziv,
@@ -269,6 +266,14 @@ ProizvodController extends Controller
         ];
 
         DB::table('proizvod_vv')->insert($proizvodVv);
+
+        if (!$objekat->getKuhinjeProizvoda->contains('naziv', $kuhinjaProizvoda->naziv)) {
+            $kuhinjaProizvodObjekat = [
+                'kuhinja_proizvoda_id' => $kuhinjaProizvoda->id,
+                'objekat_id' => $objekat->id
+            ];
+            DB::table('kuhinja_proizvod_objekat')->insert($kuhinjaProizvodObjekat);
+        }
 
         return redirect()->route('admin.proizvod.prikaziDodajNovi');
     }
