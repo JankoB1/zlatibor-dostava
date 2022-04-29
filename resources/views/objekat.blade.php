@@ -32,6 +32,7 @@
                                     @else
                                         @if(\Illuminate\Support\Facades\Auth::user()->rola == 'admin')
                                             <a href="{{ route('admin.proizvod.promeniPrikazi', ['id' => $proizvod->id]) }}">Edit</a>
+                                            <a style="color: red;" class="delete-product">Delete</a>
                                         @endif
                                     @endguest
                                     <p>{{ $proizvod->opis }}</p>

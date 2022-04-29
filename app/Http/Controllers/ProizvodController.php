@@ -471,4 +471,27 @@ ProizvodController extends Controller
 
         return redirect()->route('objekat', ['slug' => $userObjekat]);
     }
+
+    public function izbrisiProizvod($id) {
+        $proizvod = Proizvod::query()
+            ->where('id', '=', $id)
+            ->get()
+            ->first();
+
+        DB::table('proizvod_prilog')
+            ->where('proizvod_id', '=', $proizvod->id)
+            ->delete();
+
+        DB::table('proizvod_varijacija')
+            ->where('proizvod_id', '=', $proizvod->id)
+            ->delete();
+
+        DB::table('proizvod_vv')
+            ->where('proizvod_id', '=', $proizvod->id)
+            ->delete();
+
+        $userObjekat = Auth::user()->objekat;
+
+        $proizvod->delete();
+    }
 }

@@ -1511,3 +1511,7 @@ input[name="cena-proizvoda-v[]"] {
 .luis h1 {
     bottom: 65px !important;
 }
+
+.delete-product {
+    cursor: pointer;
+}

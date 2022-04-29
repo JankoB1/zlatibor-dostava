@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function() {
     Route::patch('/promeni-proizvod/{id}', [ProizvodController::class, 'promeniProizvod'])->name('admin.proizvod.promeni');
     Route::get('/admin/promeni-objekat', [ObjekatController::class, 'prikaziPromeniObjekat'])->name('admin.promeniObjekat.prikazi');
     Route::post('/promeni-objekat', [ObjekatController::class, 'promeniObjekat'])->name('admin.objekat.promeniObjekat');
+    Route::post('/izbrisi-proizvod/{id}', [ProizvodController::class, 'izbrisiProizvod'])->name('admin.proizvod.izbrisi');
 });
 
 // Unos i izmena proizvoda

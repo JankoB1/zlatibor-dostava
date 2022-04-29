@@ -425,3 +425,25 @@ proizvodiArr.forEach((proizvod) => {
         levoCont.classList.add('puna-sirina');
     }
 });
+
+
+// IZBRISI PROIZVOD
+
+let deleteLinkovi = document.querySelectorAll('.delete-product');
+deleteLinkovi.forEach((link) => {
+   link.addEventListener('click', function () {
+       let id = link.parentElement.parentElement.classList[1];
+       $.ajaxSetup({
+           headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+           }
+       });
+       jQuery.ajax({
+           url: window.location.origin + '/izbrisi-proizvod/' + id,
+           method: 'post',
+           success: function (result) {
+               location.reload();
+           }
+       })
+   });
+});
