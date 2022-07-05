@@ -170,10 +170,14 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @if(\Illuminate\Support\Facades\Auth::user()->rola == 'admin')
+                            <a class="dropdown-item" href="{{ route('admin.promeniObjekat.prikazi') }}">Promeni objekat</a>
+                            <a class="dropdown-item" href="{{ route('admin.proizvod.prikaziDodajNovi') }}">Dodaj proizvod</a>
+                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Odjavi se') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
