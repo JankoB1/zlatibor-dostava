@@ -32,6 +32,8 @@ Route::get('/kuhnje', [KuhinjaController::class, 'index'])->name('kuhinje');
 Route::get('/restorani/{slug}', [KuhinjaController::class, 'show'])->name('restorani.kuhinja');
 Route::get('/search', [ObjekatController::class, 'search'])->name('search');
 Route::get('/sadrzaj-u-pripremi', [ObjekatController::class, 'priprema'])->name('priprema');
+Route::get('/safe-driver', [ObjekatController::class, 'prikaziSafeDriver'])->name('safe-driver');
+Route::get('/o-nama', [ObjekatController::class, 'prikaziONama'])->name('o-nama');
 
 // Sitemap
 Route::get('/sitemap.xml', function () {

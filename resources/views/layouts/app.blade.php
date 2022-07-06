@@ -98,36 +98,42 @@
         </div>
 
         <div class="row bottom-navigacija">
-            <div class="col-2 offset-1">
+            <div class="col-2 offset-2">
                 <a href="{{ route('kuhinje') }}">
                     <img src="{{ asset('images/site/dostava-hrane.svg') }}" alt="">
 {{--                    <p>Restorani</p>--}}
                 </a>
             </div>
             <div class="col-2">
-                <a href="{{ route('priprema') }}">
-                    <img src="{{ asset('images/site/prodavnica.svg') }}" alt="">
+                <a href="{{ route('korpa') }}">
+                    <img src="{{ asset('images/site/shopping-cart.png') }}" alt="" style="width: 40px; margin-left: 3px;">
 {{--                    <p>Prodavnica</p>--}}
                 </a>
             </div>
             <div class="col-2">
-                <a href="{{ route('priprema') }}">
+                <a href="{{ route('safe-driver') }}">
                     <img src="{{ asset('images/site/safe-driver.svg') }}" alt="">
 {{--                    <p>Safe driver</p>--}}
                 </a>
             </div>
             <div class="col-2">
-                <a href="{{ route('priprema') }}">
-                    <img src="{{ asset('images/site/apoteka.svg') }}" alt="">
+                <a href="{{ route('o-nama') }}">
+                    <img src="{{ asset('images/site/info.png') }}" alt="" style="width: 40px; margin-left: 3px;">
+                    {{--                    <p>Safe driver</p>--}}
+                </a>
+            </div>
+{{--            <div class="col-2">--}}
+{{--                <a href="{{ route('priprema') }}">--}}
+{{--                    <img src="{{ asset('images/site/apoteka.svg') }}" alt="">--}}
 {{--                    <p>Apoteka</p>--}}
-                </a>
-            </div>
-            <div class="col-2">
-                <a href="{{ route('priprema') }}">
-                    <img class="pivo-slika" src="{{ asset('images/site/beer.svg') }}" alt="">
+{{--                </a>--}}
+{{--            </div>--}}
+{{--            <div class="col-2">--}}
+{{--                <a href="{{ route('priprema') }}">--}}
+{{--                    <img class="pivo-slika" src="{{ asset('images/site/beer.svg') }}" alt="">--}}
 {{--                    <p>Piće</p>--}}
-                </a>
-            </div>
+{{--                </a>--}}
+{{--            </div>--}}
         </div>
     </nav>
 

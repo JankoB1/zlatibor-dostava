@@ -14,6 +14,7 @@
 
         <img class="pocetna-slika" src="{{ asset('images/objekti/' . $slug . '/cover.png') }}" alt="{{ $slug }}">
         <h1 class="objekat-title">{{ $objekat->naziv }}</h1>
+        <p style="position:relative; bottom: 40px; left: 5%">Radno vreme dostave je od 10:00h do 22:00h</p>
 
         @foreach($kuhinjeProizvoda as $kuhinjaProizvoda)
             <div class="kuhinja-container @if($loop->index == 0)prvi @endif" id="{{ $kuhinjaProizvoda->id }}">

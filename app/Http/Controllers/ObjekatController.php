@@ -96,4 +96,12 @@ class ObjekatController extends Controller
         return redirect()->back();
     }
 
+    public function prikaziSafeDriver() {
+        return view('safe-driver');
+    }
+
+    public function prikaziONama() {
+        return view('o-nama');
+    }
+
 }
