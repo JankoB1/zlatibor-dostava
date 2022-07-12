@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Korpa;
 use App\Models\Kuhinja;
 use App\Models\Objekat;
+use App\Models\Proizvod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -34,6 +35,19 @@ class ObjekatController extends Controller
             ->first();
         $proizvodi = $objekat->getProizvodi;
         $kuhinjeProizvoda = $objekat->getKuhinjeProizvoda;
+        //dd($proizvodi);
+        foreach ($kuhinjeProizvoda as $key => $kuhinja) {
+            $imaProizvoda = Proizvod::where([
+                ['objekat_id', '=', $objekat->id],
+                ['kuhinja_proizvoda_id', '=', $kuhinja->id]
+            ])
+                ->get()
+                ->first();
+            if($imaProizvoda == null) {
+                $kuhinjeProizvoda->forget($key);
+            }
+        }
+
 
         if(Session::has('restoran')) {
             $restoran = Session::get('restoran');
