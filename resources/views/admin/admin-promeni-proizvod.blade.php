@@ -24,7 +24,7 @@
                 <div class="form-group row mb-0">
                     <div class="col-md-12 offset-md-4">
                         <label for="opis" class="opis-proizvod">Opis Proizvoda</label>
-                        <textarea name="opis" id="opis" cols="30" rows="5" value="{{ $proizvod->opis }}"></textarea>
+                        <textarea name="opis" id="opis" cols="30" rows="5" value="{{ $proizvod->opis }}">{{ $proizvod->opis }}</textarea>
                     </div>
                 </div>
 
