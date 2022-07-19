@@ -81,17 +81,22 @@
                 <div class="form-group row mb-0 varijacije-proizvoda">
 {{--                    @if($imaVarijacije)--}}
                         @foreach($proizvodVrsteVarijacija as $proizvodVrstaVarijacija)
-                            <input name="vrsta-varijacije" type="text" value="{{ $proizvodVrstaVarijacija->naziv }}">
-                            @foreach($proizvodVarijacije as $proizvodVarijacija)
-                                @if($proizvodVrstaVarijacija->id == $proizvodVarijacija->vrsta_varijacije_id)
-                                    <div class="varijacija-container-promeni">
-                                        <input name="varijacija[]" type="text" value="{{ $proizvodVarijacija->naziv }}">
-                                        <input type="number" name="cena-proizvoda-v[]" id="cena-priloga"
-                                               placeholder="Cena"
-                                               value="{{ $proizvod->dohvatiCenuVarijacije($proizvodVarijacija->id) }}">
-                                    </div>
-                                @endif
-                            @endforeach
+                            <div class="single-vrsta">
+                                <input name="vrsta-varijacije" type="text" value="{{ $proizvodVrstaVarijacija->naziv }}">
+                                @foreach($proizvodVarijacije as $proizvodVarijacija)
+                                    @if($proizvodVrstaVarijacija->id == $proizvodVarijacija->vrsta_varijacije_id)
+                                        <div class="varijacija-container-promeni">
+                                            <input name="varijacija[]" type="text" value="{{ $proizvodVarijacija->naziv }}">
+                                            <input type="number" name="cena-proizvoda-v[]" id="cena-priloga"
+                                                   placeholder="Cena"
+                                                   value="{{ $proizvod->dohvatiCenuVarijacije($proizvodVarijacija->id) }}">
+                                        </div>
+                                    @endif
+                                @endforeach
+                                <div class="izbrisi-varijaciju-btn">
+                                    <p>Izbriši vrstu varijacije</p>
+                                </div>
+                            </div>
                         @endforeach
 {{--                    @endif--}}
                 </div>
@@ -120,4 +125,13 @@
 
 @section('scriptsBottom')
     <script type="text/javascript" src="{{ asset('js/noviProizvod.js') }}"></script>
+    <script>
+        let btns = document.querySelectorAll('.izbrisi-varijaciju-btn');
+        console.log(btns);
+        btns.forEach((btn) => {
+            btn.addEventListener('click', function () {
+                btn.parentElement.innerHTML = '';
+            });
+        });
+    </script>
 @endsection

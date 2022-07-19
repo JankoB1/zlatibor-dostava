@@ -343,6 +343,11 @@ ProizvodController extends Controller
         $prilozi = $request->input('prilog');
         $cenePriloga = $request->input('cena-priloga');
         $varijacije = $request->input('varijacija');
+
+        if($varijacije == null) {
+            return back();
+        }
+
         $ceneVarijacije = $request->input('cena-proizvoda-v');
 
         $userObjekat = Auth::user()->objekat;

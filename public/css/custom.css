@@ -1531,3 +1531,16 @@ input[name="cena-proizvoda-v[]"] {
 .o-nama p, .safe-driver-cont p {
     padding: 0 5%;
 }
+
+.izbrisi-varijaciju-btn {
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.izbrisi-varijaciju-btn p {
+    margin-bottom: 0;
+}
